@@ -1,0 +1,17 @@
+/*wish收藏*/
+.lf-nav{
+	border-left: 1px solid gainsboro;
+	border-right: 1px solid gainsboro;
+}
+.lf-nag-bgc{
+	background-color: #c63b40;
+	margin-top: 0;
+	padding: 10px;
+	padding-left: 20px;
+	color: white;
+}
+.lf-nav-ul>li{
+	margin-bottom: 15px;
+	border-bottom: 1px solid gainsboro;
+}
+

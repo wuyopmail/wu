@@ -1,0 +1,40 @@
+<div class="single-product">
+                                                            <div class="single-product-img">
+                                                                <a href="#">
+                                                                    <img src="img/singlepro/8.jpg" alt="" />
+                                                                </a>
+                                                                <span class="sale-box">
+                                                                    <span class="sale">Sale</span>
+                                                                </span>
+                                                                <span class="new-box">
+                                                                    <span class="new">New</span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="single-product-content">
+                                                                <div class="product-title">
+                                                                    <h5>
+                                                                        <a href="#">consectetuer</a>
+                                                                    </h5>
+                                                                </div>
+                                                                <div class="rating">
+                                                                    <div class="star star-on"></div>
+                                                                    <div class="star star-on"></div>
+                                                                    <div class="star star-on"></div>
+                                                                    <div class="star star-on"></div>
+                                                                    <div class="star"></div>
+                                                                </div>
+                                                                <div class="price-box">
+                                                                    <span class="price">£50.00</span>
+                                                                    <span class="old-price">£70.00</span>
+                                                                </div>
+                                                                <div class="product-action">
+                                                                    <button class="button btn btn-default add-cart" title="add to cart">Add to cart</button>
+                                                                    <a class="add-wishlist" href="#" title="add to wishlist">
+                                                                        <i class="fa fa-heart"></i>
+                                                                    </a>
+                                                                    <a class="quick-view" href="#" title="quick view"  data-toggle="modal" data-target="#myModal">
+                                                                        <i class="fa fa-search"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>

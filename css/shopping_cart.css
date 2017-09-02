@@ -1,0 +1,112 @@
+/*收藏区域*/
+.t1{
+	text-align: left;
+	width: 202px;
+}
+.t2{
+	text-align: left;
+	width: 300px;
+}
+.t3{
+	width: 140px;
+	text-align: center;
+}
+.t4{
+	width: 70px;
+	text-align: right;
+}
+.shopping-cart>li,.cart-con li{
+	float: left;
+	margin-right: 0;
+}
+/*分属tab页*/
+.pad-bg{
+	padding: 5px 20px;
+	border-radius: 10px;
+	background-color: gainsboro;
+	color: white;
+	font-size: 20px;
+}
+.pad-bg:hover{
+	background-color: cornflowerblue;
+	
+}
+
+/**/
+.rt-mar{
+	margin-left: 120px;
+}
+.rt-pad{
+	padding-left: 20px;
+}
+.cart-con{
+	-webkit-padding-start: 0px;
+}
+.d-img{
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+	text-align: center;
+}
+.t-img{
+	max-width: 80px;
+	max-height: 80px;
+}
+.t-title{
+	font-size: 13px;
+	margin-left: 10px;
+}
+.t-title:hover{
+	color: orangered;
+}
+.change{
+	display: inline-block;
+	text-align: center;
+	padding-top: 3px;
+	height: 28px;
+	width: 28px;
+	background-color: #f4f4f4;
+	float: left;
+	border-top: 1px solid gainsboro ;
+	border-bottom: 1px solid gainsboro;
+}
+.jian1{
+	border-left: 1px solid gainsboro;
+}
+.jia1{
+	border-right: 1px solid gainsboro;
+}
+.add-num{
+	width: 30%;
+	height: 28px;
+	float: left;
+}
+.t-price{
+	display: block;
+	color: red;
+}
+.t-time{
+	color: gainsboro;
+}
+.t-delete{
+	margin-left: 21px;
+}
+
+.no-padding {
+	padding-left: 0;
+	padding-right: 0;
+}
+.min-h{
+	min-height: 500px;
+}
+.pay{
+	
+}
+.payment{
+	text-align: center;
+	font-size: 20px;
+	background-color: #ff2832;
+	padding: 4px 12px;
+	color: white;
+	border: 0;
+}

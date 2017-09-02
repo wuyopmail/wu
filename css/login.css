@@ -1,0 +1,62 @@
+.top-pad{
+	padding-top: 80px;
+}
+.top-pad2{
+	padding-top: 50px;
+}
+.tb-pad{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.lr-pad{
+	padding-left: 50px;
+	padding-right: 50px;
+}
+.lr-pad>.top-pad{
+	
+}
+.gr-color{
+	color: darkgray;
+}
+.bl-color{
+	color: black;
+}
+.lg .white-color{
+	color: lightgray;
+}
+.lg>.bg-c-br{
+	background: brown;
+	color: white;
+}
+.kaiti-font{
+	font-family: KaiTi;
+}
+.lg>.size-font{
+	font-size: 20px;
+}
+/*header  样式开始*/
+header{
+	border: 1px solid gainsboro;
+}
+
+/*login-area	样式开始*/
+.br-c-gr{
+	background-color: gainsboro;
+	display: block;
+	width: 100%;
+	padding: 4px;
+}
+.bg-top>.top-pad{
+	padding-top: 50px;
+}
+.br-c-gr>.size-font{
+	font-size: 18px;
+}
+
+.register-a{
+	display: block;
+    margin-left: 4px;
+    line-height: 30px;
+    font-family: KaiTi;
+    font-size: 18px;
+}

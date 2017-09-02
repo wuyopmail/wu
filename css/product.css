@@ -1,0 +1,182 @@
+.bg-c-gr{
+	background-color: lightblue;
+	position: relative;
+}
+.bg-c-gr>.i-lf{
+	display: inline-block;
+	float: left;
+	margin-top: -1px;
+	padding: 18px 2px;
+	background-color: wheat;
+}
+.bg-c-gr>.i-rt{
+	display: inline-block;
+	float: right;
+	margin-top: -1px;
+	padding: 18px 2px;
+	background-color: wheat;
+}
+
+.inline-small,.shop-info{
+	display: inline-block;
+	margin-top: 5px;
+	margin-bottom: -5px;
+	margin-left: -40px;
+}
+.inline-small>li{
+	display: inline-block;
+	float: left;
+	padding: 4px 0;
+	border: 1px solid white;
+}
+.shop-info{
+	margin-bottom: 10px;
+}
+.shop-info>li{
+	display:block;
+	padding: 6px 0;
+}
+.inline-small>li:hover{
+	border: 1px solid orangered;
+}
+.top-mar{
+	margin-top: 24px;
+}
+.bot-mar{
+	margin-bottom: 24px;
+}
+.lr-pad{
+	padding-left: 60px;
+	padding-right: 30px;
+}
+.tb-pad{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.big-img{
+	max-width: 96%;
+	height: 260px;
+	margin-left: 0;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	-webkit-box-shadow: 0 0 10px black;
+    -moz-box-shadow: 0 0 10px black;
+    -ms-box-shadow: 0 0 10px black;
+    -o-box-shadow: 0 0 10px black;
+}
+
+.small-img{
+	width: auto;
+	height: 34px;
+}
+.img-bor{
+	border: 1px solid gainsboro;
+}
+.auto-width{
+	width: 422px;
+	height: 270px;
+}
+.bookshop-info{
+	background-color: #D9EDF7;
+}
+.img-bor:hover{
+	border: 1px solid deepskyblue;
+}
+
+/*id  标签*/
+#book-title{
+	
+}
+#book{
+	
+}
+#address{
+	
+}
+#book-content,#pay-info,#send-info{
+	padding: 10px;
+}
+#jian{
+	padding: 3px 7px;
+	border: 1px solid gainsboro;
+}
+#jia{
+	padding: 3px 5px;
+	border: 1px solid gainsboro;
+}
+/*id  结束*/
+/*shopping-info  开始*/
+.book-con,.book-price{
+	border-bottom: 1px solid gainsboro;
+}
+.or-color{
+	color: orangered;
+	font-size: 20px;
+}
+.decoration{
+	text-decoration: line-through;
+	color: gainsboro;
+}
+
+.pro-action {
+    display: inline-block;
+    margin: 0 0 15px 0;
+}
+.pro-action a {
+    border: 1px solid #ff6464;
+    background-color: #ff6464;
+	-webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    color: white;
+    display: inline-block;
+    height: 34px;
+    line-height: 30px;
+    margin: 0 2px;
+    text-align: center;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    visibility: visible;
+    width: 34px;
+}
+.pro-action button {
+    background: #ff6464 none repeat scroll 0 0;
+    border: 1px solid #ff6464;
+	-webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    color: white;
+    height: 34px;
+    margin: 0 5px 0 0;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+	font-size: 13px;
+	padding: 7px 18px;
+    width: 120px;
+}
+.pro-action a:hover, .pro-action button:hover {
+  background-color: orangered;
+  border-color: orangered;
+  color: #fff;
+}
+/*shopping-info	结束*/
+#evaluation,#pay,#send{
+	border-bottom: 1px solid dodgerblue;
+	font-family: 微软雅黑;
+	padding-left: 5px;
+	padding-bottom: 2px;	
+	margin-bottom: 0px;
+}
+.size-font{
+	font-size: 12px;
+}
