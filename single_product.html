@@ -41,28 +41,38 @@
 							<div class="header-top-right">
 								<ul style="text-align: center;margin-left: -40px;">
 									<li class="floatleft">
-                                        <a href="#">
+                                        <a href="shopping_cart.html">
                                         	<i  class="glyphicon glyphicon-shopping-cart" style="color: hotpink;"></i>
                                            	购物车
                                         </a>
                                     </li>
                                     <li class="floatleft">
-                                        <a href="#">
+                                        <a href="wish_list.html">
                                         	<i  class="glyphicon glyphicon-heart-empty"></i>
                                            	我的收藏
                                         </a>
                                     </li>
-									<li class="floatleft">
-                                        <a href="#">
-                                           	个人中心
+									<li class="floatleft dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="down1">
+                                           	个人中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
                                         </a>
-                                        <i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
+                                        <ul class="dropdown-menu" aria-labelledby="down1">
+                                        	<li><a href="secret_revise.html">密码修改</a></li>
+										    <li role="separator" class="divider"></li>
+										    <li><a href="wish_list.html">我的收藏</a></li>
+										    <li><a href="order.html">我的订单</a></li>
+                                        </ul>
                                     </li>
-                                    <li class="floatleft hidden-xs hidden-sm">
-                                        <a href="#">
-                                           	卖家中心
+                                    <li class="floatleft dropdown hidden-sm hidden-xs">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="down2">
+                                           	卖家中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
                                         </a>
-                                        <i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
+                                        <ul class="dropdown-menu" aria-labelledby="down2">
+                                        	<li><a href="items_add.html">商品添加</a></li>
+										    <li role="separator" class="divider"></li>
+										    <li><a href="items_revise.html">商品管理</a></li>
+										    <li><a href="#">数据统计</a></li>
+                                        </ul>
                                     </li>
 								</ul>
 							</div>
@@ -92,7 +102,9 @@
 						</div>
 						<div class="col-md-3 hidden-xs hidden-sm">
 							<div class="logo2">
-								<img src="img/logo/logo1.2.png" />
+								<a href="index.html">
+									<img src="img/logo/logo1.2.png" />
+								</a>
 							</div>
 						</div>
 					</div>
@@ -132,11 +144,9 @@
 									<div id="book-title">
 										<div class="panel panel-info  mar">
 										  	<div class="panel-heading">
-									    		<a href="index.html">
-									    			<h2 class="panel-title">
-									    				不能说的秘密
-									    			</h2>
-									    		</a>
+								    			<h2 class="panel-title">
+								    				不能说的秘密
+								    			</h2>
 										  	</div>
 										</div>
 									</div>
@@ -144,7 +154,7 @@
 									<div class="col-md-8 col-sm-12 col-xs-12">
 									<!--书物图片-->
 										<div class="col-md-12 col-sm-12 col-xs-12 img-bor text-center auto-width">
-											<img src="img/head_banner/cat-and-piano.jpg" id="placeholder" class="big-img"/>
+											<img src="img/singlepro/1.jpg" id="placeholder" class="big-img"/>
 										</div>
 										<!--缩略图-->
 										<div class="col-md-12 col-sm-12 col-xs-12 img-bor top-mar bot-mar">
@@ -190,7 +200,7 @@
 													页数： <span>300</span> <!--数据返回-->
 												</p>
 												<p>
-													成色： <span>8成新</span> <!--数据返回-->
+													品相： <span>8成新</span> <!--数据返回-->
 												</p>
 												<p>
 													ISBN： <span>9787115249999</span> <!--数据返回-->
@@ -203,9 +213,15 @@
 												<p>
 													原价： ¥ <span class="decoration">14.00</span> <!--数据返回-->
 												</p>
-												<p>
+												<p class="hidden-xs hidden-sm">
 													<span>配送至：</span>
 													<input type="text" value="" id="address" class="input-sm"/> <!--数据返回-->
+												</p>
+												<p class="hidden-lg hideen-md no-padding">
+													客服姐姐：
+													<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=501443528&site=qq&menu=yes">
+														<img border="0" src="http://wpa.qq.com/pa?p=2:501443528:51" alt="点击这里给我发消息" title="点击这里给我发消息"/>
+													</a>
 												</p>
 											</div>
 											<div class="add-to-cart mar">
@@ -231,7 +247,7 @@
 								</div>
 									
 							</div>
-							<div class="col-md-3 col-sm-12 col-xs-12 mar">
+							<div class="col-md-3 hidden-sm hidden-xs mar ">
 								<!--商铺简介以及QQ交流工具-->
 								<div class="row img-bor text-center bookshop-info">
 									<ul class="shop-info">
@@ -261,39 +277,39 @@
 								<div class="col-md-2 hidden-sm hidden-xs">
 									<div class="content-box">
 										<span class="zt">书本分类</span>
-										<ul class="">
+										<ul>
 											<li>
-												<a href="#" class="btn">
+												<a href="index.html" class="btn">
 													<i class="glyphicon glyphicon-pushpin"></i>
 													大学教材 
 												</a>
 											</li>
 											<li>
-												<a href="#" class="btn">
+												<a href="index.html" class="btn">
 													<i class="glyphicon glyphicon-pushpin"></i>
 													 英语考级
 												</a>
 											</li>
 											<li>
-												<a href="#" class="btn">
+												<a href="index.html" class="btn">
 													<i class="glyphicon glyphicon-pushpin"></i>
 													 考研专题
 												</a>
 											</li>
 											<li>
-												<a href="#" class="btn">
+												<a href="index.html" class="btn">
 													<i class="glyphicon glyphicon-pushpin"></i>
 													 公务员项
 												</a>
 											</li>
 											<li>
-												<a href="#" class="btn">
+												<a href="index.html" class="btn">
 													<i class="glyphicon glyphicon-pushpin"></i>
 													 课外书本
 												</a>
 											</li>
 											<li>
-												<a href="#" class="btn">
+												<a href="index.html" class="btn">
 													<i class="glyphicon glyphicon-pushpin"></i>
 													 旧书教材
 												</a>

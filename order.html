@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html class="html">
+	<head>
+		<meta charset="UTF-8">
+		<title>全部订单</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/shopping_cart.css" />
+		<link rel="stylesheet" href="css/wish.css" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<!--[if lt IE 9]>
+		    <script src="js/shiv.min.js"></script>
+		    <script src="js/respond.min.js"></script>
+		<![endif]-->
+
+        <!-- Mobile Specific Meta  -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	</head>
+	<body> 
+		<!--header	开始-->
+		<header>
+			<div class="header-top">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-xs-12 col-sm-12">
+							<div class="header-top-left">
+								<span>欢迎光临 物友-情书~</span>
+								<span class="cf">
+									<a href="register.html" class="cf">
+                                       	注册
+                                    </a>
+								</span>
+                                <span class="cf">
+									<a href="login.html" class="cf">
+                                       	登录
+                                    </a>
+								</span>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12 col-sm-12">
+							<div class="header-top-right">
+								<ul style="text-align: center;margin-left: -40px;">
+									<li class="floatleft">
+                                        <a href="shopping_cart.html">
+                                        	<i  class="glyphicon glyphicon-shopping-cart" style="color: hotpink;"></i>
+                                           	购物车
+                                        </a>
+                                    </li>
+                                    <li class="floatleft">
+                                        <a href="wish_list.html">
+                                        	<i  class="glyphicon glyphicon-heart-empty"></i>
+                                           	我的收藏
+                                        </a>
+                                    </li>
+									<li class="floatleft dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="down1">
+                                           	个人中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="down1">
+                                        	<li><a href="secret_revise.html">密码修改</a></li>
+										    <li role="separator" class="divider"></li>
+										    <li><a href="wish_list.html">我的收藏</a></li>
+										    <li><a href="order.html">我的订单</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="floatleft dropdown hidden-sm hidden-xs">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="down2">
+                                           	卖家中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="down2">
+                                        	<li><a href="items_add.html">商品添加</a></li>
+										    <li role="separator" class="divider"></li>
+										    <li><a href="items_revise.html">商品管理</a></li>
+										    <li><a href="#">数据统计</a></li>
+                                        </ul>
+                                    </li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header-middle">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 col-xs-12 col-sm-4">
+							<div class="logo1">
+								<img src="img/logo/logo2.1.jpg" />
+							</div>
+						</div>
+						<div class="col-md-5 col-xs-12 col-sm-8">
+							<div style="width: 100%;margin-top: 30px;">
+									<form action="#">
+										<div style="float:left;width: 87%;">
+											<input type="text" class="form-control" placeholder="搜索书库"/>	
+										</div>
+										<button type="submit" class="sub" value="">
+											<span class="glyphicon glyphicon-search"></span>
+										</button>
+									</form>
+							</div>
+						</div>
+						<div class="col-md-3 hidden-xs hidden-sm">
+							<div class="logo2">
+								<a href="index.html">
+									<img src="img/logo/logo1.2.png" />
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!--header	结束-->
+		<!--收藏	 开始-->
+		<div class="container">
+			<div class="row">
+				<!--左侧目录栏-->
+				<div class="col-md-2 hidden-sm hidden-xs lf-nav">
+					<h4 class="lf-nag-bgc row">个人中心</h4>
+					<ul class="lf-nav-ul">
+						<li><a href="secret_revise.html"><i class="glyphicon glyphicon-grain"></i>密码修改</a></li>
+						<li><a href="wish_list.html"><i class="glyphicon glyphicon-grain"></i>我的收藏</a></li>
+						<li><a href="order.html"><i class="glyphicon glyphicon-grain"></i>我的订单</a></li>
+					</ul>
+					<h4 class="lf-nag-bgc row">卖家中心</h4>
+					<ul class="lf-nav-ul">
+						<li><a href="items_add.html"><i class="glyphicon glyphicon-grain"></i>商品添加</a></li>
+						<li><a href="items_revise.html"><i class="glyphicon glyphicon-grain"></i>商品管理</a></li>
+						<li><a href="#"><i class="glyphicon glyphicon-grain"></i>数据统计</a></li>
+					</ul>
+				</div>
+				<!--订单进度条	tab分属页-->
+				<div class="col-md-10">
+					<div class="nav">
+						<form action="" method="post">
+							<ul class="col-md-12 col-xs-12">
+								<li class="color colorwhite tab col-md-2 col-xs-4"><span class="sm-font">全部订单</span></li>
+								<li class="tab col-md-2 col-xs-4"><span class="sm-font">待收货1</span></li>
+								<li class="tab col-md-2 col-xs-4"><span class="sm-font">待评价1</span></li>
+								<li class="col-md-5 hidden-xs" style="border: 0;">
+									<input type="text" class="wid-all" placeholder="订单号/收货人姓名"/>
+								</li>
+								<li class="col-md-1 hidden-xs" style="border: 0;">
+									<input type="submit" class="wid-all" value="查询"/>
+								</li>
+							</ul>
+						</form>
+						
+					</div>
+				</div>
+				<div class="col-md-10 col-sm-12 col-xs-12 content">
+					<!--全部订单tab页-->
+					<div class="col-md-12 bord-list top-mar no-padding con" style="display: block;">
+						<div class="col-md-4 hidden-xs">
+							<h3>送货清单</h3>
+							<h5 class="top-mar">周六日暂休，只工作日送货哦~</h5>
+							<h4 class="top-mar">Tip:一般情况书本将在第二天傍晚前到达~</h4>
+						</div>
+						<div class="col-md-8 no-padding bord-list-0">
+							<!--全选标题栏-->
+							<div class="form-control bord-ul ">
+									<span class="color-gr col-md-6 col-xs-8">2017-8-24;14：59：53</span>
+									<span class="col-md-6 hidden-xs">预计商品将于8月23号晚前抵达</span>
+								</div>
+							<ul class="shopping-cart hidden-sm hidden-xs cart-con">
+								<li class="col-md-6 text-center">
+									<div class="row">
+										商品信息
+									</div>
+								</li>
+								<li class="col-md-2 text-center">
+									<div class="row">
+										单价
+									</div>
+								</li>
+								<li class="col-md-2 text-center">
+									<div class="row">
+										数量
+									</div>
+								</li>
+								<li class="col-md-2 text-center">
+									<div class="row">
+										总计
+									</div>
+								</li>
+							</ul>
+							<hr />
+							<!--购物单-->
+							
+							<!--动态加载区域-->
+							<ul class="cart-con bord-li">
+								<li class="col-md-2 col-xs-4">
+									<a href="#"><img src="img/21.jpg" class="t-img"></a>
+								</li>
+								<li class="col-md-10 col-xs-8">
+									<ul class="cart-con">
+										<li class="col-md-5 col-xs-12"><a href="#"><h5 class="row">计算机科学技术与物联网工程组成原理</h5></a></li>
+										<li class="col-md-2 col-xs-2 text-center"><h5 class="row">￥48</h5></li>
+										<li class="col-md-3 col-xs-8 text-center"><h5 class="row">1</h5></li>
+										<li class="col-md-2 col-xs-2 text-center"><h5 class="t-price row">￥48</h5></li>
+									</ul>
+								</li>
+							</ul>
+							<ul class="cart-con bord-li">
+								<li class="col-md-2 col-xs-4">
+									<a href="#"><img src="img/21.jpg" class="t-img"></a>
+								</li>
+								<li class="col-md-10 col-xs-8">
+									<ul class="cart-con">
+										<li class="col-md-5 col-xs-12"><a href="#"><h5 class="row">计算机科学技术与物联网工程组成原理</h5></a></li>
+										<li class="col-md-2 col-xs-2 text-center"><h5 class="row">￥48</h5></li>
+										<li class="col-md-3 col-xs-8 text-center"><h5 class="row">1</h5></li>
+										<li class="col-md-2 col-xs-2 text-center"><h5 class="t-price row">￥48</h5></li>
+									</ul>
+								</li>
+							</ul>
+							<!--动态加载区域-->
+						</div>
+						<!--结算区域-->
+						<div class="col-md-12 no-padding">
+							<ul class="pay cart-con bord-ul">
+								<li class="col-md-4 text-center col-xs-9">
+									<div class="row xs-font">
+										完成订单号为<span class="color-re">454613218</span>，待送；
+									</div>
+								</li>
+								<li class="col-md-2 col-md-offset-3 text-center hidden-xs">
+									<div class="row xs-font">
+										1个包裹
+									</div>
+								</li>
+								<li class="col-md-3 text-right col-xs-3">
+									<div class="row xs-font">
+										合计：96
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!--待收货tab页-->
+					<div class="col-md-12 bord-list top-mar no-padding con">
+						<div class="col-md-4 hidden-xs">
+							<h3>送货清单</h3>
+							<h5 class="top-mar">周六日暂休，只工作日送货哦~</h5>
+							<h4 class="top-mar">Tip:一般情况书本将在第二天傍晚前到达~</h4>
+						</div>
+						<div class="col-md-8 no-padding bord-list-0">
+							<!--全选标题栏-->
+							<div class="form-control bord-ul ">
+								<span class="color-gr col-md-5 col-xs-8">2017-8-24;14：59：53</span>
+								<span class="col-md-5 hidden-xs">预计商品将于8月23号晚前抵达</span>
+								<button type="button" class="col-md-2 col-xs-4  but">确认收款</button>
+							</div>
+							<ul class="shopping-cart hidden-sm hidden-xs cart-con">
+								<li class="col-md-6 text-center">
+									<div class="row">
+										商品信息
+									</div>
+								</li>
+								<li class="col-md-2 text-center">
+									<div class="row">
+										单价
+									</div>
+								</li>
+								<li class="col-md-2 text-center">
+									<div class="row">
+										数量
+									</div>
+								</li>
+								<li class="col-md-2 text-center">
+									<div class="row">
+										总计
+									</div>
+								</li>
+							</ul>
+							<hr />
+							<!--购物单-->
+							
+							<!--动态加载区域-->
+							<ul class="cart-con bord-li">
+								<li class="col-md-2 col-xs-4">
+									<a href="#"><img src="img/21.jpg" class="t-img"></a>
+								</li>
+								<li class="col-md-10 col-xs-8">
+									<form action="" method="post">
+										<ul class="cart-con">
+											<li class="col-md-5 col-xs-12"><a href="#"><h5 class="row">计算机科学技术与物联网工程组成原理</h5></a></li>
+											<li class="col-md-2 col-xs-2 text-center"><h5 class="row">￥48</h5></li>
+											<li class="col-md-3 col-xs-8 text-center"><h5 class="row">1</h5></li>
+											<li class="col-md-2 col-xs-2 text-center"><h5 class="t-price row">￥48</h5></li>
+										</ul>
+									</form>
+								</li>
+							</ul>
+							<ul class="cart-con bord-li">
+								<li class="col-md-2 col-xs-4">
+									<a href="#"><img src="img/21.jpg" class="t-img"></a>
+								</li>
+								<li class="col-md-10 col-xs-8">
+									<ul class="cart-con">
+										<li class="col-md-5 col-xs-12"><a href="#"><h5 class="row">计算机科学技术与物联网工程组成原理</h5></a></li>
+										<li class="col-md-2 col-xs-2 text-center"><h5 class="row">￥48</h5></li>
+										<li class="col-md-3 col-xs-8 text-center"><h5 class="row">1</h5></li>
+										<li class="col-md-2 col-xs-2 text-center"><h5 class="t-price row">￥48</h5></li>
+									</ul>
+								</li>
+							</ul>
+							<!--动态加载区域-->
+						</div>
+						<!--结算区域-->
+						<div class="col-md-12 no-padding">
+							<ul class="pay cart-con bord-ul">
+								<li class="col-md-4 text-center col-xs-9">
+									<div class="row xs-font">
+										完成订单号为<span class="color-re">454613218</span>，待送；
+									</div>
+								</li>
+								<li class="col-md-2 col-md-offset-3 text-center hidden-xs">
+									<div class="row xs-font">
+										1个包裹
+									</div>
+								</li>
+								<li class="col-md-3 text-right col-xs-3">
+									<div class="row xs-font">
+										合计：96
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!--待评价tab页-->
+					<div class="col-md-12 bord-list top-mar no-padding con">
+						<div class="col-md-4 hidden-xs">
+							<h3>送货清单</h3>
+							<h5 class="top-mar">周六日暂休，只工作日送货哦~</h5>
+							<h4 class="top-mar">Tip:一般情况书本将在第二天傍晚前到达~</h4>
+						</div>
+						<div class="col-md-8 no-padding bord-list-0">
+							<!--全选标题栏-->
+							<form action="" method="post">
+								<div class="form-control bord-ul ">
+									<span class="color-gr col-md-5 col-xs-8">2017-8-24;14：59：53</span>
+									<span class="col-md-5 hidden-xs">预计商品将于8月23号晚前抵达</span>
+									<input type="submit" class="col-md-2 col-xs-4 but" value="评价提交">
+								</div>
+								<ul class="shopping-cart hidden-sm hidden-xs cart-con">
+									<li class="col-md-6 text-center">
+										<div class="row">
+											商品信息
+										</div>
+									</li>
+									<li class="col-md-2 text-center">
+										<div class="row">
+											单价
+										</div>
+									</li>
+									<li class="col-md-2 text-center">
+										<div class="row">
+											数量
+										</div>
+									</li>
+									<li class="col-md-2 text-center">
+										<div class="row">
+											总计
+										</div>
+									</li>
+								</ul>
+								<hr />
+								<!--购物单-->
+								
+								<!--动态加载区域-->
+								<ul class="cart-con bord-li2">
+									<li class="col-md-2 col-xs-4">
+										<a href="#"><img src="img/21.jpg" class="t-img"></a>
+									</li>
+									<li class="col-md-10 col-xs-8">
+										<form action="" method="post">
+											<ul class="cart-con">
+												<li class="col-md-5 col-xs-12"><a href="#"><h5 class="row">计算机科学技术与物联网工程组成原理</h5></a></li>
+												<li class="col-md-2 col-xs-2 text-center"><h5 class="row">￥48</h5></li>
+												<li class="col-md-3 col-xs-8 text-center"><h5 class="row">1</h5></li>
+												<li class="col-md-2 col-xs-2 text-center"><h5 class="t-price row">￥48</h5></li>
+												
+											</ul>
+										</form>
+									</li>
+									<li class="col-md-12 col-xs-12 text-center no-padding">
+										<input type="text" class="form-control" placeholder="请给予您的评价"/>
+									</li>
+								</ul>
+								<ul class="cart-con bord-li2">
+									<li class="col-md-2 col-xs-4">
+										<a href="#"><img src="img/21.jpg" class="t-img"></a>
+									</li>
+									<li class="col-md-10 col-xs-8">
+										<form action="" method="post">
+											<ul class="cart-con">
+												<li class="col-md-5 col-xs-12"><a href="#"><h5 class="row">计算机科学技术与物联网工程组成原理</h5></a></li>
+												<li class="col-md-2 col-xs-2 text-center"><h5 class="row">￥48</h5></li>
+												<li class="col-md-3 col-xs-8 text-center"><h5 class="row">1</h5></li>
+												<li class="col-md-2 col-xs-2 text-center"><h5 class="t-price row">￥48</h5></li>
+												
+											</ul>
+										</form>
+									</li>
+									<li class="col-md-12 col-xs-12 text-center no-padding">
+										<input type="text" class="form-control" placeholder="请给予您的评价"/>
+									</li>
+								</ul>
+								<!--动态加载区域-->
+							</form>
+							
+						</div>
+						<!--结算区域-->
+						<div class="col-md-12 no-padding">
+							<ul class="pay cart-con bord-ul">
+								<li class="col-md-4 text-center col-xs-9">
+									<div class="row xs-font">
+										完成订单号为<span class="color-re">454613218</span>，待送；
+									</div>
+								</li>
+								<li class="col-md-2 col-md-offset-3 text-center hidden-xs">
+									<div class="row xs-font">
+										1个包裹
+									</div>
+								</li>
+								<li class="col-md-3 text-right col-xs-3">
+									<div class="row xs-font">
+										合计：96
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--目录	 结束-->
+		<!--footer	开始-->
+		<footer class="footer">
+			<div class="footer-area">
+				<div class="footer-start">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-3 col-sm-3 col-xs-12 text-center">
+								<h4>关于网站</h4>
+								<ul class="toggle-footer">
+									<li>
+										<a href="#" class="colorwhite">
+											<i class="glyphicon glyphicon-grain"></i>
+											功能简介
+										</a>
+									</li>
+									<li>
+										<a href="#" class="colorwhite">
+											<i class="glyphicon glyphicon-grain"></i>
+											后期拓展
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-12 text-center">
+								<h4>关于团队</h3>
+								<ul class="toggle-footer">
+									<li>
+										<a href="#" class="colorwhite">
+											<i class="glyphicon glyphicon-grain"></i>
+											团队简介
+										</a>
+									</li>
+									<li>
+										<a href="#" class="colorwhite">
+											<i class="glyphicon glyphicon-grain"></i>
+											联系方式
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-12 text-center">
+								<h4>问题反馈</h3>
+								<ul class="toggle-footer">
+									<li>
+										<a href="#" class="colorwhite">
+											<i class="glyphicon glyphicon-grain"></i>
+											反馈留言
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-12 text-center">
+								<h4>书店位置</h3>
+								<ul class="toggle-footer">
+									<li>
+										<span class="colorwhite">
+											<p class=""></p>
+											<p class="lr-pad">
+												<i class="glyphicon glyphicon-info-sign"></i>
+												物院进校门右转6号家属楼一层
+											</p>
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer-end top-mar text-center">
+					<div class="container">
+						<div class="row">
+							<div class="footer-end-e">
+								<p class="tb-pad">
+									Copyright © 2017.版权归北京物资学院所有.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!--footer	结束-->
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script src="js/jquery.placeholder.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--placeholder	对IE浏览器支持-->
+		<script type="text/javascript">
+		    $(function () {
+		        // Invoke the plugin
+		        $('input, textarea').placeholder();
+		    });
+		</script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		<script>
+			//下拉菜单出现
+			$("data-toggle").dropdown();
+			//tab页切换
+			$(".nav ul .tab").click(function(){
+				var index =$(this).index();
+				$(".con").hide();
+				$(".con").eq(index).show();
+				$(".nav ul .tab").removeClass("color colorwhite");
+				$(this).addClass("color");
+			});
+		</script>
+		
+	</body>
+</html>
+		

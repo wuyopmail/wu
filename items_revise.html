@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html class="html">
+<html class="html2">
 	<head>
 		<meta charset="UTF-8">
-		<title>密码修改</title>
+		<title>商品管理</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/index.css" />
 		<link rel="stylesheet" href="css/shopping_cart.css" />
 		<link rel="stylesheet" href="css/wish.css" />
 		<link rel="stylesheet" href="css/login.css" />
+		<link rel="stylesheet" href="css/upload.css" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
 		<meta http-equiv="X-UA-Compatible" content="IE=9" />
 		<!--[if lt IE 9]>
@@ -132,30 +133,167 @@
 						<li><a href="#"><i class="glyphicon glyphicon-grain"></i>数据统计</a></li>
 					</ul>
 				</div>
-				<!--密码修改-->
+				<!--商品添加-->
 				<div class="col-md-10 col-sm-12 col-xs-12">
-					<div class="login-area">
-						<div class="col-md-6 col-md-offset-2 col-sm-12 col-xs-12">
-							<div class="lr-pad top-pad2">
-								<h2 class="kaiti-font">密码修改</h2>
-								<form action="#" method="post" class="lg">
-									<input type="text" placeholder="请输入账号" class="form-control"/>
-									<input type="password" placeholder="请输入新密码" class="form-control"/>
-									<input type="submit" value="提交" class="size-font form-control kaiti-font bg-c-br"/>
-								</form>
+					<h3 class="kaiti-font col-md-offset-1">卖家中心->商品管理</h3>
+					<div class="col-md-11 col-md-offset-1 col-sm-12 col-xs-12 bot">
+						<form action="" method="post">
+							<div class="col-md-12">
+								<span class="lf-font2">书名：</span><input type="text" name="book_title" value="" />
+								<span class="lf-font2">作者：</span><input type="text" name="book_title" value="" />
+								<span class="lf-font2">出版社：</span><input type="text" name="book_title" value="" />
 							</div>
-						</div>
-						<div class="col-md-6 col-md-offset-2 col-sm-12 col-xs-12">
-							<div class="bg-top">
-								<div class="lr-pad top-pad2">
-									<div class="br-c-gr">
-										<span class="bl-color kaiti-font size-font">Tip：&nbsp;</span>
-										<span style="color: deepskyblue;">新密码确认无误后在提交哦~</span>
-									</div>
+							<div class="col-md-12">
+								<span class="lf-font2">售价：</span><input type="text" name="book_title" value="" />
+								<span class="lf-font2">库存：</span><input type="text" name="book_title" value="" />
+								<span class="lf-font2">分类：</span>
+								<select style="margin-left: 10px;padding: 3px 10px 6px 11px;">
+							        <option value="大学教材" selected="selected">大学教材</option>
+							        <option value="英语考级">英语考级</option>
+							        <option value="考研专题">考研专题</option>
+							        <option value="公务员项">公务员项</option>
+							        <option value="课外书本">课外书本</option>
+							        <option value="旧书教材">旧书教材</option>
+							 	</select>
+								<input type="submit" value="搜索" class="pink"/>
+							</div>
+						</form>
+					</div>
+					<div class="col-md-12">
+						<ul class="cart-con">
+							<li class="col-md-1">
+								<div class="row">
+									<input type="checkbox" name=""/><label for="">全选</label>
+								</div>
+							</li>
+							<li class="col-md-5 text-center">
+								<div class="row">
+									商品信息
+								</div>
+							</li>
+							<li class="col-md-1 text-center">
+								<div class="row">
+									分类
+								</div>
+							</li>
+							<li class="col-md-2">
+								<div class="row text-center">
+									<span>库存</span>
+								</div>
+							</li>
+							<li class="col-md-2 text-center">
+								<div class="row">
+									售价
+								</div>
+							</li>
+							<li class="col-md-1 text-center">
+								<div class="row">
+									操作
+								</div>
+							</li>
+						</ul>
+						<hr />
+						<!--购物单-->
+						
+						<!--动态加载区域-->
+						<ul class="cart-con min-h">
+							<li class="col-md-1 col-sm-1 col-xs-1 no-padding">
+								<input type="checkbox" name=""/>
+							</li>
+							<li class="col-md-1 col-sm-4 col-xs-4 no-padding">
+								<a href="#"><img src="img/21.jpg" class="t-img"></a>
+							</li>
+							<li class="col-md-10 no-padding">
+								<ul class="cart-con">
+									<li class="col-md-5"><a href="#"><h5 class="t-title">计算机科学技术与物联网工程组成原理</h5></a></li>
+									<li class="col-md-2"><div class="row"><h5>旧书教材</h5</div></li>
+									<li class="col-md-2"><h5>120</h5></li>
+									<li class="col-md-2"><h5 class="t-price">￥48</h5></li>
+									<li class="col-md-1">
+										<div class="row">
+											<!-- Button trigger modal -->
+											<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">更改</a>
+											<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">删除</a>
+											<!-- Modal-1 -->
+											<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+											  	<div class="modal-dialog" role="document">
+											    	<div class="modal-content">
+											    		<form action="" method="post">
+												      		<div class="modal-header">
+													        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+													        	<h4 class="modal-title" id="myModalLabel">填写需要更改的数据即可</h4>
+													      	</div>
+													      	<div class="modal-body">
+													        	<input type="text" name="" placeholder="分类" />
+													        	<input type="text" name="" placeholder="库存" />
+													        	<input type="text" name="" placeholder="售价" />
+													      	</div>
+													      	<div class="modal-footer">
+													        	<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+													        	<button type="button" class="btn btn-primary">
+													        		<input type="submit" value="提交" class="modal-sub"/>
+													        	</button>
+													      	</div>
+													    </form>
+											    	</div>
+											  	</div>
+											</div>
+											<!-- Modal-2 -->
+											<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+											  	<div class="modal-dialog" role="document">
+											    	<div class="modal-content">
+											    		<form action="" method="post">
+												      		<div class="modal-header">
+													        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+													        	<h4 class="modal-title" id="myModalLabel">确认删除?</h4>
+													      	</div>
+													      	<!--<div class="modal-body">
+													        	<input type="text" name="" placeholder="分类" />
+													        	<input type="text" name="" placeholder="库存" />
+													        	<input type="text" name="" placeholder="售价" />
+													      	</div>-->
+													      	<div class="modal-footer">
+													        	<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+													        	<button type="button" class="btn btn-primary">
+													        		<input type="submit" value="确定" class="modal-sub"/>
+													        	</button>
+													      	</div>
+													    </form>
+											    	</div>
+											  	</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<!--动态加载区域-->
+					</div>
+					<div class="col-md-12">
+						<ul class="cart-con">
+							<li class="col-md-1">
+								<div class="row">
+									<input type="checkbox" name=""/><label for="">全选</label>
+								</div>
+							</li>
+							<li class="col-md-1 col-md-offset-10 text-center">
+								<div class="row">
+									<a href="#" data-toggle="modal" data-target="#myModal2">删除所选</a>
+								</div>
+							</li>
+						</ul>
+						<hr />
+					</div>
+					<!--<div class="col-md-6 col-md-offset-2 col-sm-12 col-xs-12">
+						<div class="bg-top">
+							<div class="lr-pad top-pad2">
+								<div class="br-c-gr">
+									<span class="bl-color kaiti-font size-font">Tip：&nbsp;</span>
+									<span style="color: deepskyblue;">必填选项请您填写清楚o~</span>
 								</div>
 							</div>
 						</div>
-					</div>
+					</div>-->
 				</div>
 			</div>
 		</div>
@@ -255,6 +393,29 @@
 		<!--下拉菜单出现-->
 		<script>
 			$("data-toggle").dropdown();
+		</script>
+		<!--文件上传-->
+		<script src="js/upload.min.js"></script>
+		<script type="text/javascript">
+		    //配置需要引入jq 1.7.2版本以上
+		    //服务器端成功返回 {state:1,path:文件保存路径}
+		    //服务器端失败返回 {state:0,errmsg:错误原因}
+		    //默认做了文件名不能含有中文,后端接收文件的变量名为file
+		    $("#zwb_upload").bindUpload({
+		        url:"/upload",//上传服务器地址
+		        callbackPath:"#callbackPath2",//绑定上传成功后 图片地址的保存容器的id或者class 必须为input或者textarea等可以使用$(..).val()设置之的表单元素
+		        // ps:值返回上传成功的 默认id为#callbackPath  保存容器为位置不限制,id需要加上#号,class需要加上.
+		        // 返回格式为:
+		        // 原来的文件名,服务端保存的路径|原来的文件名,服务端保存的路径|原来的文件名,服务端保存的路径|原来的文件名,服务端保存的路径....
+		        num:10,//上传数量的限制 默认为空 无限制
+		        type:"jpg|png|gif|svg",//上传文件类型 默认为空 无限制
+		        size:3,//上传文件大小的限制,默认为5单位默认为mb
+		    });
+		</script>
+		<script type="text/javascript">
+			$('#myModal1').on('shown.bs.modal', function () {
+			  $('#myInput').focus()
+			})
 		</script>
 	</body>
 </html>

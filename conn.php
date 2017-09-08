@@ -8,7 +8,7 @@ if (!$conn){
 }
 mysql_select_db("shop", $conn);
 //×Ö·û×ª»»£¬¶Á¿â
-mysql_query("set character set 'gbk'");
+mysql_query("set character set 'utf-8'");
 //Ð´¿â
-mysql_query("set names 'gbk'");
+mysql_query("set names 'utf8'");
 ?>

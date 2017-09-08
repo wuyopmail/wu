@@ -15,3 +15,8 @@
 	border-bottom: 1px solid gainsboro;
 }
 
+.hidden-font{
+	background-color: #6b3c76;
+	color: white;
+	font-family: KaiTi;
+}

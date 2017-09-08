@@ -1,38 +1,53 @@
-/*收藏区域*/
-.t1{
-	text-align: left;
-	width: 202px;
-}
-.t2{
-	text-align: left;
-	width: 300px;
-}
-.t3{
-	width: 140px;
-	text-align: center;
-}
-.t4{
-	width: 70px;
-	text-align: right;
-}
-.shopping-cart>li,.cart-con li{
+.cart-con li{
 	float: left;
 	margin-right: 0;
 }
-/*分属tab页*/
-.pad-bg{
-	padding: 5px 20px;
-	border-radius: 10px;
-	background-color: gainsboro;
+/*购物车进度条分属页*/
+.bord-bot{
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 3px solid red;
+}
+.pad-bg1-0{
+	padding: 7px 55px;
+	background: url(../img/shop_cart/grey.png)
+	 no-repeat;
+	font-size: 18px;
+}
+.pad-bg1-1{
+	padding: 7px 55px;
+	background: url(../img/shop_cart/red.png)
+	 no-repeat;
 	color: white;
-	font-size: 20px;
+	font-size: 18px;
 }
-.pad-bg:hover{
-	background-color: cornflowerblue;
-	
+.pad-bg2-0{
+	padding: 7px 66px;
+	background: url(../img/shop_cart/grey2.png)
+	 no-repeat;
+	font-size: 18px;
 }
-
-/**/
+.pad-bg2-1{
+	padding: 7px 66px;
+	background: url(../img/shop_cart/red2.png)
+	 no-repeat;
+	color: white;
+	font-size: 18px;
+}
+.pad-bg3-0{
+	padding: 7px 66px;
+	background: url(../img/shop_cart/grey3.png)
+	 no-repeat;
+	font-size: 18px;
+}
+.pad-bg3-1{
+	padding: 7px 66px;
+	background: url(../img/shop_cart/red3.png)
+	 no-repeat;
+	color: white;
+	font-size: 18px;
+}
+/*购物内容*/
 .rt-mar{
 	margin-left: 120px;
 }
@@ -49,12 +64,11 @@
 	text-align: center;
 }
 .t-img{
+	margin-top: 8px;
 	max-width: 80px;
 	max-height: 80px;
 }
 .t-title{
-	font-size: 13px;
-	margin-left: 10px;
 }
 .t-title:hover{
 	color: orangered;
@@ -72,9 +86,11 @@
 }
 .jian1{
 	border-left: 1px solid gainsboro;
+	cursor: pointer;
 }
 .jia1{
 	border-right: 1px solid gainsboro;
+	cursor: pointer;
 }
 .add-num{
 	width: 30%;
@@ -82,31 +98,156 @@
 	float: left;
 }
 .t-price{
-	display: block;
+	display: inline-block;
 	color: red;
+	font-size: 18px;
 }
 .t-time{
 	color: gainsboro;
 }
 .t-delete{
-	margin-left: 21px;
+	margin-left: 15px;
 }
-
+.h-wu{
+	height: 40px;
+	padding: auto;
+}
 .no-padding {
 	padding-left: 0;
 	padding-right: 0;
 }
+.no-margin{
+	margin-top: 0;
+	margin-bottom: 0;
+}
 .min-h{
-	min-height: 500px;
+	min-height: 370px;
 }
 .pay{
-	
+	padding: 5px;	
+	margin: 0;
 }
 .payment{
 	text-align: center;
-	font-size: 20px;
-	background-color: #ff2832;
-	padding: 4px 12px;
-	color: white;
+	color: red;
+}
+.bord-li{
+	background-color: gainsboro;
+	border-radius: 4px;
+	min-height: 106px;
+}
+.bord-li2{
+	background-color: gainsboro;
+	border-radius: 4px;
+	min-height: 126px;
+}
+.bord-ul{
+	background-color: #f1f5f8;
+	width: 100%;
+	height: 32px!important;
+}
+
+/*shopping-cart2*/
+.address{
+	border: 2px solid red;
+	border-radius: 3px;
+}
+.address li{
+	margin: 0;
+}
+.bord-list{
+	border: 1px solid gainsboro;
+	margin-bottom: 20px;
+}
+.bord-list-0{
+	border-left: 1px solid gainsboro;
+}
+.addr-info{
+	display: inline-block;
+	padding-right: 18px;
+}
+.xs-font{
+	font-size: 13px;
+}
+.sm-font{
+	font-size: 16px;
+}
+.zhifu{
+	margin-top: -6px;
+}
+/*订单分属页*/
+.nav{
+	padding-bottom: 10px;
+	border-bottom: 2px solid red;
+}
+.nav ul .color {
+    background: #006699;
+    color: white;
+}
+.nav ul li {
+    display: block;
+    float: left;
+    margin: 0;
+    border: 1px solid #006699;
+    padding: 5px 10px;
+    text-align: center;
+    font-family: KaiTi;
+    font-size: 19px;
+}
+.order-check{
 	border: 0;
+	margin-left: 240px;
+}
+.color-gr{
+	color: gray;
+}
+.color-re{
+	color: red;
+}
+.content {
+	position: relative;
+	min-height: 500px;
+}
+.con {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: none;
+}
+.bord-list-0>.form-control>span{
+	padding: 0 10px;
+}
+.but{
+	margin-top: -4px;
+	padding: 3px;
+	background-color: #D31718;
+	color: white;
+	border-radius: 2px;
+	border: 0;
+}
+.wid-all{
+	width: 100%;
+}
+
+/*wish收藏*/
+.lf-nav{
+	border-left: 1px solid gainsboro;
+	border-right: 1px solid gainsboro;
+}
+.lf-nag-bgc{
+	background-color: #c63b40;
+	margin-top: 0;
+	padding: 10px;
+	padding-left: 20px;
+	color: white;
+}
+.lf-nav-ul>li{
+	margin-bottom: 15px;
+	border-bottom: 1px solid gainsboro;
+}
+
+.hidden-font{
+	background-color: #6b3c76;
+	color: white;
+	font-family: KaiTi;
 }
