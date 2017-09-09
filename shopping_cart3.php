@@ -60,15 +60,30 @@ if($item_id != '' && $qty != ''){
 //本页数据
 $count_price = 0;//计算总价
 //$item_id_all = "";//商品id
-$address = getvar(@$_POST[address]);
-$name = getvar(@$_POST[name]);
-$telephone = getvar(@$_POST[telephone]);
-if($address != '' && $name != '' && $telephone != ''){
-	$query = "update user set address = '".$address."', name = '".$name."', telephone = '".$telephone."' where uid = '".$userid."'";
-	mysql_query("$query");
-}
+$address = $row['address'];
+$name = $row['name'];
+$telephone = $row['telephone'];
 $disabled = $row['name'];
 $row1 = $row;
+$item_id_all = '';
+
+	$query = "select * from cart where uid = '".$userid."'";
+	$queryuser = mysql_query("$query");
+	while($row = mysql_fetch_array($queryuser)){
+		$query = "select * from item where item_id = '".$row['item_id']."'";
+		$server_query = mysql_query("$query");
+		$server_query = mysql_fetch_array($server_query);
+		$final_price = $server_query['discount_price']*$row['qty'];//商品总价
+		$count_price += $final_price;//总价
+		$item_id_all = "".$item_id_all."".$row['item_id']."-".$row['qty']."-".$server_query['discount_price']."|";//商品id数量单价及格式版本
+	}
+	$item_id_all = "".$item_id_all."Version1";//商品格式版本
+	$query = "insert into orders(uid, item_id, order_status, name, address, telephone, discount_price) values ('".$userid."', '".$item_id_all."', 'unpaid', '".$name."', '".$address."', '".$telephone."', '".$count_price."')";
+	$update_order = mysql_query("$query");
+	$count_price = 0;
+	$query = "select max(order_id) from orders where uid = '".$userid."'";
+	$order_id = mysql_query("$query");
+	$order_id = mysql_fetch_array($order_id);
 ?>
 <!DOCTYPE html>
 <html>
@@ -193,55 +208,16 @@ $row1 = $row;
 				</div>
 				<div class="col-md-7 hidden-sm hidden-xs text-center">
 					<a href="shopping_cart.html"><div class="wu pad-bg1-0">我的购物车</div></a>
-					<div class="wu pad-bg2-1">填写订单</div>
-					<div class="wu pad-bg3-0">完成订单</div>
+					<div class="wu pad-bg2-0">填写订单</div>
+					<div class="wu pad-bg3-1">完成订单</div>
 				</div>
 			</div>
 		</div>
 		<!--收藏	 开始-->
 		<div class="container">
 			<div class="row">
-				<!--收获地址区域-->
-				<div  class="col-md-2 col-xs-6">
-					<h4>收货人信息</h4>
-				</div>
-				<div class="col-md-10 col-xs-6 no-padding">
-					<button type="button" class="btn btn-default h-wu" data-toggle="modal" data-target="#myModal3">新收货地址</button>
-					<!-- Modal-3 -->
-					<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-					  	<div class="modal-dialog" role="document">
-					    	<div class="modal-content">
-					    		<form action="./shopping_cart2.php" method="post">
-						      		<div class="modal-header">
-							        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							        	<h4 class="modal-title" id="myModalLabel">新的收货地址</h4>
-							      	</div>
-							      	<div class="modal-body">
-							        	<input type="text" name="address" placeholder="地址" />
-										<input type="text" name="name" placeholder="姓名" />
-										<input type="text" name="telephone" placeholder="电话" />
-							      	</div>
-							      	<div class="modal-footer">
-							        	<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-							        	<button type="button" class="btn btn-primary">
-							        		<input type="submit" value="保存并使用" class="modal-sub"/>
-							        	</button>
-							      	</div>
-							    </form>
-					    	</div>
-					  	</div>
-					</div>
-				</div>
-				<ul class="address col-md-3 col-xs-10">
-					<li class="col-md-10 col-xs-12">
-						<h4 class="addr-info"><?php if(!$row['name']){echo '请点击新增收货地址以便修改收货信息';} else {echo $row['name'];};?></h4>
-						<h4 class="addr-info"><?php echo $row['telephone'];?></h4>
-						<hr />
-						<h4><?php echo $row['address'];?></h4>
-					</li>
-				</ul>
-				
-				<div class="col-md-12 col-xs-12 bord-list top-mar no-padding">
+				<!--订单信息-->
+				<div class="col-md-12 bord-list top-mar no-padding">
 					<div class="col-md-4 hidden-xs">
 						<h3>送货清单</h3>
 						<h5 class="top-mar">周六日暂休，只工作日送货哦~</h5>
@@ -302,19 +278,24 @@ $row1 = $row;
 						</ul>
 EOT;
 						$i++;
+						$update_qty = $server_query['qty'] - $row['qty'];//减少库存
+						$query = "update item set qty = '".$update_qty."' where item_id = '".$row['item_id']."'";
+						$server_query = mysql_query("$query");
 						}
+						$query = "delete from cart where uid = '".$userid."'";
+						$delete_cart = mysql_query("$query");
 						?>
 						<!--动态加载区域-->
 					</div>
 					<!--结算区域-->
 					<div class="col-md-12 no-padding">
 						<ul class="pay cart-con bord-ul">
-							<li class="col-md-3 text-center col-xs-9">
+							<li class="col-md-4 text-center col-xs-9">
 								<div class="row xs-font">
-									初始订单号为<span class="color-re">454613218</span>，待付；
+									完成订单号为<span class="color-re"><?php echo $order_id['0'];?></span>，待送；
 								</div>
 							</li>
-							<li class="col-md-2 col-md-offset-4 text-center hidden-xs">
+							<li class="col-md-2 col-md-offset-3 text-center hidden-xs">
 								<div class="row xs-font">
 									1个包裹
 								</div>
@@ -326,51 +307,6 @@ EOT;
 							</li>
 						</ul>
 					</div>
-				</div>
-				<!--寄送至-->
-				<div class="col-md-12 col-xs-12 top-mar no-padding">
-					<ul class="pay cart-con bord-ul">
-						<li class="col-md-3 col-md-offset-3 text-center col-xs-2">
-							<div class="row xs-font">
-								送至：
-							</div>
-						</li>
-						<li class="col-md-2 col-xs-5">
-							<div class="row xs-font">
-								<?php echo $row1['address'];?>
-							</div>
-						</li>
-						<li class="col-md-2 text-center col-xs-2">
-							<div class="row xs-font">
-								<?php echo $row1['name'];?>
-							</div>
-						</li>
-						<li class="col-md-2 text-center col-xs-3">
-							<div class="row xs-font">
-								<?php echo $row1['telephone'];?>
-							</div>
-						</li>
-					</ul>
-				</div>
-				<!--去支付-->
-				<div class="col-md-12 col-xs-12 top-mar no-padding">
-					<ul class="pay cart-con bord-ul">
-						<li class="col-md-3 col-md-offset-3 text-center hidden-xs">
-							<div class="row">
-								共<?php echo $i;?>件商品
-							</div>
-						</li>
-						<li class="col-md-4 text-right col-xs-9">
-							<div class="row">
-								合计金额：<span class="t-price"><?php echo $count_price;?></span>
-							</div>
-						</li>
-						<li class="col-md-2 text-right col-xs-3">
-							<div class="row">
-								<a href="./shopping_cart3.php" class="btn btn-danger zhifu <?php if(!$disabled){echo 'disabled';};?>">去支付</a>
-							</div>
-						</li>
-					</ul>
 				</div>
 			</div>
 		</div>

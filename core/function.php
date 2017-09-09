@@ -7,9 +7,9 @@ function getvar($var){//对get或post的值进行防注入处理
 	}
 }
 //$name = '';
-$ser = getvar($name);
-echo '!!';
-echo $ser;
-echo '!!';
+//$ser = getvar($name);
+//echo '!!';
+//echo $ser;
+//echo '!!';
 ?>
 
