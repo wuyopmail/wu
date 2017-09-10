@@ -67,28 +67,24 @@ $disabled = $row['name'];
 $row1 = $row;
 $item_id_all = '';
 
-$delete_id = getvar(@$_GET['delete_id']);
-$add_id = getvar(@$_GET['item_id']);
-if($delete_id != ''){
-	$query = "delete from bookmark where uid = '".$userid."' and item_id = '".$delete_id."'";
+$password = getvar(@$_POST['password']);
+$password = md5($password);
+if($password != ''){
+	$query = "update user set password = '".$password."' where uid = '".$userid."'";
 	//print_r($query);
-	$delete_id = mysql_query("$query");
-}
-if($add_id != ''){
-	$query = "insert into bookmark(uid, item_id, time) values ('".$userid."', '".$add_id."', '".time()."')";
-	//print_r($query);
-	$delete_id = mysql_query("$query");
+	$update_password = mysql_query("$query");
 }
 ?>
 <!DOCTYPE html>
 <html class="html">
 	<head>
 		<meta charset="UTF-8">
-		<title>我的收藏</title>
+		<title>密码修改</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/index.css" />
 		<link rel="stylesheet" href="css/shopping_cart.css" />
 		<link rel="stylesheet" href="css/wish.css" />
+		<link rel="stylesheet" href="css/login.css" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
 		<meta http-equiv="X-UA-Compatible" content="IE=9" />
 		<!--[if lt IE 9]>
@@ -109,12 +105,12 @@ if($add_id != ''){
 							<div class="header-top-left">
 								<span>欢迎光临 物友-情书~</span>
 								<span class="cf">
-									<a href="#" class="cf">
+									<a href="register.html" class="cf">
                                        	注册
                                     </a>
 								</span>
                                 <span class="cf">
-									<a href="#" class="cf">
+									<a href="login.html" class="cf">
                                        	登录
                                     </a>
 								</span>
@@ -124,13 +120,13 @@ if($add_id != ''){
 							<div class="header-top-right">
 								<ul style="text-align: center;margin-left: -40px;">
 									<li class="floatleft">
-                                        <a href="#">
+                                        <a href="shopping_cart.html">
                                         	<i  class="glyphicon glyphicon-shopping-cart" style="color: hotpink;"></i>
                                            	购物车
-                                        </a> 
+                                        </a>
                                     </li>
                                     <li class="floatleft">
-                                        <a href="#">
+                                        <a href="wish_list.html">
                                         	<i  class="glyphicon glyphicon-heart-empty"></i>
                                            	我的收藏
                                         </a>
@@ -140,10 +136,10 @@ if($add_id != ''){
                                            	个人中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="down1">
-                                        	<li><a href="#">密码修改</a></li>
+                                        	<li><a href="secret_revise.html">密码修改</a></li>
 										    <li role="separator" class="divider"></li>
-										    <li><a href="#">我的收藏</a></li>
-										    <li><a href="#">我的订单</a></li>
+										    <li><a href="wish_list.html">我的收藏</a></li>
+										    <li><a href="order.html">我的订单</a></li>
                                         </ul>
                                     </li>
                                     <li class="floatleft dropdown hidden-sm hidden-xs">
@@ -151,10 +147,10 @@ if($add_id != ''){
                                            	卖家中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="down2">
-                                        	<li><a href="#">添加商品</a></li>
+                                        	<li><a href="items_add.html">商品添加</a></li>
 										    <li role="separator" class="divider"></li>
-										    <li><a href="#">管理商品</a></li>
-										    <li><a href="#">管理订单</a></li>
+										    <li><a href="items_revise.html">商品管理</a></li>
+										    <li><a href="#">数据统计</a></li>
                                         </ul>
                                     </li>
 								</ul>
@@ -174,7 +170,7 @@ if($add_id != ''){
 						<div class="col-md-5 col-xs-12 col-sm-8">
 							<div style="width: 100%;margin-top: 30px;">
 									<form action="#">
-										<div style="float: left;width: 87%;">
+										<div style="float:left;width: 87%;">
 											<input type="text" class="form-control" placeholder="搜索书库"/>	
 										</div>
 										<button type="submit" class="sub" value="">
@@ -185,7 +181,9 @@ if($add_id != ''){
 						</div>
 						<div class="col-md-3 hidden-xs hidden-sm">
 							<div class="logo2">
-								<img src="img/logo/logo1.2.png" />
+								<a href="index.html">
+									<img src="img/logo/logo1.2.png" />
+								</a>
 							</div>
 						</div>
 					</div>
@@ -200,56 +198,41 @@ if($add_id != ''){
 				<div class="col-md-2 hidden-sm hidden-xs lf-nav">
 					<h4 class="lf-nag-bgc row">个人中心</h4>
 					<ul class="lf-nav-ul">
-						<li><a href="#"><i class="glyphicon glyphicon-grain"></i>密码修改</a></li>
-						<li><a href="#"><i class="glyphicon glyphicon-grain"></i>我的收藏</a></li>
-						<li><a href="#"><i class="glyphicon glyphicon-grain"></i>我的订单</a></li>
+						<li><a href="secret_revise.html"><i class="glyphicon glyphicon-grain"></i>密码修改</a></li>
+						<li><a href="wish_list.html"><i class="glyphicon glyphicon-grain"></i>我的收藏</a></li>
+						<li><a href="order.html"><i class="glyphicon glyphicon-grain"></i>我的订单</a></li>
 					</ul>
 					<h4 class="lf-nag-bgc row">卖家中心</h4>
 					<ul class="lf-nav-ul">
-						<li><a href="#"><i class="glyphicon glyphicon-grain"></i>添加商品</a></li>
-						<li><a href="#"><i class="glyphicon glyphicon-grain"></i>管理未售</a></li>
-						<li><a href="#"><i class="glyphicon glyphicon-grain"></i>管理订单</a></li>
+						<li><a href="items_add.html"><i class="glyphicon glyphicon-grain"></i>商品添加</a></li>
+						<li><a href="items_revise.html"><i class="glyphicon glyphicon-grain"></i>商品管理</a></li>
+						<li><a href="#"><i class="glyphicon glyphicon-grain"></i>数据统计</a></li>
 					</ul>
 				</div>
-				<!--收藏区域-->
+				<!--密码修改-->
 				<div class="col-md-10 col-sm-12 col-xs-12">
-					<!--全选标题栏-->
-					<ul class="shopping-cart hidden-sm hidden-xs cart-con">
-						<li class="col-md-1 row"><input type="checkbox" name=""/><span>全选</span></li>
-						<li class="col-md-5 row text-center">商品信息</li>
-						<li class="col-md-2 row text-center"><span class="rt-pad">单价</span></li>
-						<li class="col-md-2 row text-center">收藏时间</li> 
-						<li class="col-md-2 row text-right">操作</li>
-					</ul>
-					<hr />
-					<!--购物单-->
-					<?php
-					$query = "select * from bookmark where uid = '".$userid."'";
-					$queryuser = mysql_query("$query");
-					while($row = mysql_fetch_array($queryuser)){
-						$query = "select * from item where item_id = '".$row['item_id']."'";
-						$server_query = mysql_query("$query");
-						$server_query = mysql_fetch_array($server_query);
-						$times = date(("Y.m.d"),$server_query['time']);
-						//print_r($times);
-						echo <<<EOT
-					<ul class="cart-con">
-						<li class="col-md-1 col-sm-2 col-xs-2 row"><input type="checkbox" name=""/></li>
-						<li class="col-md-2 col-sm-4 col-xs-4 row"><div class="d-img"><a href="#"><img src="img/21.jpg" class="t-img"></a></div></li>
-						<div class="col-md-9 col-sm-8 col-xs-8 row">
-							<li class="col-md-5 col-sm-12 col-xs-12"><a href="#"><span class="t-title">$server_query[item_name]</span></a></li>
-							<li class="col-md-2 col-sm-5 col-xs-5"><span class="t-price">￥$server_query[price]</span></li>
-							<li class="col-md-2 col-sm-7 col-xs-7"><span class="t-time">$times</span></li>
-							<li class="col-md-2  col-md-offset-1 col-sm-12 col-xs-12 text-right">
-								<a href="./shopping_cart.php?qty=1&item_id=$server_query[item_id]"><span>移入至<i class="glyphicon glyphicon-shopping-cart"></i></span></a>
-								<a href="./wish_list.php?delete_id=$server_query[item_id]"><span class="t-delete">删除</span></a>
-							</li>
+					<div class="login-area">
+						<div class="col-md-6 col-md-offset-2 col-sm-12 col-xs-12">
+							<div class="lr-pad top-pad2">
+								<h2 class="kaiti-font">密码修改</h2>
+								<form action="./secret_revise.php" method="post" class="lg">
+									<input type="text" placeholder="请输入账号 ？？？" class="form-control"/>
+									<input type="password" name="password" placeholder="请输入新密码" class="form-control"/>
+									<input type="submit" value="提交" class="size-font form-control kaiti-font bg-c-br"/>
+								</form>
+							</div>
 						</div>
-					</ul>
-EOT;
-					}
-					?>
-					<!--动态加载区域-->
+						<div class="col-md-6 col-md-offset-2 col-sm-12 col-xs-12">
+							<div class="bg-top">
+								<div class="lr-pad top-pad2">
+									<div class="br-c-gr">
+										<span class="bl-color kaiti-font size-font">Tip：&nbsp;</span>
+										<span style="color: deepskyblue;">新密码确认无误后在提交哦~</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
