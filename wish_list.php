@@ -1,12 +1,10 @@
 <?php
 session_start();
-
 //检测是否登录，若没登录则转向登录界面
 //if(!isset($_SESSION['userid'])){
 //	header("Location:login.html");
 //	exit();
 //}
-
 //包含数据库连接文件
 include('conn.php');
 include('./core/function.php');
@@ -66,7 +64,6 @@ $telephone = $row['telephone'];
 $disabled = $row['name'];
 $row1 = $row;
 $item_id_all = '';
-
 $delete_id = getvar(@$_GET['delete_id']);
 $add_id = getvar(@$_GET['item_id']);
 if($delete_id != ''){
@@ -88,7 +85,6 @@ if($add_id != ''){
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/index.css" />
 		<link rel="stylesheet" href="css/shopping_cart.css" />
-		<link rel="stylesheet" href="css/wish.css" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
 		<meta http-equiv="X-UA-Compatible" content="IE=9" />
 		<!--[if lt IE 9]>
@@ -109,12 +105,12 @@ if($add_id != ''){
 							<div class="header-top-left">
 								<span>欢迎光临 物友-情书~</span>
 								<span class="cf">
-									<a href="#" class="cf">
+									<a href="register.html" class="cf">
                                        	注册
                                     </a>
 								</span>
                                 <span class="cf">
-									<a href="#" class="cf">
+									<a href="login.html" class="cf">
                                        	登录
                                     </a>
 								</span>
@@ -124,13 +120,13 @@ if($add_id != ''){
 							<div class="header-top-right">
 								<ul style="text-align: center;margin-left: -40px;">
 									<li class="floatleft">
-                                        <a href="#">
+                                        <a href="shopping_cart.html">
                                         	<i  class="glyphicon glyphicon-shopping-cart" style="color: hotpink;"></i>
                                            	购物车
-                                        </a> 
+                                        </a>
                                     </li>
                                     <li class="floatleft">
-                                        <a href="#">
+                                        <a href="wish_list.html">
                                         	<i  class="glyphicon glyphicon-heart-empty"></i>
                                            	我的收藏
                                         </a>
@@ -140,10 +136,10 @@ if($add_id != ''){
                                            	个人中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="down1">
-                                        	<li><a href="#">密码修改</a></li>
+                                        	<li><a href="secret_revise.html">密码修改</a></li>
 										    <li role="separator" class="divider"></li>
-										    <li><a href="#">我的收藏</a></li>
-										    <li><a href="#">我的订单</a></li>
+										    <li><a href="wish_list.html">我的收藏</a></li>
+										    <li><a href="order.html">我的订单</a></li>
                                         </ul>
                                     </li>
                                     <li class="floatleft dropdown hidden-sm hidden-xs">
@@ -151,10 +147,10 @@ if($add_id != ''){
                                            	卖家中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="down2">
-                                        	<li><a href="#">添加商品</a></li>
+                                        	<li><a href="items_add.html">商品添加</a></li>
 										    <li role="separator" class="divider"></li>
-										    <li><a href="#">管理商品</a></li>
-										    <li><a href="#">管理订单</a></li>
+										    <li><a href="items_revise.html">商品管理</a></li>
+										    <li><a href="#">数据统计</a></li>
                                         </ul>
                                     </li>
 								</ul>
@@ -174,7 +170,7 @@ if($add_id != ''){
 						<div class="col-md-5 col-xs-12 col-sm-8">
 							<div style="width: 100%;margin-top: 30px;">
 									<form action="#">
-										<div style="float: left;width: 87%;">
+										<div style="float:left;width: 87%;">
 											<input type="text" class="form-control" placeholder="搜索书库"/>	
 										</div>
 										<button type="submit" class="sub" value="">
@@ -185,7 +181,9 @@ if($add_id != ''){
 						</div>
 						<div class="col-md-3 hidden-xs hidden-sm">
 							<div class="logo2">
-								<img src="img/logo/logo1.2.png" />
+								<a href="index.html">
+									<img src="img/logo/logo1.2.png" />
+								</a>
 							</div>
 						</div>
 					</div>
@@ -214,12 +212,33 @@ if($add_id != ''){
 				<!--收藏区域-->
 				<div class="col-md-10 col-sm-12 col-xs-12">
 					<!--全选标题栏-->
+					<div class="hidden-md hidden-lg col-xs-12 cart-con text-center hidden-font">我的收藏</div>
 					<ul class="shopping-cart hidden-sm hidden-xs cart-con">
-						<li class="col-md-1 row"><input type="checkbox" name=""/><span>全选</span></li>
-						<li class="col-md-5 row text-center">商品信息</li>
-						<li class="col-md-2 row text-center"><span class="rt-pad">单价</span></li>
-						<li class="col-md-2 row text-center">收藏时间</li> 
-						<li class="col-md-2 row text-right">操作</li>
+						<li class="col-md-1">
+							<div class="row">
+								<input type="checkbox" id="all_check" name=""/><label for="">全选</label>
+							</div>
+						</li>
+						<li class="col-md-5 text-center">
+							<div class="row">
+								商品信息
+							</div>
+						</li>
+						<li class="col-md-2 text-center">
+							<div class="row">
+								单价
+							</div>
+						</li>
+						<li class="col-md-2 text-right">
+							<div class="row">
+								收藏时间
+							</div>
+						</li>
+						<li class="col-md-2 text-right">
+							<div class="row">
+								操作
+							</div>
+						</li>
 					</ul>
 					<hr />
 					<!--购物单-->
@@ -230,26 +249,30 @@ if($add_id != ''){
 						$query = "select * from item where item_id = '".$row['item_id']."'";
 						$server_query = mysql_query("$query");
 						$server_query = mysql_fetch_array($server_query);
+						//print_r($row);
 						$times = date(("Y.m.d"),$server_query['time']);
 						//print_r($times);
 						echo <<<EOT
-					<ul class="cart-con">
-						<li class="col-md-1 col-sm-2 col-xs-2 row"><input type="checkbox" name=""/></li>
-						<li class="col-md-2 col-sm-4 col-xs-4 row"><div class="d-img"><a href="#"><img src="img/21.jpg" class="t-img"></a></div></li>
-						<div class="col-md-9 col-sm-8 col-xs-8 row">
-							<li class="col-md-5 col-sm-12 col-xs-12"><a href="#"><span class="t-title">$server_query[item_name]</span></a></li>
-							<li class="col-md-2 col-sm-5 col-xs-5"><span class="t-price">￥$server_query[price]</span></li>
-							<li class="col-md-2 col-sm-7 col-xs-7"><span class="t-time">$times</span></li>
-							<li class="col-md-2  col-md-offset-1 col-sm-12 col-xs-12 text-right">
-								<a href="./shopping_cart.php?qty=1&item_id=$server_query[item_id]"><span>移入至<i class="glyphicon glyphicon-shopping-cart"></i></span></a>
-								<a href="./wish_list.php?delete_id=$server_query[item_id]"><span class="t-delete">删除</span></a>
-							</li>
-						</div>
+					<ul class="cart-con bord-li">
+						<li class="col-md-1 col-xs-2 no-padding"><input type="checkbox" class="input_check" name=""/></li>
+						<li class="col-md-2 col-xs-3 no-padding"><div class="d-img"><a href="#"><img src="img/21.jpg" class="t-img"></a></div></li>
+						<li class="col-md-9 col-xs-7 no-padding"> 
+							<ul class="cart-con">
+								<li class="col-md-5 col-xs-12"><a href="#"><h5>$server_query[item_name]</h5></a></li>
+								<li class="col-md-3 col-xs-5"><h5>￥$server_query[price]</h5></li>
+								<li class="col-md-2 col-xs-7"><h5>$times</h5></li>
+								<li class="col-md-2 col-xs-12 text-right">
+									<a href="./shopping_cart.php?qty=1&item_id=$server_query[item_id]"><span>移入至<i class="glyphicon glyphicon-shopping-cart"></i></span></a>
+									<a href="./wish_list.php?delete_id=$server_query[item_id]"><span class="t-delete">删除</span></a>
+								</li>
+							</ul>
+						</li>
 					</ul>
 EOT;
 					}
 					?>
 					<!--动态加载区域-->
+					
 				</div>
 			</div>
 		</div>
@@ -338,18 +361,48 @@ EOT;
 		<!--footer	结束-->
 		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
 		<script src="js/jquery.placeholder.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="layer/layer.js"></script>
 		<!--placeholder	对IE浏览器支持-->
 		<script type="text/javascript">
 		    $(function () {
 		        // Invoke the plugin
 		        $('input, textarea').placeholder();
+		        //全选功能
+		        $('#all_check').click(function(){
+	        	    var status = $(this).prop('checked');
+	        		$(".input_check").each(function(key, val){
+	        			if (status){
+	        			    $(val).prop('checked', true);
+	        			} else {
+	        				$(val).prop('checked', false);
+	        			}
+	        		});
+		        });
+		        function deleteApi (url, data, massage) {
+		        	$.post(url, data, function (res){
+		        		if (res === true) {
+		        			$(this).parents('.bord-li').remove();
+		        		} else {
+		        			layer.msg(massage);
+		        		}
+		        	});
+		        	return layer.msg(massage);
+		        }
+		        //购物车删除功能
+		        $(".t-delete").click(function(){
+		        	deleteApi('', {name:''}, msg);
+		        });
+		        //移入购物车功能
+		        $(".move-car").click(function(){
+		        	deleteApi('', {name:''}, msg);
+		        });
 		    });
 		</script>
-		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
 		<!--下拉菜单出现-->
 		<script>
 			$("data-toggle").dropdown();
 		</script>
-	</body>
+	</body> 
 </html>
 		
