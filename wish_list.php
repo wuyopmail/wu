@@ -249,13 +249,7 @@ if($add_id != ''){
 						$query = "select * from item where item_id = '".$row['item_id']."'";
 						$server_query = mysql_query("$query");
 						$server_query = mysql_fetch_array($server_query);
-<<<<<<< HEAD
-<<<<<<< HEAD
 						///print_r($row);
-=======
->>>>>>> 3e9698f1e4fef92b1324d69d365b2f37ad959c7d
-=======
->>>>>>> 3e9698f1e4fef92b1324d69d365b2f37ad959c7d
 						$times = date(("Y.m.d"),$server_query['time']);
 						//print_r($times);
 						echo <<<EOT
