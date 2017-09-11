@@ -9,6 +9,7 @@ session_start();
 
 //包含数据库连接文件
 include('conn.php');
+include('./core/function.php');
 $userid = $_SESSION['userid'];
 $username = $_SESSION['username'];
 $getitem_id = @$_GET[item_id];
@@ -30,6 +31,19 @@ echo '服务器名称：'.$row['servername'].'</br>';
 echo '<a href="login.php?action=logout">注销</a> 登录<br />';*/
 //echo $item_id;
 //print_r($row);
+?>
+<?php
+//本页数据
+$count_price = 0;//计算总价
+//$item_id_all = "";//商品id
+if($item_id != ''){
+	$query = "select * from item where item_id = '".$item_id."'";
+	$server_query = mysql_query("$query");
+	$server_query = mysql_fetch_array($server_query);
+	$row = $server_query;
+	print_r($row);
+}
+$row1 = $row;
 ?>
 <!DOCTYPE html>
 <html>
@@ -181,7 +195,7 @@ echo '<a href="login.php?action=logout">注销</a> 登录<br />';*/
 										  	<div class="panel-heading">
 									    		<a href="index.html">
 									    			<h2 class="panel-title">
-									    				不能说的秘密
+									    				<?php echo $row['item_name'];?>
 									    			</h2>
 									    		</a>
 										  	</div>
@@ -228,27 +242,27 @@ echo '<a href="login.php?action=logout">注销</a> 登录<br />';*/
 										<div id="book">
 											<div class="book-con">
 												<p>
-													作者： <span>周杰伦</span> <!--数据返回-->
+													作者： <span><?php echo $row['author'];?></span> <!--数据返回-->
 												</p>
 												<p>
-													出版社： <span>浙江人民出版社</span> <!--数据返回-->
+													出版社： <span><?php echo $row['press'];?></span> <!--数据返回-->
 												</p>
 												<p>
-													页数： <span>300</span> <!--数据返回-->
+													页数： <span><?php echo $row['page'];?></span> <!--数据返回-->
 												</p>
 												<p>
-													成色： <span>8成新</span> <!--数据返回-->
+													成色： <span><?php echo $row['condition_precent'];?></span> <!--数据返回-->
 												</p>
 												<p>
-													ISBN： <span>9787115249999</span> <!--数据返回-->
+													ISBN： <span><?php echo $row['isbn'];?></span> <!--数据返回-->
 												</p>
 											</div>
 											<div class="book-price">
 												<p>
-													售价： ¥ <span class="or-color">34.00</span> <!--数据返回-->
+													售价： ¥ <span class="or-color"><?php echo $row['discount_price'];?></span> <!--数据返回-->
 												</p>
 												<p>
-													原价： ¥ <span class="decoration">14.00</span> <!--数据返回-->
+													原价： ¥ <span class="decoration"><?php echo $row['price'];?></span> <!--数据返回-->
 												</p>
 												<p>
 													<span>配送至：</span>
@@ -364,9 +378,9 @@ echo '<a href="login.php?action=logout">注销</a> 登录<br />';*/
 									<!--商品详情-->
 									<div id="book-content">
 										<p><strong>书物分类：</strong></p>
-										<a href="#" class="lr-pad">书本分类 >>旧书教材</a>
+										<a href="#" class="lr-pad">书本分类 >><?php echo $row['type'];?></a>
 										<p><strong>详细描述：</strong></p>
-										<p id="book-info">请同学看好下单，如有疑问可在售前问清，如有不满意可持旧书教材到书店进行换货</p>
+										<p id="book-info"><?php echo $row['content'];?></p>
 									</div>
 								</div>
 								<div class="col-md-10 hidden-sm hidden-xs mar">
@@ -385,66 +399,29 @@ echo '<a href="login.php?action=logout">注销</a> 登录<br />';*/
 												<th>评价用户</th>
 												<th>评价时间</th>
 											</tr>
+											<?php
+											$query = "select * from item where item_id = '".$item_id."'";
+											$queryuser = mysql_query("$query");
+											$i=0;
+											while($row = mysql_fetch_array($queryuser)){
+												$query = "select * from evaluation where item_id = '".$item_id."'";
+												$eva_query = mysql_query("$query");
+												$eva_query = mysql_fetch_array($eva_query);
+												$time = date(("Y-m-d"),$eva_query['time']);
+											echo <<<EOT
 											<tr>
 												<td>
-													<i class="glyphicon glyphicon-thumbs-up"></i>好评！
+													<i class="glyphicon glyphicon-thumbs-up"></i>$eva_query[precent]分
 												</td>
-												<td>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</td>
+												<td>$eva_query[comment]</td>
 												<td>
-													<i class="glyphicon glyphicon-user"></i>chenf
+													<i class="glyphicon glyphicon-user"></i>$eva_query[uid]
 												</td>
-												<td><span>2017-8-1</span></td>
+												<td><span>$time</span></td>
 											</tr>
-											<tr>
-												<td>
-													<i class="glyphicon glyphicon-thumbs-up"></i>好评！
-												</td>
-												<td>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</td>
-												<td>
-													<i class="glyphicon glyphicon-user"></i>chenf
-												</td>
-												<td><span>2017-8-1</span></td>
-											</tr>
-											<tr>
-												<td>
-													<i class="glyphicon glyphicon-thumbs-up"></i>好评！
-												</td>
-												<td>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</td>
-												<td>
-													<i class="glyphicon glyphicon-user"></i>chenf
-												</td>
-												<td><span>2017-8-1</span></td>
-											</tr>
-											<tr>
-												<td>
-													<i class="glyphicon glyphicon-thumbs-up"></i>好评！
-												</td>
-												<td>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</td>
-												<td>
-													<i class="glyphicon glyphicon-user"></i>chenf
-												</td>
-												<td><span>2017-8-1</span></td>
-											</tr>
-											<tr>
-												<td>
-													<i class="glyphicon glyphicon-thumbs-up"></i>好评！
-												</td>
-												<td>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</td>
-												<td>
-													<i class="glyphicon glyphicon-user"></i>chenf
-												</td>
-												<td><span>2017-8-1</span></td>
-											</tr>
-											<tr>
-												<td>
-													<i class="glyphicon glyphicon-thumbs-up"></i>好评！
-												</td>
-												<td>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</td>
-												<td>
-													<i class="glyphicon glyphicon-user"></i>chenf
-												</td>
-												<td><span>2017-8-1</span></td>
-											</tr>
+EOT;
+											}
+											?>
 										</table>
 									</div>
 									

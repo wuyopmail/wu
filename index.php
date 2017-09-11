@@ -9,21 +9,76 @@ session_start();
 
 //包含数据库连接文件
 include('conn.php');
-$userid = $_SESSION['userid'];
-$username = $_SESSION['username'];
+include('./core/function.php');
+$userid = @$_SESSION['userid'];
+$username = @$_SESSION['username'];
+$getitem_id = @$_GET[item_id];
+$getqty = @$_GET[qty];
 $user_query = mysql_query("select * from user where uid=$userid limit 1");
-$row = mysql_fetch_array($user_query);
+@$row = mysql_fetch_array($user_query);
 $server_query = mysql_query("select * from server where uid=$userid limit 50");
+if($getitem_id == ''){
+	$item_id = '';
+} else {
+	//$item_id = $getitem_id;
+	$item_id = mysql_real_escape_string($getitem_id);
+}
+if($getqty == ''){
+	$qty = 1;
+} else {
+	//$qty = $getqty;
+	$qty = mysql_real_escape_string($getqty);
+}
 //$server_row = mysql_fetch_array($server_query);
-echo '用户信息：<br />';
+/*echo '用户信息：<br />';
 echo '用户ID：',$userid,'<br />';
 echo '用户名：',$username,'<br />';
 echo '邮箱：',$row['email'],'<br />';
 echo '注册日期：',date("Y-m-d", $row['regdate']),'<br />';
 echo '服务器名称：'.$row['servername'].'</br>';
-echo '<a href="login.php?action=logout">注销</a> 登录<br />';
-$servername = $row['servername'];
+echo '<a href="login.php?action=logout">注销</a> 登录<br />';*/
+//echo $item_id;
 //print_r($row);
+?>
+<?php
+//数据处理部分
+if($item_id != '' && $qty != ''){
+	$query = "select count(*) from cart where uid = '".$userid."' and item_id = '".$item_id."'";
+	$server_query = mysql_query("$query");
+	$server_query = mysql_fetch_array($server_query);
+	//print_r($server_query[0]);
+	if($server_query[0] == 0){
+		$query = "insert into cart(uid, item_id, qty) values ('".$userid."', '".$item_id."', '".$qty."')";
+		$server_query = mysql_query("$query");
+	} else {
+		$query = "update cart set qty = '".$qty."' where uid = '".$userid."' and item_id = '".$item_id."'";
+		$server_query = mysql_query("$query");
+	}
+}
+?>
+<?php
+//本页数据
+$count_price = 0;//计算总价
+//$item_id_all = "";//商品id
+$address = $row['address'];
+$name = $row['name'];
+$telephone = $row['telephone'];
+$disabled = $row['name'];
+$row1 = $row;
+$item_id_all = '';
+
+$delete_id = getvar(@$_GET['delete_id']);
+$add_id = getvar(@$_GET['item_id']);
+if($delete_id != ''){
+	$query = "delete from bookmark where uid = '".$userid."' and item_id = '".$delete_id."'";
+	//print_r($query);
+	$delete_id = mysql_query("$query");
+}
+if($add_id != ''){
+	$query = "insert into bookmark(uid, item_id, time) values ('".$userid."', '".$add_id."', '".time()."')";
+	//print_r($query);
+	$delete_id = mysql_query("$query");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -83,13 +138,13 @@ $servername = $row['servername'];
 							<div class="header-top-right">
 								<ul style="text-align: center;margin-left: -40px;">
 									<li class="floatleft">
-                                        <a href="#">
+                                        <a href="shopping_cart.html">
                                         	<i  class="glyphicon glyphicon-shopping-cart" style="color: hotpink;"></i>
                                            	购物车
                                         </a>
                                     </li>
                                     <li class="floatleft">
-                                        <a href="#">
+                                        <a href="wish_list.html">
                                         	<i  class="glyphicon glyphicon-heart-empty"></i>
                                            	我的收藏
                                         </a>
@@ -99,10 +154,10 @@ $servername = $row['servername'];
                                            	个人中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="down1">
-                                        	<li><a href="#">密码修改</a></li>
+                                        	<li><a href="secret_revise.html">密码修改</a></li>
 										    <li role="separator" class="divider"></li>
-										    <li><a href="#">我的收藏</a></li>
-										    <li><a href="#">我的订单</a></li>
+										    <li><a href="wish_list.html">我的收藏</a></li>
+										    <li><a href="order.html">我的订单</a></li>
                                         </ul>
                                     </li>
                                     <li class="floatleft dropdown hidden-sm hidden-xs">
@@ -110,10 +165,10 @@ $servername = $row['servername'];
                                            	卖家中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="down2">
-                                        	<li><a href="#">添加商品</a></li>
+                                        	<li><a href="items_add.html">商品添加</a></li>
 										    <li role="separator" class="divider"></li>
-										    <li><a href="#">管理未售</a></li>
-										    <li><a href="#">管理订单</a></li>
+										    <li><a href="items_revise.html">商品管理</a></li>
+										    <li><a href="#">数据统计</a></li>
                                         </ul>
                                     </li>
 								</ul>
@@ -178,39 +233,39 @@ $servername = $row['servername'];
 					<div class="col-md-3 col-sm-3 col-xs-12">
 						<div class="content-box">
 							<span class="zt">书本分类</span>
-							<ul class="">
+							<ul>
 								<li>
-									<a href="#" class="btn">
+									<a href="index.html" class="btn">
 										<i class="glyphicon glyphicon-pushpin"></i>
 										大学教材 
 									</a>
 								</li>
 								<li>
-									<a href="#" class="btn">
+									<a href="index.html" class="btn">
 										<i class="glyphicon glyphicon-pushpin"></i>
 										 英语考级
 									</a>
 								</li>
 								<li>
-									<a href="#" class="btn">
+									<a href="index.html" class="btn">
 										<i class="glyphicon glyphicon-pushpin"></i>
 										 考研专题
 									</a>
 								</li>
 								<li>
-									<a href="#" class="btn">
+									<a href="index.html" class="btn">
 										<i class="glyphicon glyphicon-pushpin"></i>
 										 公务员项
 									</a>
 								</li>
 								<li>
-									<a href="#" class="btn">
+									<a href="index.html" class="btn">
 										<i class="glyphicon glyphicon-pushpin"></i>
 										 课外书本
 									</a>
 								</li>
 								<li>
-									<a href="#" class="btn">
+									<a href="index.html" class="btn">
 										<i class="glyphicon glyphicon-pushpin"></i>
 										 旧书教材
 									</a>
@@ -225,25 +280,65 @@ $servername = $row['servername'];
 								<div class="panel panel-info mar">
 								  	<div class="panel-heading">
 								    	<h3 class="panel-title">
-								    		<a href="index.html">
-								    			<i class="glyphicon glyphicon-fire"></i>
-								    			热门资料
-								    		</a>
+							    			<i class="glyphicon glyphicon-fire"></i>
+							    			热门资料
 								    	</h3>
 								  	</div>
 								</div>
 							</div>
+							<?php
+							$query = "select * from item order by item_id DESC";
+							$queryuser = mysql_query("$query");
+							print_r($query);
+							while($row = mysql_fetch_array($queryuser)){
+							echo <<<EOT
 							<div class="col-md-4 col-sm-6 col-xs-12 top-mar">
 								<div class="single-product">
 									<div class="single-product-img">
-										<a href="#">
+										<a href="single_product.html">
 											<img src="img/singlepro/8.jpg" />
 										</a>
 									</div>
 									<div class="single-product-content">
 										<div class="product-title">
                                             <h5>
-                                                <a href="#">例一标题</a>
+                                                <a href="single_product.html">$row[item_name]</a>
+                                            </h5>
+                                        </div>
+                                        <div class="rating">
+                                            <div class="star star-on"></div>
+                                            <div class="star star-on"></div>
+                                            <div class="star star-on"></div>
+                                            <div class="star star-on"></div>
+                                            <div class="star"></div>
+                                        </div>
+                                        <div class="price-box">
+                                            <span class="price">¥$row[discount_price]</span>
+                                            <span class="old-price">¥$row[price]</span>
+                                        </div>
+                                        <div class="product-action">
+                                            <button class="button btn btn-default" title="add to cart">加入购物车</button>
+                                            <a class="add-wishlist" href="#" title="add to wishlist">
+                                                <i class="glyphicon glyphicon-heart-empty "></i>
+                                            </a>
+                                        </div>
+									</div>
+								</div>
+							</div>
+EOT;
+							}
+							?>
+							<div class="col-md-4 col-sm-6 col-xs-12 top-mar">
+								<div class="single-product">
+									<div class="single-product-img">
+										<a href="single_product.html">
+											<img src="img/singlepro/8.jpg" />
+										</a>
+									</div>
+									<div class="single-product-content">
+										<div class="product-title">
+                                            <h5>
+                                                <a href="single_product.html">例一标题</a>
                                             </h5>
                                         </div>
                                         <div class="rating">
@@ -269,14 +364,14 @@ $servername = $row['servername'];
 							<div class="col-md-4 col-sm-6 col-xs-12 top-mar">
 								<div class="single-product">
 									<div class="single-product-img">
-										<a href="#">
+										<a href="single_product.html">
 											<img src="img/singlepro/8.jpg" />
 										</a>
 									</div>
 									<div class="single-product-content">
 										<div class="product-title">
                                             <h5>
-                                                <a href="#">例一标题</a>
+                                                <a href="single_product.html">例一标题</a>
                                             </h5>
                                         </div>
                                         <div class="rating">
@@ -302,14 +397,14 @@ $servername = $row['servername'];
 							<div class="col-md-4 col-sm-6 col-xs-12 top-mar">
 								<div class="single-product">
 									<div class="single-product-img">
-										<a href="#">
+										<a href="single_product.html">
 											<img src="img/singlepro/8.jpg" />
 										</a>
 									</div>
 									<div class="single-product-content">
 										<div class="product-title">
                                             <h5>
-                                                <a href="#">例一标题</a>
+                                                <a href="single_product.html">例一标题</a>
                                             </h5>
                                         </div>
                                         <div class="rating">
@@ -335,14 +430,14 @@ $servername = $row['servername'];
 							<div class="col-md-4 col-sm-6 col-xs-12 top-mar">
 								<div class="single-product">
 									<div class="single-product-img">
-										<a href="#">
+										<a href="single_product.html">
 											<img src="img/singlepro/8.jpg" />
 										</a>
 									</div>
 									<div class="single-product-content">
 										<div class="product-title">
                                             <h5>
-                                                <a href="#">例一标题</a>
+                                                <a href="single_product.html">例一标题</a>
                                             </h5>
                                         </div>
                                         <div class="rating">
@@ -368,14 +463,14 @@ $servername = $row['servername'];
 							<div class="col-md-4 col-sm-6 col-xs-12 top-mar">
 								<div class="single-product">
 									<div class="single-product-img">
-										<a href="#">
+										<a href="single_product.html">
 											<img src="img/singlepro/8.jpg" />
 										</a>
 									</div>
 									<div class="single-product-content">
 										<div class="product-title">
                                             <h5>
-                                                <a href="#">例一标题</a>
+                                                <a href="single_product.html">例一标题</a>
                                             </h5>
                                         </div>
                                         <div class="rating">
@@ -401,14 +496,14 @@ $servername = $row['servername'];
 							<div class="col-md-4 col-sm-6 col-xs-12 top-mar">
 								<div class="single-product">
 									<div class="single-product-img">
-										<a href="#">
+										<a href="single_product.html">
 											<img src="img/singlepro/8.jpg" />
 										</a>
 									</div>
 									<div class="single-product-content">
 										<div class="product-title">
                                             <h5>
-                                                <a href="#">例一标题</a>
+                                                <a href="single_product.html">例一标题</a>
                                             </h5>
                                         </div>
                                         <div class="rating">
@@ -434,14 +529,14 @@ $servername = $row['servername'];
 							<div class="col-md-4 col-sm-6 col-xs-12 top-mar">
 								<div class="single-product">
 									<div class="single-product-img">
-										<a href="#">
+										<a href="single_product.html">
 											<img src="img/singlepro/8.jpg" />
 										</a>
 									</div>
 									<div class="single-product-content">
 										<div class="product-title">
                                             <h5>
-                                                <a href="#">例一标题</a>
+                                                <a href="single_product.html">例一标题</a>
                                             </h5>
                                         </div>
                                         <div class="rating">
@@ -467,14 +562,14 @@ $servername = $row['servername'];
 							<div class="col-md-4 col-sm-6 col-xs-12 top-mar">
 								<div class="single-product">
 									<div class="single-product-img">
-										<a href="#">
+										<a href="single_product.html">
 											<img src="img/singlepro/8.jpg" />
 										</a>
 									</div>
 									<div class="single-product-content">
 										<div class="product-title">
                                             <h5>
-                                                <a href="#">例一标题</a>
+                                                <a href="single_product.html">例一标题</a>
                                             </h5>
                                         </div>
                                         <div class="rating">
@@ -500,14 +595,14 @@ $servername = $row['servername'];
 							<div class="col-md-4 col-sm-6 col-xs-12 top-mar">
 								<div class="single-product">
 									<div class="single-product-img">
-										<a href="#">
+										<a href="single_product.html">
 											<img src="img/singlepro/8.jpg" />
 										</a>
 									</div>
 									<div class="single-product-content">
 										<div class="product-title">
                                             <h5>
-                                                <a href="#">例一标题</a>
+                                                <a href="single_product.html">例一标题</a>
                                             </h5>
                                         </div>
                                         <div class="rating">
@@ -533,14 +628,14 @@ $servername = $row['servername'];
 							<div class="col-md-4 col-sm-6 col-xs-12 top-mar">
 								<div class="single-product">
 									<div class="single-product-img">
-										<a href="#">
+										<a href="single_product.html">
 											<img src="img/singlepro/8.jpg" />
 										</a>
 									</div>
 									<div class="single-product-content">
 										<div class="product-title">
                                             <h5>
-                                                <a href="#">例一标题</a>
+                                                <a href="single_product.html">例一标题</a>
                                             </h5>
                                         </div>
                                         <div class="rating">
@@ -566,47 +661,14 @@ $servername = $row['servername'];
 							<div class="col-md-4 col-sm-6 col-xs-12 top-mar">
 								<div class="single-product">
 									<div class="single-product-img">
-										<a href="#">
+										<a href="single_product.html">
 											<img src="img/singlepro/8.jpg" />
 										</a>
 									</div>
 									<div class="single-product-content">
 										<div class="product-title">
                                             <h5>
-                                                <a href="#">例一标题</a>
-                                            </h5>
-                                        </div>
-                                        <div class="rating">
-                                            <div class="star star-on"></div>
-                                            <div class="star star-on"></div>
-                                            <div class="star star-on"></div>
-                                            <div class="star star-on"></div>
-                                            <div class="star"></div>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="price">¥50.00</span>
-                                            <span class="old-price">¥70.00</span>
-                                        </div>
-                                        <div class="product-action">
-                                            <button class="button btn btn-default" title="add to cart">加入购物车</button>
-                                            <a class="add-wishlist" href="#" title="add to wishlist">
-                                                <i class="glyphicon glyphicon-heart-empty "></i>
-                                            </a>
-                                        </div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-6 col-xs-12 top-mar">
-								<div class="single-product">
-									<div class="single-product-img">
-										<a href="#">
-											<img src="img/singlepro/8.jpg" />
-										</a>
-									</div>
-									<div class="single-product-content">
-										<div class="product-title">
-                                            <h5>
-                                                <a href="#">例一标题</a>
+                                                <a href="single_product.html">例一标题</a>
                                             </h5>
                                         </div>
                                         <div class="rating">
