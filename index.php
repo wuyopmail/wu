@@ -79,6 +79,8 @@ if($add_id != ''){
 	//print_r($query);
 	$delete_id = mysql_query("$query");
 }
+$type = getvar(@$_GET['type']);
+$page = getvar(@$_GET['page']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -101,113 +103,9 @@ if($add_id != ''){
 	</head>
 	<body> 
 		<!--header	开始-->
-		<header>
-			<div class="header-top">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 col-xs-12 col-sm-12">
-							<div class="header-top-left">
-								<span>欢迎<?php echo"$username"?>光临 物友-情书~</span>
-								<span class="cf">
-									<a href="register.html" class="cf">
-                                       	<?php if($userid == ""){
-											echo "注册";
-										}
-										?>
-                                    </a>
-								</span>
-                                <span class="cf">
-									<a href="login.html" class="cf">
-                                       	<?php if($userid == ""){
-											echo "登录";
-										}
-										?>
-                                    </a>
-								</span>
-                                <span class="cf">
-									<a href="login.html" class="cf">
-                                       	<?php if($userid != ""){
-											echo '<a href="login.php?action=logout">注销</a>';
-										}
-										?>
-                                    </a>
-								</span>
-							</div>
-						</div>
-						<div class="col-md-6 col-xs-12 col-sm-12">
-							<div class="header-top-right">
-								<ul style="text-align: center;margin-left: -40px;">
-									<li class="floatleft">
-                                        <a href="shopping_cart.html">
-                                        	<i  class="glyphicon glyphicon-shopping-cart" style="color: hotpink;"></i>
-                                           	购物车
-                                        </a>
-                                    </li>
-                                    <li class="floatleft">
-                                        <a href="wish_list.html">
-                                        	<i  class="glyphicon glyphicon-heart-empty"></i>
-                                           	我的收藏
-                                        </a>
-                                    </li>
-									<li class="floatleft dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="down1">
-                                           	个人中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="down1">
-                                        	<li><a href="secret_revise.html">密码修改</a></li>
-										    <li role="separator" class="divider"></li>
-										    <li><a href="wish_list.html">我的收藏</a></li>
-										    <li><a href="order.html">我的订单</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="floatleft dropdown hidden-sm hidden-xs">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="down2">
-                                           	卖家中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="down2">
-                                        	<li><a href="items_add.html">商品添加</a></li>
-										    <li role="separator" class="divider"></li>
-										    <li><a href="items_revise.html">商品管理</a></li>
-										    <li><a href="#">数据统计</a></li>
-                                        </ul>
-                                    </li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="header-middle">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-4 col-xs-12 col-sm-4">
-							<div class="logo1">
-								<img src="img/logo/logo2.1.jpg" />
-							</div>
-						</div>
-						<div class="col-md-5 col-xs-12 col-sm-8">
-							<div style="width: 100%;margin-top: 30px;">
-									<form action="#">
-										<div style="float:left;width: 87%;">
-											<input type="text" class="form-control" placeholder="搜索书库"/>	
-										</div>
-										<button type="submit" class="sub" value="">
-											<span class="glyphicon glyphicon-search"></span>
-										</button>
-									</form>
-							</div>
-						</div>
-						<div class="col-md-3 hidden-xs hidden-sm">
-							<div class="logo2">
-								<a href="index.html">
-									<img src="img/logo/logo1.2.png" />
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
+		<?php
+		include_once('./core/header.php');
+		?>
 		<!--header	结束-->
 		<!--head_banner	开始-->
 		<div class="head_banner">s
@@ -235,37 +133,37 @@ if($add_id != ''){
 							<span class="zt">书本分类</span>
 							<ul>
 								<li>
-									<a href="index.html" class="btn">
+									<a href="index.php?type=大学教材" class="btn">
 										<i class="glyphicon glyphicon-pushpin"></i>
 										大学教材 
 									</a>
 								</li>
 								<li>
-									<a href="index.html" class="btn">
+									<a href="index.php?type=英语考级" class="btn">
 										<i class="glyphicon glyphicon-pushpin"></i>
 										 英语考级
 									</a>
 								</li>
 								<li>
-									<a href="index.html" class="btn">
+									<a href="index.php?type=考研专题" class="btn">
 										<i class="glyphicon glyphicon-pushpin"></i>
 										 考研专题
 									</a>
 								</li>
 								<li>
-									<a href="index.html" class="btn">
+									<a href="index.php?type=公务员项" class="btn">
 										<i class="glyphicon glyphicon-pushpin"></i>
 										 公务员项
 									</a>
 								</li>
 								<li>
-									<a href="index.html" class="btn">
+									<a href="index.php?type=课外书本" class="btn">
 										<i class="glyphicon glyphicon-pushpin"></i>
 										 课外书本
 									</a>
 								</li>
 								<li>
-									<a href="index.html" class="btn">
+									<a href="index.php?type=旧书教材" class="btn">
 										<i class="glyphicon glyphicon-pushpin"></i>
 										 旧书教材
 									</a>
@@ -287,7 +185,21 @@ if($add_id != ''){
 								</div>
 							</div>
 							<?php
-							$query = "select * from item order by item_id DESC";
+							$query = "select count(*) from item order by item_id DESC";
+							$num = mysql_query("$query");
+							$num = mysql_fetch_array($num);
+							$num = $num[0];
+							$page_num = $num / 50;//每页商品数量
+							$page_num = intval($page_num) + 1;
+							//echo $page_num;
+							if($page == ''){
+								$query = "select * from item where type like '%$type%' order by item_id DESC limit 0,50";
+							} else {
+								$page--;
+								$page = $page * 50;
+								$query = "select * from item where type like '%$type%' order by item_id DESC limit $page,50";
+							}
+							//print_r($query);
 							$queryuser = mysql_query("$query");
 							//print_r($query);
 							while($row = mysql_fetch_array($queryuser)){
@@ -295,14 +207,14 @@ if($add_id != ''){
 							<div class="col-md-4 col-sm-6 col-xs-12 top-mar">
 								<div class="single-product">
 									<div class="single-product-img">
-										<a href="single_product.html">
+										<a href="single_product.php?item_id=$row[item_id]">
 											<img src="img/singlepro/8.jpg" />
 										</a>
 									</div>
 									<div class="single-product-content">
 										<div class="product-title">
                                             <h5>
-                                                <a href="single_product.html">$row[item_name]</a>
+                                                <a href="single_product.php?item_id=$row[item_id]">$row[item_name]</a>
                                             </h5>
                                         </div>
                                         <div class="rating">
@@ -319,7 +231,7 @@ if($add_id != ''){
                                         <div class="product-action">
 										<form action="shopping_cart.php" method="GET">
                                             <button href="#" class="button btn btn-default" title="add to cart" value="$row[item_id]" name="item_id">加入购物车</button>
-                                            <a class="add-wishlist" href="#" title="add to wishlist">
+                                            <a class="add-wishlist" href="./wish_list.php?item_id=$row[item_id]" title="add to wishlist">
                                                 <i class="glyphicon glyphicon-heart-empty "></i>
                                             </a>
                                         </div>
@@ -337,16 +249,14 @@ EOT;
 								        <span aria-hidden="true">&laquo;</span>
 								      </a>
 								    </li>
-								    <li><a href="#">1</a></li>
-								    <li><a href="#">2</a></li>
-								    <li><a href="#">3</a></li>
-								    <li><a href="#">4</a></li>
-								    <li><a href="#">5</a></li>
-								    <li><a href="#">6</a></li>
-								    <li><a href="#">7</a></li>
-								    <li><a href="#">8</a></li>
-								    <li><a href="#">9</a></li>
-								    <li><a href="#">10</a></li>
+								    <?php
+									$i = 1;
+									while($i <= $page_num){
+										$page = $i;
+										echo '<li><a href="./index.php?type='.$type.'&page='.$page.'">1</a></li>';
+										$i++;
+									}
+									?>
 								    <li>
 								      <a href="#" aria-label="Next">
 								        <span aria-hidden="true">&raquo;</span>

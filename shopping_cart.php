@@ -9,6 +9,7 @@ session_start();
 
 //包含数据库连接文件
 include('conn.php');
+include('./core/function.php');
 $userid = @$_SESSION['userid'];
 $username = @$_SESSION['username'];
 $getitem_id = @$_GET[item_id];
@@ -45,7 +46,7 @@ if($item_id != '' && $qty != ''){
 	$query = "select count(*) from cart where uid = '".$userid."' and item_id = '".$item_id."'";
 	$server_query = mysql_query("$query");
 	$server_query = mysql_fetch_array($server_query);
-	print_r($server_query[0]);
+	//print_r($server_query[0]);
 	if($server_query[0] == 0){
 		$query = "insert into cart(uid, item_id, qty) values ('".$userid."', '".$item_id."', '".$qty."')";
 		$server_query = mysql_query("$query");
@@ -59,6 +60,12 @@ if($item_id != '' && $qty != ''){
 //本页数据
 $count_price = 0;//计算总价
 //$item_id_all = "";//商品id
+$delete_id = getvar(@$_GET['delete_id']);
+if($delete_id != ''){
+	$query = "delete from cart where uid = '".$userid."' and item_id = '".$delete_id."'";
+	//print_r($query);
+	$delete_id = mysql_query("$query");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -80,113 +87,9 @@ $count_price = 0;//计算总价
 	</head>
 	<body> 
 		<!--header	开始-->
-		<header>
-			<div class="header-top">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 col-xs-12 col-sm-12">
-							<div class="header-top-left">
-								<span>欢迎<?php echo"$username"?>光临 物友-情书~</span>
-								<span class="cf">
-									<a href="register.html" class="cf">
-                                       	<?php if($userid == ""){
-											echo "注册";
-										}
-										?>
-                                    </a>
-								</span>
-                                <span class="cf">
-									<a href="login.html" class="cf">
-                                       	<?php if($userid == ""){
-											echo "登录";
-										}
-										?>
-                                    </a>
-								</span>
-                                <span class="cf">
-									<a href="login.html" class="cf">
-                                       	<?php if($userid != ""){
-											echo '<a href="login.php?action=logout">注销</a>';
-										}
-										?>
-                                    </a>
-								</span>
-							</div>
-						</div>
-						<div class="col-md-6 col-xs-12 col-sm-12">
-							<div class="header-top-right">
-								<ul style="text-align: center;margin-left: -40px;">
-									<li class="floatleft">
-                                        <a href="shopping_cart.html">
-                                        	<i  class="glyphicon glyphicon-shopping-cart" style="color: hotpink;"></i>
-                                           	购物车
-                                        </a>
-                                    </li>
-                                    <li class="floatleft">
-                                        <a href="wish_list.html">
-                                        	<i  class="glyphicon glyphicon-heart-empty"></i>
-                                           	我的收藏
-                                        </a>
-                                    </li>
-									<li class="floatleft dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="down1">
-                                           	个人中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="down1">
-                                        	<li><a href="secret_revise.html">密码修改</a></li>
-										    <li role="separator" class="divider"></li>
-										    <li><a href="wish_list.html">我的收藏</a></li>
-										    <li><a href="order.html">我的订单</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="floatleft dropdown hidden-sm hidden-xs">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="down2">
-                                           	卖家中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="down2">
-                                        	<li><a href="items_add.html">商品添加</a></li>
-										    <li role="separator" class="divider"></li>
-										    <li><a href="items_revise.html">商品管理</a></li>
-										    <li><a href="#">数据统计</a></li>
-                                        </ul>
-                                    </li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="header-middle">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-4 col-xs-12 col-sm-4">
-							<div class="logo1">
-								<img src="img/logo/logo2.1.jpg" />
-							</div>
-						</div>
-						<div class="col-md-5 col-xs-12 col-sm-8">
-							<div style="width: 100%;margin-top: 30px;">
-									<form action="#">
-										<div style="float:left;width: 87%;">
-											<input type="text" class="form-control" placeholder="搜索书库"/>	
-										</div>
-										<button type="submit" class="sub" value="">
-											<span class="glyphicon glyphicon-search"></span>
-										</button>
-									</form>
-							</div>
-						</div>
-						<div class="col-md-3 hidden-xs hidden-sm">
-							<div class="logo2">
-								<a href="index.html">
-									<img src="img/logo/logo1.2.png" />
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
+		<?php
+		include_once('./core/header.php');
+		?>
 		<!--header	结束-->
 		
 		<!--中间区域tab页开始-->
@@ -290,8 +193,8 @@ $count_price = 0;//计算总价
 									</li>
 									<li class="col-md-2 col-sm-1 col-xs-1"><h5 class="t-price">￥$final_price</h5></li>
 									<li class="col-md-1 col-sm-2 col-xs-12">
-										<a href="#">收藏</a>&nbsp;&nbsp;&nbsp;
-										<a href="#">删除</a>
+										<a href="./wish_list.php?item_id=$server_query[item_id]">收藏</a>&nbsp;&nbsp;&nbsp;
+										<a href="./shopping_cart.php?delete_id=$server_query[item_id]">删除</a>
 									</li>
 								</ul>
 							</li>

@@ -72,9 +72,15 @@ if($delete_id != ''){
 	$delete_id = mysql_query("$query");
 }
 if($add_id != ''){
-	$query = "insert into bookmark(uid, item_id, time) values ('".$userid."', '".$add_id."', '".time()."')";
-	//print_r($query);
-	$delete_id = mysql_query("$query");
+	$query = "select count(*) from bookmark where uid = '".$userid."' and item_id = '".$item_id."'";
+	$exist_query = mysql_query("$query");
+	$exist_query = mysql_fetch_array($exist_query);
+	//print_r($exist_query);
+	if($exist_query[0] == 0){
+		$query = "insert into bookmark(uid, item_id, time) values ('".$userid."', '".$add_id."', '".time()."')";
+		//print_r($query);
+		$add_id = mysql_query("$query");
+	}
 }
 ?>
 <!DOCTYPE html>
@@ -97,99 +103,9 @@ if($add_id != ''){
 	</head>
 	<body> 
 		<!--header	开始-->
-		<header>
-			<div class="header-top">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 col-xs-12 col-sm-12">
-							<div class="header-top-left">
-								<span>欢迎光临 物友-情书~</span>
-								<span class="cf">
-									<a href="register.html" class="cf">
-                                       	注册
-                                    </a>
-								</span>
-                                <span class="cf">
-									<a href="login.html" class="cf">
-                                       	登录
-                                    </a>
-								</span>
-							</div>
-						</div>
-						<div class="col-md-6 col-xs-12 col-sm-12">
-							<div class="header-top-right">
-								<ul style="text-align: center;margin-left: -40px;">
-									<li class="floatleft">
-                                        <a href="shopping_cart.html">
-                                        	<i  class="glyphicon glyphicon-shopping-cart" style="color: hotpink;"></i>
-                                           	购物车
-                                        </a>
-                                    </li>
-                                    <li class="floatleft">
-                                        <a href="wish_list.html">
-                                        	<i  class="glyphicon glyphicon-heart-empty"></i>
-                                           	我的收藏
-                                        </a>
-                                    </li>
-									<li class="floatleft dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="down1">
-                                           	个人中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="down1">
-                                        	<li><a href="secret_revise.html">密码修改</a></li>
-										    <li role="separator" class="divider"></li>
-										    <li><a href="wish_list.html">我的收藏</a></li>
-										    <li><a href="order.html">我的订单</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="floatleft dropdown hidden-sm hidden-xs">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="down2">
-                                           	卖家中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="down2">
-                                        	<li><a href="items_add.html">商品添加</a></li>
-										    <li role="separator" class="divider"></li>
-										    <li><a href="items_revise.html">商品管理</a></li>
-										    <li><a href="#">数据统计</a></li>
-                                        </ul>
-                                    </li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="header-middle">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-4 col-xs-12 col-sm-4">
-							<div class="logo1">
-								<img src="img/logo/logo2.1.jpg" />
-							</div>
-						</div>
-						<div class="col-md-5 col-xs-12 col-sm-8">
-							<div style="width: 100%;margin-top: 30px;">
-									<form action="#">
-										<div style="float:left;width: 87%;">
-											<input type="text" class="form-control" placeholder="搜索书库"/>	
-										</div>
-										<button type="submit" class="sub" value="">
-											<span class="glyphicon glyphicon-search"></span>
-										</button>
-									</form>
-							</div>
-						</div>
-						<div class="col-md-3 hidden-xs hidden-sm">
-							<div class="logo2">
-								<a href="index.html">
-									<img src="img/logo/logo1.2.png" />
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
+		<?php
+		include_once('./core/header.php');
+		?>
 		<!--header	结束-->
 		<!--收藏	 开始-->
 		<div class="container">
@@ -249,7 +165,7 @@ if($add_id != ''){
 						$query = "select * from item where item_id = '".$row['item_id']."'";
 						$server_query = mysql_query("$query");
 						$server_query = mysql_fetch_array($server_query);
-						$times = date(("Y.m.d"),$server_query['time']);
+						$times = date(("Y.m.d"),$row['time']);
 						//print_r($times);
 						echo <<<EOT
 					<ul class="cart-con bord-li">
