@@ -1,3 +1,137 @@
+<?php
+session_start();
+
+//检测是否登录，若没登录则转向登录界面
+//if(!isset($_SESSION['userid'])){
+//	header("Location:login.html");
+//	exit();
+//}
+
+//包含数据库连接文件
+include('conn.php');
+include('./core/function.php');
+$userid = @$_SESSION['userid'];
+$username = @$_SESSION['username'];
+
+@$gettype=$_POST[type];
+@$getitem_name=$_POST[item_name];
+@$getauthor=$_POST[author];
+@$getpress=$_POST[press];
+@$gettime=$_POST['time'];
+@$getcondition_precent=$_POST[condition_precent];
+@$getdiscount_price=$_GET[discount_price];
+@$getprice=$_POST[price];
+@$getqty=$_GET[qty];
+@$getcontent=$_POST[content];
+
+$user_query = mysql_query("select * from user where uid=$userid limit 1");
+@$row = mysql_fetch_array($user_query);
+$server_query = mysql_query("select * from server where uid=$userid limit 50");
+
+
+if($gettype == ''){
+	$type = '';
+} else {
+	$type = mysql_real_escape_string($gettype);
+}
+if($getitem_name == ''){
+	$item_name = '';
+} else {
+	$item_name = mysql_real_escape_string($getitem_name);
+}
+if($getauthor == ''){
+	$author = '';
+} else {
+	$author = mysql_real_escape_string($getauthor);
+}
+if($getpress == ''){
+	$press = '';
+} else {
+	$press = mysql_real_escape_string($getpress);
+}
+if($gettime == ''){
+	$time = '';
+} else {
+	$time = mysql_real_escape_string($gettime);
+}
+if($getcondition_precent == ''){
+	$condition_precent = '';
+} else {
+	$condition_precent = mysql_real_escape_string($getcondition_precent);
+}
+if($getdiscount_price == ''){
+	$discount_price = '';
+} else {
+	$discount_price = mysql_real_escape_string($getdiscount_price);
+}
+if($getprice == ''){
+	$price = '';
+} else {
+	$price = mysql_real_escape_string($getprice);
+}
+if($getqty == ''){
+	$qty = '';
+} else {
+	$qty = mysql_real_escape_string($getqty);
+}
+if($getcontent == ''){
+	$content = '';
+} else {
+	$content = mysql_real_escape_string($getcontent);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//$server_row = mysql_fetch_array($server_query);
+/*echo '用户信息：<br />';
+echo '用户ID：',$userid,'<br />';
+echo '用户名：',$username,'<br />';
+echo '邮箱：',$row['email'],'<br />';
+echo '注册日期：',date("Y-m-d", $row['regdate']),'<br />';
+echo '服务器名称：'.$row['servername'].'</br>';
+echo '<a href="login.php?action=logout">注销</a> 登录<br />';*/
+//echo $item_id;
+//print_r($row);
+?>
+<?php
+//数据处理部分
+$item_id = getvar(@$_GET['item_id']);
+$type = getvar(@$_GET['type']);
+$delete_id = getvar(@$_GET['delete_id']);
+$search_name = getvar(@$_GET['search_name']);
+$search_author = getvar(@$_GET['search_author']);
+$search_press = getvar(@$_GET['search_press']);
+$search_discount_price = getvar(@$_GET['search_discount_price']);
+$search_qty = getvar(@$_GET['search_qty']);
+$search_type = getvar(@$_GET['search_type']);
+if($item_id != '' && $type != '' && $qty != '' && $discount_price != ''){
+	$query = "update item set type = '".$type."' ,qty = '".$qty."' ,discount_price = '".$discount_price."'where item_id = '".$item_id."'";
+	$server_query = mysql_query("$query");
+}
+if($delete_id != ''){
+	$query = "delete from item where item_id = '".$delete_id."'";
+	$server_query = mysql_query("$query");
+}
+?>
 <!DOCTYPE html>
 <html class="html2">
 	<head>
@@ -21,99 +155,9 @@
 	</head>
 	<body> 
 		<!--header	开始-->
-		<header>
-			<div class="header-top">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 col-xs-12 col-sm-12">
-							<div class="header-top-left">
-								<span>欢迎光临 物友-情书~</span>
-								<span class="cf">
-									<a href="register.html" class="cf">
-                                       	注册
-                                    </a>
-								</span>
-                                <span class="cf">
-									<a href="login.html" class="cf">
-                                       	登录
-                                    </a>
-								</span>
-							</div>
-						</div>
-						<div class="col-md-6 col-xs-12 col-sm-12">
-							<div class="header-top-right">
-								<ul style="text-align: center;margin-left: -40px;">
-									<li class="floatleft">
-                                        <a href="shopping_cart.html">
-                                        	<i  class="glyphicon glyphicon-shopping-cart" style="color: hotpink;"></i>
-                                           	购物车
-                                        </a>
-                                    </li>
-                                    <li class="floatleft">
-                                        <a href="wish_list.html">
-                                        	<i  class="glyphicon glyphicon-heart-empty"></i>
-                                           	我的收藏
-                                        </a>
-                                    </li>
-									<li class="floatleft dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="down1">
-                                           	个人中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="down1">
-                                        	<li><a href="secret_revise.html">密码修改</a></li>
-										    <li role="separator" class="divider"></li>
-										    <li><a href="wish_list.html">我的收藏</a></li>
-										    <li><a href="order.html">我的订单</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="floatleft dropdown hidden-sm hidden-xs">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="down2">
-                                           	卖家中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="down2">
-                                        	<li><a href="items_add.html">商品添加</a></li>
-										    <li role="separator" class="divider"></li>
-										    <li><a href="items_revise.html">商品管理</a></li>
-										    <li><a href="#">数据统计</a></li>
-                                        </ul>
-                                    </li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="header-middle">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-4 col-xs-12 col-sm-4">
-							<div class="logo1">
-								<img src="img/logo/logo2.1.jpg" />
-							</div>
-						</div>
-						<div class="col-md-5 col-xs-12 col-sm-8">
-							<div style="width: 100%;margin-top: 30px;">
-									<form action="#">
-										<div style="float:left;width: 87%;">
-											<input type="text" class="form-control" placeholder="搜索书库"/>	
-										</div>
-										<button type="submit" class="sub" value="">
-											<span class="glyphicon glyphicon-search"></span>
-										</button>
-									</form>
-							</div>
-						</div>
-						<div class="col-md-3 hidden-xs hidden-sm">
-							<div class="logo2">
-								<a href="index.html">
-									<img src="img/logo/logo1.2.png" />
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
+		<?php
+		include_once('./core/header.php');
+		?>
 		<!--header	结束-->
 		<!--收藏	 开始-->
 		<div class="container">
@@ -137,17 +181,17 @@
 				<div class="col-md-10 col-sm-12 col-xs-12">
 					<h3 class="kaiti-font col-md-offset-1">卖家中心->商品管理</h3>
 					<div class="col-md-11 col-md-offset-1 col-sm-12 col-xs-12 bot">
-						<form action="" method="post">
+						<form action="items_revise.php" method="get">
 							<div class="col-md-12">
-								<span class="lf-font2">书名：</span><input type="text" name="book_title" value="" />
-								<span class="lf-font2">作者：</span><input type="text" name="book_title" value="" />
-								<span class="lf-font2">出版社：</span><input type="text" name="book_title" value="" />
+								<span class="lf-font2">书名：</span><input type="text" name="search_name" value="" />
+								<span class="lf-font2">作者：</span><input type="text" name="search_author" value="" />
+								<span class="lf-font2">出版社：</span><input type="text" name="search_press" value="" />
 							</div>
 							<div class="col-md-12">
-								<span class="lf-font2">售价：</span><input type="text" name="book_title" value="" />
-								<span class="lf-font2">库存：</span><input type="text" name="book_title" value="" />
+								<span class="lf-font2">售价：</span><input type="text" name="search_discount_price" value="" />
+								<span class="lf-font2">库存：</span><input type="text" name="search_qty" value="" />
 								<span class="lf-font2">分类：</span>
-								<select style="margin-left: 10px;padding: 3px 10px 6px 11px;">
+								<select name="search_type" style="margin-left: 10px;padding: 3px 10px 6px 11px;">
 							        <option value="大学教材" selected="selected">大学教材</option>
 							        <option value="英语考级">英语考级</option>
 							        <option value="考研专题">考研专题</option>
@@ -196,6 +240,15 @@
 						<!--购物单-->
 						
 						<!--动态加载区域-->
+						<?php
+						if($search_name || $search_author || $search_press || $search_discount_price || $search_qty || $search_type){
+							$query = "select * from item where type like '%$search_type%' and item_name like '%$search_name%' and author like '%$search_author%' and press like '%$search_press%' and discount_price like '%$search_discount_price%' and qty like '%$search_qty%'";
+						} else {
+							$query = "select * from item";
+						}
+						$queryuser = mysql_query("$query");
+						while($row = mysql_fetch_array($queryuser)){
+						echo <<<EOT
 						<ul class="cart-con min-h">
 							<li class="col-md-1 col-sm-1 col-xs-1 no-padding">
 								<input type="checkbox" name=""/>
@@ -205,28 +258,29 @@
 							</li>
 							<li class="col-md-10 no-padding">
 								<ul class="cart-con">
-									<li class="col-md-5"><a href="#"><h5 class="t-title">计算机科学技术与物联网工程组成原理</h5></a></li>
-									<li class="col-md-2"><div class="row"><h5>旧书教材</h5</div></li>
-									<li class="col-md-2"><h5>120</h5></li>
-									<li class="col-md-2"><h5 class="t-price">￥48</h5></li>
+									<li class="col-md-5"><a href="#"><h5 class="t-title">$row[item_name]</h5></a></li>
+									<li class="col-md-2"><div class="row"><h5>$row[type]</h5</div></li>
+									<li class="col-md-2"><h5>$row[qty]</h5></li>
+									<li class="col-md-2"><h5 class="t-price">￥$row[discount_price]</h5></li>
 									<li class="col-md-1">
 										<div class="row">
 											<!-- Button trigger modal -->
-											<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">更改</a>
-											<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">删除</a>
+											<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal1$row[item_id]">更改</a>
+											<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal2$row[item_id]">删除</a>
 											<!-- Modal-1 -->
-											<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+											<div class="modal fade" id="myModal1$row[item_id]" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 											  	<div class="modal-dialog" role="document">
 											    	<div class="modal-content">
-											    		<form action="" method="post">
+											    		<form action="./items_revise.php" method="get">
+															<input type="hidden" value="$row[item_id]" name="item_id" id="item_id" />
 												      		<div class="modal-header">
 													        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 													        	<h4 class="modal-title" id="myModalLabel">填写需要更改的数据即可</h4>
 													      	</div>
 													      	<div class="modal-body">
-													        	<input type="text" name="" placeholder="分类" />
-													        	<input type="text" name="" placeholder="库存" />
-													        	<input type="text" name="" placeholder="售价" />
+													        	<input type="text" name="type" placeholder="分类" />
+													        	<input type="text" name="qty" placeholder="库存" />
+													        	<input type="text" name="discount_price" placeholder="售价" />
 													      	</div>
 													      	<div class="modal-footer">
 													        	<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -239,10 +293,11 @@
 											  	</div>
 											</div>
 											<!-- Modal-2 -->
-											<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+											<div class="modal fade" id="myModal2$row[item_id]" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 											  	<div class="modal-dialog" role="document">
 											    	<div class="modal-content">
-											    		<form action="" method="post">
+											    		<form action="./items_revise.php" method="get">
+															<input type="hidden" value="$row[item_id]" name="delete_id" id="delete_id" />
 												      		<div class="modal-header">
 													        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 													        	<h4 class="modal-title" id="myModalLabel">确认删除?</h4>
@@ -267,6 +322,9 @@
 								</ul>
 							</li>
 						</ul>
+EOT;
+						}
+						?>
 						<!--动态加载区域-->
 					</div>
 					<div class="col-md-12">
