@@ -240,34 +240,38 @@ if($delete_id != ''){
 						
 						while($row = mysql_fetch_array($queryuser)){
 						print_r($row);
-						echo <<<EOT
+						$order_arr = explode("|",$row['item_id']);
+						print_r($order_arr);
+						$i = 0;//循环初始化
+						//$cost = 0;//价格初始化
+						$order_arr_num = count($order_arr);
+						$order_arr_num--;
+						while($i < $order_arr_num)	{
+							$cost = 0;//价格初始化
+							$iid = explode("-",$order_arr[$i]);//item_id
+							$i++;
+							$cost = $cost + $iid[1] * $iid[2];
+							print_r($iid);
+								$query = "select * from item where item_id = '".$order_arr[0]."'";
+								$item = mysql_query("$query");
+								$item = mysql_fetch_array($item);
+								print_r($item);
+							echo <<<EOT
 							<ul class="cart-con bord-li">
 								<li class="col-md-2 col-xs-4">
 									<a href="#"><img src="img/21.jpg" class="t-img"></a>
 								</li>
 								<li class="col-md-10 col-xs-8">
 									<ul class="cart-con">
-										<li class="col-md-5 col-xs-12"><a href="#"><h5 class="row">计算机科学技术与物联网工程组成原理</h5></a></li>
-										<li class="col-md-2 col-xs-2 text-center"><h5 class="row">￥48</h5></li>
-										<li class="col-md-3 col-xs-8 text-center"><h5 class="row">1</h5></li>
-										<li class="col-md-2 col-xs-2 text-center"><h5 class="t-price row">￥48</h5></li>
-									</ul>
-								</li>
-							</ul>
-							<ul class="cart-con bord-li">
-								<li class="col-md-2 col-xs-4">
-									<a href="#"><img src="img/21.jpg" class="t-img"></a>
-								</li>
-								<li class="col-md-10 col-xs-8">
-									<ul class="cart-con">
-										<li class="col-md-5 col-xs-12"><a href="#"><h5 class="row">计算机科学技术与物联网工程组成原理</h5></a></li>
-										<li class="col-md-2 col-xs-2 text-center"><h5 class="row">￥48</h5></li>
-										<li class="col-md-3 col-xs-8 text-center"><h5 class="row">1</h5></li>
-										<li class="col-md-2 col-xs-2 text-center"><h5 class="t-price row">￥48</h5></li>
+										<li class="col-md-5 col-xs-12"><a href="#"><h5 class="row">$item[item_name]</h5></a></li>
+										<li class="col-md-2 col-xs-2 text-center"><h5 class="row">￥$iid[2]</h5></li>
+										<li class="col-md-3 col-xs-8 text-center"><h5 class="row">$iid[1]</h5></li>
+										<li class="col-md-2 col-xs-2 text-center"><h5 class="t-price row">￥$cost</h5></li>
 									</ul>
 								</li>
 							</ul>
 EOT;
+							}
 						}
 						?>
 							<!--动态加载区域-->
