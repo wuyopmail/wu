@@ -180,9 +180,9 @@ if($delete_id != ''){
 					<div class="nav">
 						<form action="" method="post">
 							<ul class="col-md-12 col-xs-12">
-								<li class="color colorwhite tab col-md-2 col-xs-4"><span class="sm-font">全部订单</span></li>
-								<li class="tab col-md-2 col-xs-4"><span class="sm-font">待收货1</span></li>
-								<li class="tab col-md-2 col-xs-4"><span class="sm-font">待评价1</span></li>
+								<li class="color colorwhite tab col-md-2 col-xs-4 custom-tab"><span class="sm-font">全部订单</span></li>
+								<li class="tab col-md-2 col-xs-4 custom-tab"><span class="sm-font">待收货1</span></li>
+								<li class="tab col-md-2 col-xs-4 custom-tab"><span class="sm-font">待评价1</span></li>
 								<li class="col-md-5 hidden-xs" style="border: 0;">
 									<input type="text" class="wid-all" placeholder="订单号/收货人姓名"/>
 								</li>
