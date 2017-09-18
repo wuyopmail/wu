@@ -184,7 +184,8 @@
     background: #006699;
     color: white;
 }
-.nav ul li {
+.nav ul li,
+.nav ul .custom-tab {
     display: block;
     float: left;
     margin: 0;
@@ -193,6 +194,14 @@
     text-align: center;
     font-family: KaiTi;
     font-size: 19px;
+    cursor: pointer;
+}
+.nav ul .custom-tab {
+	transition: background 0.5s, color 0.5s;
+}
+.nav ul .custom-tab:hover {
+	background: #006699;
+    color: white;
 }
 .order-check{
 	border: 0;
