@@ -249,7 +249,7 @@ if($delete_id != ''){
 						$queryuser = mysql_query("$query");
 						while($row = mysql_fetch_array($queryuser)){
 						echo <<<EOT
-						<ul class="cart-con min-h">
+						<ul class="cart-con bord-li">
 							<li class="col-md-1 col-sm-1 col-xs-1 no-padding">
 								<input type="checkbox" name=""/>
 							</li>

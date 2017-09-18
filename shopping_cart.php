@@ -103,6 +103,7 @@ if($delete_id != ''){
 					<div class="wu pad-bg2-0">填写订单</div>
 					<div class="wu pad-bg3-0">完成订单</div>
 				</div>
+				<div class="hidden-md hidden-lg col-xs-12 cart-con text-center hidden-font">我的购物车</div>
 			</div>
 		</div>
 		<!--收藏	 开始-->
@@ -204,7 +205,7 @@ EOT;
 					?>
 					<!--动态加载区域-->
 				</div>
-				<div class="col-md-12">
+				<div class="col-xs-12">
 					<?php
 					//$query = "select * from order where uid = '".$userid."' and item_id";
 					//$server_query = mysql_query("$query");

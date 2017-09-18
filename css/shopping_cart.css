@@ -132,12 +132,12 @@
 	color: red;
 }
 .bord-li{
-	background-color: gainsboro;
+	background-color: #f2f2f2;
 	border-radius: 4px;
 	min-height: 106px;
 }
 .bord-li2{
-	background-color: gainsboro;
+	background-color: #f2f2f2;
 	border-radius: 4px;
 	min-height: 126px;
 }
@@ -184,7 +184,8 @@
     background: #006699;
     color: white;
 }
-.nav ul li {
+.nav ul li,
+.nav ul .custom-tab {
     display: block;
     float: left;
     margin: 0;
@@ -193,6 +194,14 @@
     text-align: center;
     font-family: KaiTi;
     font-size: 19px;
+    cursor: pointer;
+}
+.nav ul .custom-tab {
+	transition: background 0.5s, color 0.5s;
+}
+.nav ul .custom-tab:hover {
+	background: #006699;
+    color: white;
 }
 .order-check{
 	border: 0;

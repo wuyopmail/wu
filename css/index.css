@@ -201,7 +201,10 @@ form .form-control {
 	margin: auto -10px 20px;
 	position: relative;
 }
-
+.single-product-img{
+	width:100%;
+	height:332px;
+}
 .single-product-content .product-title h5 {
 	font-size: 14px;
 	font-weight: bold;
