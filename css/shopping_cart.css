@@ -209,7 +209,7 @@
 	min-height: 500px;
 }
 .con {
-	position: relative;
+	position: absolute;
 	top: 0px;
 	left: 0px;
 	display: none;
