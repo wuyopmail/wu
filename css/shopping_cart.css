@@ -132,12 +132,12 @@
 	color: red;
 }
 .bord-li{
-	background-color: gainsboro;
+	background-color: #f2f2f2;
 	border-radius: 4px;
 	min-height: 106px;
 }
 .bord-li2{
-	background-color: gainsboro;
+	background-color: #f2f2f2;
 	border-radius: 4px;
 	min-height: 126px;
 }
