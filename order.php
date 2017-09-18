@@ -196,13 +196,19 @@ if($delete_id != ''){
 				</div>
 				<div class="col-md-10 col-sm-12 col-xs-12 content">
 					<!--全部订单tab页-->
-					<div class="col-md-12 bord-list top-mar no-padding con" style="display: block;">
-						<div class="col-md-4 hidden-xs">
-							<h3>送货清单</h3>
-							<h5 class="top-mar">周六日暂休，只工作日送货哦~</h5>
-							<h4 class="top-mar">Tip:一般情况书本将在第二天傍晚前到达~</h4>
-						</div>
-						<div class="col-md-8 no-padding bord-list-0">
+					<div class="col-md-4 hidden-xs">
+						<h3>送货清单</h3>
+						<h5 class="top-mar">周六日暂休，只工作日送货哦~</h5>
+						<h4 class="top-mar">Tip:一般情况书本将在第二天傍晚前到达~</h4>
+					</div>
+					
+					<div class="col-md-8 bord-list top-mar no-padding con" style="display: block;">
+						<?php
+						$query = "select * from orders where uid = '$userid'";
+						$queryuser = mysql_query("$query");
+						while($row = mysql_fetch_array($queryuser)){
+						echo <<<EOT
+						<div class="col-md-12 no-padding bord-list-0">
 							<!--全选标题栏-->
 							<div class="form-control bord-ul ">
 									<span class="color-gr col-md-6 col-xs-8">2017-8-24;14：59：53</span>
@@ -234,28 +240,27 @@ if($delete_id != ''){
 							<!--购物单-->
 							
 							<!--动态加载区域-->
-						<?php
-						$query = "select * from orders where uid = '$userid'";
-						$queryuser = mysql_query("$query");
-						
-						while($row = mysql_fetch_array($queryuser)){
-						print_r($row);
+EOT;
+
+						//print_r($row);
 						$order_arr = explode("|",$row['item_id']);
-						print_r($order_arr);
+						//print_r($order_arr);
 						$i = 0;//循环初始化
 						//$cost = 0;//价格初始化
 						$order_arr_num = count($order_arr);
 						$order_arr_num--;
+						$cost_all = 0;//价格初始化
 						while($i < $order_arr_num)	{
 							$cost = 0;//价格初始化
 							$iid = explode("-",$order_arr[$i]);//item_id
 							$i++;
 							$cost = $cost + $iid[1] * $iid[2];
-							print_r($iid);
+							$cost_all = $cost_all + $cost;//总价
+							//print_r($iid);
 								$query = "select * from item where item_id = '".$order_arr[0]."'";
 								$item = mysql_query("$query");
 								$item = mysql_fetch_array($item);
-								print_r($item);
+								//print_r($item);
 							echo <<<EOT
 							<ul class="cart-con bord-li">
 								<li class="col-md-2 col-xs-4">
@@ -272,8 +277,9 @@ if($delete_id != ''){
 							</ul>
 EOT;
 							}
-						}
-						?>
+						
+
+							echo <<<EOT
 							<!--动态加载区域-->
 						</div>
 						<!--结算区域-->
@@ -281,7 +287,7 @@ EOT;
 							<ul class="pay cart-con bord-ul">
 								<li class="col-md-4 text-center col-xs-9">
 									<div class="row xs-font">
-										完成订单号为<span class="color-re">454613218</span>，待送；
+										完成订单号为<span class="color-re">$row[order_id]</span>，待送；
 									</div>
 								</li>
 								<li class="col-md-2 col-md-offset-3 text-center hidden-xs">
@@ -291,20 +297,29 @@ EOT;
 								</li>
 								<li class="col-md-3 text-right col-xs-3">
 									<div class="row xs-font">
-										合计：96
+										合计：$cost_all
 									</div>
 								</li>
 							</ul>
 						</div>
-					</div>
+					
+EOT;
+						}
+					echo '</div>';
+					?>
 					<!--待收货tab页-->
-					<div class="col-md-12 bord-list top-mar no-padding con">
-						<div class="col-md-4 hidden-xs">
+					<div class="col-md-8 bord-list top-mar no-padding con">
+					<?php
+						$query = "select * from orders where uid = '$userid' and order_status = '1'";
+						$queryuser = mysql_query("$query");
+						while($row = mysql_fetch_array($queryuser)){
+						echo <<<EOT
+						<!--<div class="col-md-4 hidden-xs">
 							<h3>送货清单</h3>
 							<h5 class="top-mar">周六日暂休，只工作日送货哦~</h5>
 							<h4 class="top-mar">Tip:一般情况书本将在第二天傍晚前到达~</h4>
-						</div>
-						<div class="col-md-8 no-padding bord-list-0">
+						</div>-->
+						<div class="col-md-12 no-padding bord-list-0">
 							<!--全选标题栏-->
 							<div class="form-control bord-ul ">
 								<span class="color-gr col-md-5 col-xs-8">2017-8-24;14：59：53</span>
@@ -337,6 +352,27 @@ EOT;
 							<!--购物单-->
 							
 							<!--动态加载区域-->
+EOT;
+						//print_r($row);
+						$order_arr = explode("|",$row['item_id']);
+						//print_r($order_arr);
+						$i = 0;//循环初始化
+						//$cost = 0;//价格初始化
+						$order_arr_num = count($order_arr);
+						$order_arr_num--;
+						$cost_all = 0;//价格初始化
+						while($i < $order_arr_num)	{
+							$cost = 0;//价格初始化
+							$iid = explode("-",$order_arr[$i]);//item_id
+							$i++;
+							$cost = $cost + $iid[1] * $iid[2];
+							$cost_all = $cost_all + $cost;//总价
+							//print_r($iid);
+								$query = "select * from item where item_id = '".$order_arr[0]."'";
+								$item = mysql_query("$query");
+								$item = mysql_fetch_array($item);
+								//print_r($item);
+							echo <<<EOT
 							<ul class="cart-con bord-li">
 								<li class="col-md-2 col-xs-4">
 									<a href="#"><img src="img/21.jpg" class="t-img"></a>
@@ -344,27 +380,18 @@ EOT;
 								<li class="col-md-10 col-xs-8">
 									<form action="" method="post">
 										<ul class="cart-con">
-											<li class="col-md-5 col-xs-12"><a href="#"><h5 class="row">计算机科学技术与物联网工程组成原理</h5></a></li>
-											<li class="col-md-2 col-xs-2 text-center"><h5 class="row">￥48</h5></li>
-											<li class="col-md-3 col-xs-8 text-center"><h5 class="row">1</h5></li>
-											<li class="col-md-2 col-xs-2 text-center"><h5 class="t-price row">￥48</h5></li>
+											<li class="col-md-5 col-xs-12"><a href="#"><h5 class="row">$item[item_name]</h5></a></li>
+											<li class="col-md-2 col-xs-2 text-center"><h5 class="row">￥$iid[2]</h5></li>
+											<li class="col-md-3 col-xs-8 text-center"><h5 class="row">$iid[1]</h5></li>
+											<li class="col-md-2 col-xs-2 text-center"><h5 class="t-price row">￥$cost</h5></li>
 										</ul>
 									</form>
 								</li>
 							</ul>
-							<ul class="cart-con bord-li">
-								<li class="col-md-2 col-xs-4">
-									<a href="#"><img src="img/21.jpg" class="t-img"></a>
-								</li>
-								<li class="col-md-10 col-xs-8">
-									<ul class="cart-con">
-										<li class="col-md-5 col-xs-12"><a href="#"><h5 class="row">计算机科学技术与物联网工程组成原理</h5></a></li>
-										<li class="col-md-2 col-xs-2 text-center"><h5 class="row">￥48</h5></li>
-										<li class="col-md-3 col-xs-8 text-center"><h5 class="row">1</h5></li>
-										<li class="col-md-2 col-xs-2 text-center"><h5 class="t-price row">￥48</h5></li>
-									</ul>
-								</li>
-							</ul>
+EOT;
+							}
+							
+							echo <<<EOT
 							<!--动态加载区域-->
 						</div>
 						<!--结算区域-->
@@ -372,7 +399,7 @@ EOT;
 							<ul class="pay cart-con bord-ul">
 								<li class="col-md-4 text-center col-xs-9">
 									<div class="row xs-font">
-										完成订单号为<span class="color-re">454613218</span>，待送；
+										完成订单号为<span class="color-re">$row[order_id]</span>，待送；
 									</div>
 								</li>
 								<li class="col-md-2 col-md-offset-3 text-center hidden-xs">
@@ -382,20 +409,28 @@ EOT;
 								</li>
 								<li class="col-md-3 text-right col-xs-3">
 									<div class="row xs-font">
-										合计：96
+										合计：$cost_all
 									</div>
 								</li>
 							</ul>
 						</div>
-					</div>
+EOT;
+						}
+					echo '</div>';
+					?>
 					<!--待评价tab页-->
-					<div class="col-md-12 bord-list top-mar no-padding con">
-						<div class="col-md-4 hidden-xs">
+					<div class="col-md-8 bord-list top-mar no-padding con">
+						<!--<div class="col-md-4 hidden-xs">
 							<h3>送货清单</h3>
 							<h5 class="top-mar">周六日暂休，只工作日送货哦~</h5>
 							<h4 class="top-mar">Tip:一般情况书本将在第二天傍晚前到达~</h4>
-						</div>
-						<div class="col-md-8 no-padding bord-list-0">
+						</div>-->
+					<?php
+						$query = "select * from orders where uid = '$userid' and order_status = '2'";
+						$queryuser = mysql_query("$query");
+						while($row = mysql_fetch_array($queryuser)){
+						echo <<<EOT
+						<div class="col-md-12 no-padding bord-list-0">
 							<!--全选标题栏-->
 							<form action="" method="post">
 								<div class="form-control bord-ul ">
@@ -429,6 +464,27 @@ EOT;
 								<!--购物单-->
 								
 								<!--动态加载区域-->
+EOT;
+						//print_r($row);
+						$order_arr = explode("|",$row['item_id']);
+						//print_r($order_arr);
+						$i = 0;//循环初始化
+						//$cost = 0;//价格初始化
+						$order_arr_num = count($order_arr);
+						$order_arr_num--;
+						$cost_all = 0;//价格初始化
+						while($i < $order_arr_num)	{
+							$cost = 0;//价格初始化
+							$iid = explode("-",$order_arr[$i]);//item_id
+							$i++;
+							$cost = $cost + $iid[1] * $iid[2];
+							$cost_all = $cost_all + $cost;//总价
+							//print_r($iid);
+								$query = "select * from item where item_id = '".$order_arr[0]."'";
+								$item = mysql_query("$query");
+								$item = mysql_fetch_array($item);
+								//print_r($item);
+							echo <<<EOT
 								<ul class="cart-con bord-li2">
 									<li class="col-md-2 col-xs-4">
 										<a href="#"><img src="img/21.jpg" class="t-img"></a>
@@ -436,11 +492,10 @@ EOT;
 									<li class="col-md-10 col-xs-8">
 										<form action="" method="post">
 											<ul class="cart-con">
-												<li class="col-md-5 col-xs-12"><a href="#"><h5 class="row">计算机科学技术与物联网工程组成原理</h5></a></li>
-												<li class="col-md-2 col-xs-2 text-center"><h5 class="row">￥48</h5></li>
-												<li class="col-md-3 col-xs-8 text-center"><h5 class="row">1</h5></li>
-												<li class="col-md-2 col-xs-2 text-center"><h5 class="t-price row">￥48</h5></li>
-												
+												<li class="col-md-5 col-xs-12"><a href="#"><h5 class="row">$item[item_name]</h5></a></li>
+												<li class="col-md-2 col-xs-2 text-center"><h5 class="row">￥$iid[2]</h5></li>
+												<li class="col-md-3 col-xs-8 text-center"><h5 class="row">$iid[1]</h5></li>
+												<li class="col-md-2 col-xs-2 text-center"><h5 class="t-price row">￥$cost</h5></li>
 											</ul>
 										</form>
 									</li>
@@ -448,35 +503,21 @@ EOT;
 										<input type="text" class="form-control" placeholder="请给予您的评价"/>
 									</li>
 								</ul>
-								<ul class="cart-con bord-li2">
-									<li class="col-md-2 col-xs-4">
-										<a href="#"><img src="img/21.jpg" class="t-img"></a>
-									</li>
-									<li class="col-md-10 col-xs-8">
-										<form action="" method="post">
-											<ul class="cart-con">
-												<li class="col-md-5 col-xs-12"><a href="#"><h5 class="row">计算机科学技术与物联网工程组成原理</h5></a></li>
-												<li class="col-md-2 col-xs-2 text-center"><h5 class="row">￥48</h5></li>
-												<li class="col-md-3 col-xs-8 text-center"><h5 class="row">1</h5></li>
-												<li class="col-md-2 col-xs-2 text-center"><h5 class="t-price row">￥48</h5></li>
-												
-											</ul>
-										</form>
-									</li>
-									<li class="col-md-12 col-xs-12 text-center no-padding">
-										<input type="text" class="form-control" placeholder="请给予您的评价"/>
-									</li>
-								</ul>
+EOT;
+							}
+							
+							echo <<<EOT
 								<!--动态加载区域-->
 							</form>
 							
 						</div>
+
 						<!--结算区域-->
 						<div class="col-md-12 no-padding">
 							<ul class="pay cart-con bord-ul">
 								<li class="col-md-4 text-center col-xs-9">
 									<div class="row xs-font">
-										完成订单号为<span class="color-re">454613218</span>，待送；
+										完成订单号为<span class="color-re">$row[order_id]</span>，待送；
 									</div>
 								</li>
 								<li class="col-md-2 col-md-offset-3 text-center hidden-xs">
@@ -486,12 +527,15 @@ EOT;
 								</li>
 								<li class="col-md-3 text-right col-xs-3">
 									<div class="row xs-font">
-										合计：96
+										合计：$cost_all
 									</div>
 								</li>
 							</ul>
 						</div>
-					</div>
+EOT;
+						}
+					echo '</div>';
+					?>
 				</div>
 			</div>
 		</div>
