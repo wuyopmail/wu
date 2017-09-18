@@ -204,7 +204,7 @@ EOT;
 					?>
 					<!--动态加载区域-->
 				</div>
-				<div class="col-md-12">
+				<div class="col-xs-12">
 					<?php
 					//$query = "select * from order where uid = '".$userid."' and item_id";
 					//$server_query = mysql_query("$query");
