@@ -198,6 +198,7 @@ if($delete_id != ''){
 							        <option value="公务员项">公务员项</option>
 							        <option value="课外书本">课外书本</option>
 							        <option value="旧书教材">旧书教材</option>
+								<option value="英语考级">热门资料</option>
 							 	</select>
 								<input type="submit" value="搜索" class="pink"/>
 							</div>
