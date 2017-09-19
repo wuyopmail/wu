@@ -184,7 +184,7 @@ if($delete_id != ''){
 							</li>
 							<li class="col-md-10 col-sm-7 col-xs-7 no-padding">
 								<ul class="cart-con">
-									<li class="col-md-5 col-sm-12 col-xs-12"><a href="#"><h5>$server_query[item_name]</h5></a></li>
+									<li class="col-md-5 col-sm-12 col-xs-12"><a href="./single_product.php?item_id=$server_query[item_id]"><h5>$server_query[item_name]</h5></a></li>
 									<li class="col-md-1 hidden-sm hidden-xs"><h5>￥$server_query[discount_price]</h5></li>
 									<li class="col-md-2 col-md-offset-1 col-sm-8 col-xs-8 line">
 										<a href="./shopping_cart.php?qty=$down_qty&item_id=$server_query[item_id]" class="change jian1">-</a>

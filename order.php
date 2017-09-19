@@ -193,22 +193,24 @@ if($delete_id != ''){
 						</form>
 						
 					</div>
+					
+				</div>
+				<div class="col-md-10 col-xs-12">
+					<div class="alert alert-info">
+						<p>Tip:一般情况书本将在第二天傍晚前到达~</p>
+					</div>
 				</div>
 				<div class="col-md-10 col-sm-12 col-xs-12 content">
 					<!--全部订单tab页-->
-					<div class="col-md-4 hidden-xs">
-						<h3>送货清单</h3>
-						<h5 class="top-mar">周六日暂休，只工作日送货哦~</h5>
-						<h4 class="top-mar">Tip:一般情况书本将在第二天傍晚前到达~</h4>
-					</div>
 					
-					<div class="col-md-8 bord-list top-mar no-padding con" style="display: block;">
+					
+					<div class="col-md-12 top-mar no-padding con" style="display: block;">
 						<?php
 						$query = "select * from orders where uid = '$userid'";
 						$queryuser = mysql_query("$query");
 						while($row = mysql_fetch_array($queryuser)){
 						echo <<<EOT
-						<div class="col-md-12 no-padding bord-list-0">
+						<div class="col-md-12 no-padding bord-list-0 bot-mar">
 							<!--全选标题栏-->
 							<div class="form-control bord-ul ">
 									<span class="color-gr col-md-6 col-xs-8">2017-8-24;14：59：53</span>
@@ -275,10 +277,16 @@ EOT;
 									</ul>
 								</li>
 							</ul>
+EOT;
+							}
+						
+
+							echo <<<EOT
+							<!--结算区域-->
 							<ul class="pay cart-con bord-ul">
 								<li class="col-md-4 text-center col-xs-9">
 									<div class="row xs-font">
-										完成订单号为<span class="color-re">$row[order_id]</span>，完成；
+										完成订单号为<span class="color-re">$row[order_id]</span>，待送；
 									</div>
 								</li>
 								<li class="col-md-2 col-md-offset-3 text-center hidden-xs">
@@ -292,13 +300,15 @@ EOT;
 									</div>
 								</li>
 							</ul>
-					
+						
+							<!--动态加载区域-->
+						</div>
 EOT;
 						}
 					echo '</div>';
 					?>
 					<!--待收货tab页-->
-					<div class="col-md-8 bord-list top-mar no-padding con">
+					<div class="col-md-12 top-mar no-padding con">
 					<?php
 						$query = "select * from orders where uid = '$userid' and order_status = '1'";
 						$queryuser = mysql_query("$query");
@@ -378,6 +388,14 @@ EOT;
 									</form>
 								</li>
 							</ul>
+EOT;
+							}
+							
+							echo <<<EOT
+							<!--动态加载区域-->
+						</div>
+						<!--结算区域-->
+						<div class="col-md-12 no-padding">
 							<ul class="pay cart-con bord-ul">
 								<li class="col-md-4 text-center col-xs-9">
 									<div class="row xs-font">
@@ -395,12 +413,13 @@ EOT;
 									</div>
 								</li>
 							</ul>
+						</div>
 EOT;
 						}
 					echo '</div>';
 					?>
 					<!--待评价tab页-->
-					<div class="col-md-8 bord-list top-mar no-padding con">
+					<div class="col-md-12 top-mar no-padding con">
 						<!--<div class="col-md-4 hidden-xs">
 							<h3>送货清单</h3>
 							<h5 class="top-mar">周六日暂休，只工作日送货哦~</h5>
@@ -484,23 +503,35 @@ EOT;
 										<input type="text" class="form-control" placeholder="请给予您的评价"/>
 									</li>
 								</ul>
-								<ul class="pay cart-con bord-ul">
-									<li class="col-md-4 text-center col-xs-9">
-										<div class="row xs-font">
-											完成订单号为<span class="color-re">$row[order_id]</span>，待评；
-										</div>
-									</li>
-									<li class="col-md-2 col-md-offset-3 text-center hidden-xs">
-										<div class="row xs-font">
-											1个包裹
-										</div>
-									</li>
-									<li class="col-md-3 text-right col-xs-3">
-										<div class="row xs-font">
-											合计：$cost_all
-										</div>
-									</li>
-								</ul>
+EOT;
+							}
+							
+							echo <<<EOT
+								<!--动态加载区域-->
+							</form>
+							
+						</div>
+
+						<!--结算区域-->
+						<div class="col-md-12 no-padding">
+							<ul class="pay cart-con bord-ul">
+								<li class="col-md-4 text-center col-xs-9">
+									<div class="row xs-font">
+										完成订单号为<span class="color-re">$row[order_id]</span>，待送；
+									</div>
+								</li>
+								<li class="col-md-2 col-md-offset-3 text-center hidden-xs">
+									<div class="row xs-font">
+										1个包裹
+									</div>
+								</li>
+								<li class="col-md-3 text-right col-xs-3">
+									<div class="row xs-font">
+										合计：$cost_all
+									</div>
+								</li>
+							</ul>
+						</div>
 EOT;
 						}
 					echo '</div>';

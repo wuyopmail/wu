@@ -11,6 +11,9 @@ li {
 .top-mar {
 	margin-top: 24px;
 }
+.bot-mar{
+	margin-bottom:24px;
+}
 
 .lr-pad {
 	padding-left: 60px;

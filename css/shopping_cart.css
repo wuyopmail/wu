@@ -160,7 +160,7 @@
 	margin-bottom: 20px;
 }
 .bord-list-0{
-	border-left: 1px solid gainsboro;
+	border: 1px solid gainsboro;
 }
 .addr-info{
 	display: inline-block;
