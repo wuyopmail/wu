@@ -275,19 +275,10 @@ EOT;
 									</ul>
 								</li>
 							</ul>
-EOT;
-							}
-						
-
-							echo <<<EOT
-							<!--动态加载区域-->
-						</div>
-						<!--结算区域-->
-						<div class="col-md-12 no-padding">
 							<ul class="pay cart-con bord-ul">
 								<li class="col-md-4 text-center col-xs-9">
 									<div class="row xs-font">
-										完成订单号为<span class="color-re">$row[order_id]</span>，待送；
+										完成订单号为<span class="color-re">$row[order_id]</span>，完成；
 									</div>
 								</li>
 								<li class="col-md-2 col-md-offset-3 text-center hidden-xs">
@@ -301,7 +292,6 @@ EOT;
 									</div>
 								</li>
 							</ul>
-						</div>
 					
 EOT;
 						}
@@ -388,14 +378,6 @@ EOT;
 									</form>
 								</li>
 							</ul>
-EOT;
-							}
-							
-							echo <<<EOT
-							<!--动态加载区域-->
-						</div>
-						<!--结算区域-->
-						<div class="col-md-12 no-padding">
 							<ul class="pay cart-con bord-ul">
 								<li class="col-md-4 text-center col-xs-9">
 									<div class="row xs-font">
@@ -413,7 +395,6 @@ EOT;
 									</div>
 								</li>
 							</ul>
-						</div>
 EOT;
 						}
 					echo '</div>';
@@ -503,35 +484,23 @@ EOT;
 										<input type="text" class="form-control" placeholder="请给予您的评价"/>
 									</li>
 								</ul>
-EOT;
-							}
-							
-							echo <<<EOT
-								<!--动态加载区域-->
-							</form>
-							
-						</div>
-
-						<!--结算区域-->
-						<div class="col-md-12 no-padding">
-							<ul class="pay cart-con bord-ul">
-								<li class="col-md-4 text-center col-xs-9">
-									<div class="row xs-font">
-										完成订单号为<span class="color-re">$row[order_id]</span>，待送；
-									</div>
-								</li>
-								<li class="col-md-2 col-md-offset-3 text-center hidden-xs">
-									<div class="row xs-font">
-										1个包裹
-									</div>
-								</li>
-								<li class="col-md-3 text-right col-xs-3">
-									<div class="row xs-font">
-										合计：$cost_all
-									</div>
-								</li>
-							</ul>
-						</div>
+								<ul class="pay cart-con bord-ul">
+									<li class="col-md-4 text-center col-xs-9">
+										<div class="row xs-font">
+											完成订单号为<span class="color-re">$row[order_id]</span>，待评；
+										</div>
+									</li>
+									<li class="col-md-2 col-md-offset-3 text-center hidden-xs">
+										<div class="row xs-font">
+											1个包裹
+										</div>
+									</li>
+									<li class="col-md-3 text-right col-xs-3">
+										<div class="row xs-font">
+											合计：$cost_all
+										</div>
+									</li>
+								</ul>
 EOT;
 						}
 					echo '</div>';
