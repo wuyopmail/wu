@@ -204,7 +204,7 @@ if($delete_id != ''){
 							</div>
 						</form>
 					</div>
-					<div class="col-md-12">
+					<div class="col-md-12 min-h">
 						<ul class="cart-con">
 							<li class="col-md-1">
 								<div class="row">
