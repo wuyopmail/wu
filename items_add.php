@@ -176,7 +176,7 @@ if($item_name != ''){
 					<ul class="lf-nav-ul">
 						<li><a href="items_add.html"><i class="glyphicon glyphicon-grain"></i>商品添加</a></li>
 						<li><a href="items_revise.html"><i class="glyphicon glyphicon-grain"></i>商品管理</a></li>
-						<li><a href="#"><i class="glyphicon glyphicon-grain"></i>数据统计</a></li>
+						<li><a href="data_statistics.html"><i class="glyphicon glyphicon-grain"></i>数据统计</a></li>
 					</ul>
 				</div>
 				<!--商品添加-->

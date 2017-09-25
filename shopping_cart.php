@@ -115,7 +115,7 @@ if($delete_id != ''){
 					<ul class="shopping-cart hidden-sm hidden-xs cart-con">
 						<li class="col-md-1">
 							<div class="row">
-								<input type="checkbox" name=""/><label for="">全选</label>
+								<input type="checkbox" class="all_check" class="input_check check" name=""/><label for="">全选</label>
 							</div>
 						</li>
 						<li class="col-md-5 text-center">
@@ -177,7 +177,7 @@ if($delete_id != ''){
 						echo <<<EOT
 						<ul class="cart-con bord-li">
 							<li class="col-md-1 col-sm-1 col-xs-1 no-padding">
-								<input type="checkbox" name=""/>
+								<input type="checkbox" class="input_check" name=""/>
 							</li>
 							<li class="col-md-1 col-sm-4 col-xs-4 no-padding">
 								<a href="single_product.html"><img src="img/21.jpg" class="t-img"></a>
@@ -214,7 +214,7 @@ EOT;
 					<ul class="pay cart-con bord-ul">
 						<li class="col-md-1 col-xs-2">
 							<div class="row">
-								<input type="checkbox" name=""/><label for="">全选</label>
+								<input type="checkbox" class="all_check input_check" name=""/><label for="">全选</label>
 							</div>
 						</li>
 						<li class="col-md-2 text-center col-xs-3">
@@ -224,7 +224,7 @@ EOT;
 						</li>
 						<li class="col-md-3 text-center hidden-xs">
 							<div class="row">
-								已经选择0件商品
+								已经选择<span class="all-num">0</span>件商品
 							</div>
 						</li>
 						<li class="col-md-4 text-right col-xs-4">
@@ -345,13 +345,21 @@ EOT;
 		    });
 		</script>
 		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		<!--后退按钮-->
+		<script type="text/javascript">
+		    var goBack = document.getElementById('back');
+		    goBack.onclick = function(){
+		      // console.log("1");
+		      window.history.back(-1); 
+		    }
+		 </script>
 		<script>
 			//下拉菜单出现
 			$("data-toggle").dropdown();
 			//全选功能
-	        $('#all_check').click(function(){
+	        $('.all_check').click(function(){
 	        	var status = $(this).prop('checked');
-        		$("#cart-list-container .input_check").each(function(key, val){
+        		$(".input_check").each(function(key, val){
         			if (status){
         			    $(val).prop('checked', true);
         			} else {
@@ -385,14 +393,7 @@ EOT;
 		        });
 		    });
 		</script>
-		<!--后退按钮-->
-		<script type="text/javascript">
-		    var goBack = document.getElementById('back');
-		    goBack.onclick = function(){
-		      // console.log("1");
-		      window.history.back(-1); 
-		    }
-		 </script>
+		
 	</body>
 </html>
 		

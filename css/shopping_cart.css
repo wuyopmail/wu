@@ -2,6 +2,10 @@
 	float: left;
 	margin-right: 0;
 }
+.input-padding{
+	padding-bottom: 53px;
+	padding-top: 53px;
+}
 /*购物车进度条分属页*/
 .bord-bot{
 	padding-bottom: 20px;

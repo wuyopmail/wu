@@ -9,6 +9,14 @@ li {
 	list-style: none;
 	margin-right: 10px;
 }
+.bord-li3{
+	border-radius: 4px;
+	background-color: whitesmoke;
+	min-height: 90px;
+}
+.min-height{
+	min-height: 70px;
+}
 .wid-all{
 	width: 100%;
 }
@@ -436,8 +444,8 @@ form .form-control {
 /*后退，回到顶部按钮*/
 .back-fix{
 	position: fixed;
-	right: 58px;
-	bottom: 50px;
+	right: 56px;
+	bottom: 100px;
 	color: white;
 	padding: 7px;
 	background-color: lightblue;
@@ -446,8 +454,8 @@ form .form-control {
 }
 .up-fix{
 	position: fixed;
-	right: 20px;
-	bottom: 50px;
+	right: 18px;
+	bottom: 100px;
 	color: white;
 	padding: 7px;
 	background-color: lightblue;

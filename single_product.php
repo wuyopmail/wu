@@ -53,6 +53,7 @@ $row1 = $row;
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/index.css" />
 		<link rel="stylesheet" href="css/product.css" />
+		<link rel="stylesheet" type="text/css" href="css/shopping_cart.css"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
 		<meta http-equiv="X-UA-Compatible" content="IE=9" />
 		<!--[if lt IE 9]>
@@ -73,7 +74,7 @@ $row1 = $row;
 		<div class="head_banner">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="col-md-12 hidden-sm hidden-xs">
 						<div class="cent">
 							<a href="index.html">
 								<span class="glyphicon glyphicon-home"></span>&nbsp;
@@ -185,10 +186,10 @@ $row1 = $row;
 											<form action="./shopping_cart.php" method="get">
 												<div class="add-to-cart mar">
 													<p>
-														<span>购买数量：</span>
-														<a href="#" id="jian">-</a>
-														<input type="text" value="1" name="qty" id="add-num" style="display: inline; width: 15%;"/> <!--数据返回-->
-														<a href="#" id="jia">+</a>
+														<span style="float: left;">购买数量：</span>
+														<a id="jian" class="change">-</a>
+														<input type="text" value="1" name="qty" id="add-num" class="input-num"/> <!--数据返回-->
+														<a id="jia" class="change">+</a>
 														<span>（库存数120）</span>
 													</p>
 													<div class="pro-action">
@@ -208,7 +209,7 @@ $row1 = $row;
 								</div>
 									
 							</div>
-							<div class="col-md-3 col-sm-12 col-xs-12 mar">
+							<div class="col-md-3 hidden-sm hidden-xs mar ">
 								<!--商铺简介以及QQ交流工具-->
 								<div class="row img-bor text-center bookshop-info">
 									<ul class="shop-info">
@@ -226,7 +227,7 @@ $row1 = $row;
 								<div class="col-md-2 hidden-sm hidden-xs">
 									<div class="content-box">
 										<span class="zt">书本分类</span>
-										<ul class="">
+										<ul>
 											<li>
 												<a href="#" class="btn">
 													<i class="glyphicon glyphicon-pushpin"></i>
@@ -281,10 +282,10 @@ $row1 = $row;
 									<div class="hidden-md hidden-lg col-sm-12 col-xs-12">
 										<div class="row">
 											<ul class="nav nav-tabs no-p" style="margin-top: -6px;">
-											  <li role="presentation" class="active"><a href="#" class="xs-font">商品详情</a></li>
-											  <li role="presentation"><a href="#evaluation" class="xs-font">商品评价</a></li>
-											  <li role="presentation"><a href="#pay" class="xs-font">支付说明</a></li>
-											  <li role="presentation"><a href="#send" class="xs-font">配送说明</a></li>
+											  <li role="presentation" class="active"><a href="#">商品详情</a></li>
+											  <li role="presentation"><a href="#evaluation">商品评价</a></li>
+											  <li role="presentation"><a href="#pay">支付说明</a></li>
+											  <li role="presentation"><a href="#send">配送说明</a></li>
 											</ul>
 										</div>
 									</div>
@@ -306,7 +307,8 @@ $row1 = $row;
 											<span class="floatright size-font">更多>></span>
 										</a>
 									</h4>
-									<div class="table-responsive">
+									<div class="row">
+										<div class="table-responsive col-lg-12 col-md-12 hidden-xs hidden-sm">
 										<table class="table">
 											<tr>
 												<th>全部评价</th>
@@ -340,6 +342,47 @@ EOT;
 										</table>
 									</div>
 									
+								</div>
+								<div class="hidden-lg hidden-md col-sm-12 col-xs-12">
+									<div class="row">
+										<!--移动端评价显示-->
+										<ul class="cart-con bord-li3">
+											<li class="col-md-1 col-sm-12 col-xs-12 no-padding min-height">
+												&nbsp;&nbsp;<i class="glyphicon glyphicon-thumbs-up"></i>好评！&nbsp;&nbsp;
+												<span>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</span>
+											</li>
+											<li class="col-md-10 col-sm-6 col-xs-6 no-padding">
+												&nbsp;&nbsp;<span><i class="glyphicon glyphicon-user"></i>chenf</span>
+											</li>
+											<li class="col-md-10 col-sm-6 col-xs-6 no-padding text-center">
+												&nbsp;&nbsp;<span>2017-8-1</span>
+											</li>
+										</ul>
+										<ul class="cart-con bord-li3">
+											<li class="col-md-1 col-sm-12 col-xs-12 no-padding min-height">
+												&nbsp;&nbsp;<i class="glyphicon glyphicon-thumbs-up"></i>好评！&nbsp;&nbsp;
+												<span>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</span>
+											</li>
+											<li class="col-md-10 col-sm-6 col-xs-6 no-padding">
+												&nbsp;&nbsp;<span><i class="glyphicon glyphicon-user"></i>chenf</span>
+											</li>
+											<li class="col-md-10 col-sm-6 col-xs-6 no-padding text-center">
+												&nbsp;&nbsp;<span>2017-8-1</span>
+											</li>
+										</ul>
+										<ul class="cart-con bord-li3">
+											<li class="col-md-1 col-sm-12 col-xs-12 no-padding min-height">
+												&nbsp;&nbsp;<i class="glyphicon glyphicon-thumbs-up"></i>好评！&nbsp;&nbsp;
+												<span>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</span>
+											</li>
+											<li class="col-md-10 col-sm-6 col-xs-6 no-padding">
+												&nbsp;&nbsp;<span><i class="glyphicon glyphicon-user"></i>chenf</span>
+											</li>
+											<li class="col-md-10 col-sm-6 col-xs-6 no-padding text-center">
+												&nbsp;&nbsp;<span>2017-8-1</span>
+											</li>
+										</ul>
+									</div>
 								</div>
 								<div class="col-md-10 col-md-offset-2 col-xs-12 mar">
 									<!--支付说明-->
@@ -505,8 +548,8 @@ EOT;
 				if(!document.getElementsByTagName)return false;
 				if(!document.getElementById)return false;
 				if(!document.getElementById("imagegallery"))return false;
-				var garllery = document.getElementById("imagegallery");
-				var links = garllery.getElementsByTagName("a");
+				var gallery = document.getElementById("imagegallery");
+				var links = gallery.getElementsByTagName("a");
 				for(var i=0;i<links.length;i++){ 
 					links[i].onclick = function(){
 						showpic(this);
