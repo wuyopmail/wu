@@ -348,6 +348,28 @@ EOT;
 		<script>
 			//下拉菜单出现
 			$("data-toggle").dropdown();
+			//全选功能
+	        $('#all_check').click(function(){
+	        	var status = $(this).prop('checked');
+        		$("#cart-list-container .input_check").each(function(key, val){
+        			if (status){
+        			    $(val).prop('checked', true);
+        			} else {
+        				$(val).prop('checked', false);
+        			}
+        		});
+        		countplay();
+	        })
+	        //单选功能
+	        $("#cart-list-container .input_check").click(function(){
+	        	var status = $(this).prop('checked');
+    	    	if (status){
+    			    $(this).prop('checked', true);
+    			} else {
+    				$(this).prop('checked', false);
+    			}
+    			countplay();
+	        });
 			//购买商品数量增减
 			$(function(){
 		        $(".jia1").on("click", function(){
