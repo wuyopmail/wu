@@ -179,7 +179,13 @@ $page = getvar(@$_GET['page']);
 								  	<div class="panel-heading">
 								    	<h3 class="panel-title">
 							    			<i class="glyphicon glyphicon-fire"></i>
-							    			热门资料
+							    			<?php
+											if($type==''){
+												echo "热门资料";
+											} else {
+												echo "$type";
+											}
+											?>
 								    	</h3>
 								  	</div>
 								</div>
@@ -241,30 +247,6 @@ $page = getvar(@$_GET['page']);
 EOT;
 							}
 							?>
-							<div class="col-md-12 hidden-sm hidden-xs">
-								<nav aria-label="Page navigation">
-								  <ul class="pagination">
-								    <li>
-								      <a href="#" aria-label="Previous">
-								        <span aria-hidden="true">&laquo;</span>
-								      </a>
-								    </li>
-								    <?php
-									$i = 1;
-									while($i <= $page_num){
-										$page = $i;
-										echo '<li><a href="./index.php?type='.$type.'&page='.$page.'">1</a></li>';
-										$i++;
-									}
-									?>
-								    <li>
-								      <a href="#" aria-label="Next">
-								        <span aria-hidden="true">&raquo;</span>
-								      </a>
-								    </li>
-								  </ul>
-								</nav>
-							</div>
 							<!--替换翻页-->
 							<div class="col-md-12 col-xs-12">
 								<form action="" method="post">
