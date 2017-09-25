@@ -267,7 +267,9 @@ $row1 = $row;
 										</ul>
 									</div>
 								</div>
-								<div class="col-md-10 col-xs-12 top-mar">
+								<div class="col-md-10 col-xs-12">
+									<div class="row">
+										<div class="col-md-12 col-xs-12 top-mar">
 									<!--导航-标签页-->
 									<div class="col-md-12 hidden-xs hidden-sm">
 										<div class="row">
@@ -279,6 +281,7 @@ $row1 = $row;
 											</ul>
 										</div>
 									</div>
+											<div class="row">
 									<div class="hidden-md hidden-lg col-sm-12 col-xs-12">
 										<div class="row">
 											<ul class="nav nav-tabs no-p" style="margin-top: -6px;">
@@ -299,7 +302,8 @@ $row1 = $row;
 										<p id="book-info"><?php echo $row['content'];?></p>
 									</div>
 								</div>
-								<div class="col-md-10 col-xs-12 mar">
+										<div class="col-md-12 col-xs-12 mar">
+											<div class="row">
 									<!--商品评价-->
 									<h4 id="evaluation">
 										商品评价
@@ -341,7 +345,7 @@ EOT;
 											?>
 										</table>
 									</div>
-									
+											</div>
 								</div>
 								<div class="hidden-lg hidden-md col-sm-12 col-xs-12">
 									<div class="row">
@@ -384,7 +388,7 @@ EOT;
 										</ul>
 									</div>
 								</div>
-								<div class="col-md-10 col-md-offset-2 col-xs-12 mar">
+										<div class="col-md-12 col-xs-12 mar no-p">
 									<!--支付说明-->
 									<h4 id="pay">
 										支付说明
@@ -396,7 +400,7 @@ EOT;
 										</p>	
 									</div>
 								</div>
-								<div class="col-md-10 col-md-offset-2 col-xs-12">
+										<div class="col-md-12 col-xs-12 no-p">
 									<!--配送说明-->
 									<h4 id="send">
 										配送说明
@@ -412,6 +416,8 @@ EOT;
 										</p>
 									</div>
 								</div>
+							</div>
+						</div>
 							</div>
 						</div>
 					</div>
