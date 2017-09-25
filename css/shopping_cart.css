@@ -48,6 +48,9 @@
 	font-size: 18px;
 }
 /*购物内容*/
+.check{
+	margin-top: -2px;
+}
 .rt-mar{
 	margin-left: 120px;
 }
@@ -108,6 +111,9 @@
 .t-delete{
 	margin-left: 15px;
 }
+.all-price,.all-num{
+	color:red;
+}
 .h-wu{
 	height: 40px;
 	padding: auto;
@@ -160,7 +166,7 @@
 	margin-bottom: 20px;
 }
 .bord-list-0{
-	border: 1px solid gainsboro;
+	border-left: 1px solid gainsboro;
 }
 .addr-info{
 	display: inline-block;
@@ -233,9 +239,6 @@
 	color: white;
 	border-radius: 2px;
 	border: 0;
-}
-.wid-all{
-	width: 100%;
 }
 
 /*wish收藏*/

@@ -21,14 +21,14 @@
 										?>
                                     </a>
 								</span>
-                                <span class="cf">
-									<a href="login.html" class="cf">
-                                       	<?php if($userid != ""){
-											echo '<a href="login.php?action=logout">注销</a>';
-										}
-										?>
-                                    </a>
+								<?php if($userid != ""){
+                                echo <<<EOT
+								<span class="cf">
+									<a href="login.php?action=logout">注销</a>
 								</span>
+EOT;
+								}
+								?>
 							</div>
 						</div>
 						<div class="col-md-6 col-xs-12 col-sm-12">
@@ -84,9 +84,9 @@
 						</div>
 						<div class="col-md-5 col-xs-12 col-sm-8">
 							<div style="width: 100%;margin-top: 30px;">
-									<form action="#">
+									<form action="index.php">
 										<div style="float:left;width: 87%;">
-											<input type="text" class="form-control" placeholder="搜索书库"/>	
+											<input type="text" name="search" class="form-control" placeholder="搜索书库"/>	
 										</div>
 										<button type="submit" class="sub" value="">
 											<span class="glyphicon glyphicon-search"></span>

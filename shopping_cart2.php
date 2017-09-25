@@ -279,7 +279,7 @@ EOT;
 						</li>
 						<li class="col-md-2 text-right col-xs-3">
 							<div class="row">
-								<a href="./shopping_cart3.php" class="btn btn-danger zhifu <?php if(!$disabled){echo 'disabled';};?>">去支付</a>
+								<a href="./shopping_cart3.php" class="btn btn-danger zhifu <?php if(!$disabled){echo 'disabled';};?>">确认下单</a>
 							</div>
 						</li>
 					</ul>
@@ -288,13 +288,22 @@ EOT;
 		</div>
 		
 		<!--目录	 结束-->
+		<!--后退按钮以及返回顶部设置-->
+		<div class="back-fix" id="back">
+			<i class="glyphicon glyphicon-arrow-left"></i>
+		</div>
+		<div class="up-fix">
+			<a href="#top"><i class="glyphicon glyphicon-arrow-up"></i></a>
+		</div>
 		<!--footer	开始-->
 		<footer>
 			<div class="footer-area">
+				
 				<div class="footer-start">
 					<div class="container">
 						<div class="row">
-							<div class="col-md-3 col-sm-3 col-xs-12 text-center">
+							<div class="foot-top-padding col-md-12 col-lg-12 hidden-sm hidden-xs"></div>
+							<div class="col-md-3 hidden-xs text-center">
 								<h4>关于网站</h4>
 								<ul class="toggle-footer">
 									<li>
@@ -311,7 +320,7 @@ EOT;
 									</li>
 								</ul>
 							</div>
-							<div class="col-md-3 col-sm-3 col-xs-12 text-center">
+							<div class="col-md-3 hidden-xs text-center">
 								<h4>关于团队</h3>
 								<ul class="toggle-footer">
 									<li>
@@ -328,7 +337,7 @@ EOT;
 									</li>
 								</ul>
 							</div>
-							<div class="col-md-3 col-sm-3 col-xs-12 text-center">
+							<div class="col-md-3 hidden-xs text-center">
 								<h4>问题反馈</h3>
 								<ul class="toggle-footer">
 									<li>
@@ -339,7 +348,7 @@ EOT;
 									</li>
 								</ul>
 							</div>
-							<div class="col-md-3 col-sm-3 col-xs-12 text-center">
+							<div class="col-md-3 hidden-xs text-center">
 								<h4>书店位置</h3>
 								<ul class="toggle-footer">
 									<li>
@@ -356,10 +365,11 @@ EOT;
 						</div>
 					</div>
 				</div>
-				<div class="footer-end top-mar text-center">
+				<div class="footer-endtext-center">
 					<div class="container">
 						<div class="row">
-							<div class="footer-end-e">
+							<div class="foot-top-margin col-md-12 col-lg-12 hidden-sm hidden-xs"></div>
+							<div class="footer-end-e text-center">
 								<p class="tb-pad">
 									Copyright © 2017.版权归北京物资学院所有.
 								</p>
@@ -384,6 +394,14 @@ EOT;
 		<script>
 			$("data-toggle").dropdown();
 		</script>
+		<!--后退按钮-->
+		<script type="text/javascript">
+		    var goBack = document.getElementById('back');
+		    goBack.onclick = function(){
+		      // console.log("1");
+		      window.history.back(-1); 
+		    }
+		 </script>
 	</body>
 </html>
 		

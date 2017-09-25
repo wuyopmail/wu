@@ -1,3 +1,19 @@
+.xs-font{
+	font-size: 11px;
+}
+.sm-font{
+	font-size: 16px;
+}
+.no-p>li{
+	margin-right: 0;
+}
+.no-p a{
+	padding: 8px !important;
+}
+.data{
+	color: deepskyblue;
+	font-size: 20px;
+}
 .bg-c-gr{
 	background-color: lightblue;
 	position: relative;
@@ -21,7 +37,6 @@
 	display: inline-block;
 	margin-top: 5px;
 	margin-bottom: -5px;
-	margin-left: -40px;
 }
 .inline-small>li{
 	display: inline-block;
@@ -38,12 +53,6 @@
 }
 .inline-small>li:hover{
 	border: 1px solid orangered;
-}
-.top-mar{
-	margin-top: 24px;
-}
-.bot-mar{
-	margin-bottom: 24px;
 }
 .lr-pad{
 	padding-left: 60px;
@@ -83,25 +92,32 @@
 }
 
 /*id  标签*/
-#book-title{
-	
-}
-#book{
-	
-}
-#address{
-	
-}
 #book-content,#pay-info,#send-info{
 	padding: 10px;
 }
+.change{
+	display: inline-block;
+	text-align: center;
+	padding-top: 3px;
+	height: 28px;
+	width: 28px;
+	float: left;
+	background-color: #f4f4f4;
+	border-top: 1px solid gainsboro ;
+	border-bottom: 1px solid gainsboro;
+}
 #jian{
-	padding: 3px 7px;
-	border: 1px solid gainsboro;
+	border-left: 1px solid gainsboro;
+	cursor: pointer;
 }
 #jia{
-	padding: 3px 5px;
-	border: 1px solid gainsboro;
+	border-right: 1px solid gainsboro;
+	cursor: pointer;
+}
+.input-num{
+	float: left;
+	padding: 2px;
+	width: 15%;
 }
 /*id  结束*/
 /*shopping-info  开始*/
@@ -119,7 +135,7 @@
 
 .pro-action {
     display: inline-block;
-    margin: 0 0 15px 0;
+    margin: 6px 0 15px 0;
 }
 .pro-action a {
     border: 1px solid #ff6464;

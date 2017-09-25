@@ -2,26 +2,32 @@ body {
 	height: 100%;
 	position: relative;
 }
-
+ul{
+	-webkit-padding-start: 0px;
+}
 li {
 	list-style: none;
 	margin-right: 10px;
 }
-
-.top-mar {
+.wid-all{
+	width: 100%;
+}
+.bot-border{
+	border-bottom: 1px solid gainsboro;
+}
+.top-mar{
 	margin-top: 24px;
 }
 .bot-mar{
-	margin-bottom:24px;
+	margin-bottom: 24px;
 }
-
 .lr-pad {
 	padding-left: 60px;
 	padding-right: 30px;
 }
 
 .tb-pad {
-	padding-top: 10px;
+	padding-top: 15px;
 	padding-bottom: 10px;
 }
 
@@ -204,10 +210,7 @@ form .form-control {
 	margin: auto -10px 20px;
 	position: relative;
 }
-.single-product-img{
-	width:100%;
-	height:332px;
-}
+
 .single-product-content .product-title h5 {
 	font-size: 14px;
 	font-weight: bold;
@@ -369,6 +372,7 @@ form .form-control {
 
 .single-product-img img {
 	width: 100%;
+	height: 332px;
 }
 
 
@@ -419,8 +423,37 @@ form .form-control {
 .my-tab .active>a {
 	color: #ff6464;
 }
-
-
+.go{
+	height: 20px;
+}
+.go>li{
+	float: left;
+	margin-right: 0;
+}
+.prev-next{
+	padding: 3px 5px;
+}
+/*后退，回到顶部按钮*/
+.back-fix{
+	position: fixed;
+	right: 58px;
+	bottom: 50px;
+	color: white;
+	padding: 7px;
+	background-color: lightblue;
+	cursor: pointer;
+	opacity: 0.5;
+}
+.up-fix{
+	position: fixed;
+	right: 20px;
+	bottom: 50px;
+	color: white;
+	padding: 7px;
+	background-color: lightblue;
+	cursor: pointer;
+	opacity: 0.5;
+}
 /*footer	开始*/
 footer{
 	position: relative;
@@ -428,11 +461,12 @@ footer{
 	margin-top: 10px;
 }
 .footer-area {
-	padding-top: 30px;
 	color: white;
 	background-color: #1A1A1A;
 }
-
+.foot-top-padding{
+	height: 30px;
+}
 .footer-start {
 	background-color: #1A1A1A;
 	height: auto;
@@ -441,7 +475,9 @@ footer{
 .footer-end {
 	background-color: #0D0D0D;
 }
-
+.foot-top-margin{
+	height: 20px;
+}
 .footer-end-e {
 	border-top: 1px solid gainsboro;
 }
@@ -454,6 +490,9 @@ footer{
 .toggle-footer>li {
 	margin: 6px 0;
 }
+
+
+
 
 /*items_add*/
 .lf-font{
@@ -473,9 +512,14 @@ footer{
 	margin-left: 25px;
 	margin-bottom: 15px;
 }
+.pink{
+	padding: 4px 15px 1px 15px;
+	line-height: 140%;
+}
 .pink:hover{
-	border: 2px solid darkorange;
-	background-color: darkorange;
+	padding: ;
+	border: 2px solid deepskyblue;
+	background-color: deepskyblue;
 	color: white;
 }
 .bot{
@@ -487,4 +531,17 @@ footer{
 	border: 0;
 	color: white;
 	background-color: inherit;
+}
+
+/*data_statistics*/
+.book-type{
+	background: url(../img/timg.jpg);
+}
+.book-type h5{
+	text-align: center;
+	color: greenyellow;
+}
+.book-type p{
+	text-align: center;
+	color: white;
 }

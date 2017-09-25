@@ -172,9 +172,14 @@ $row1 = $row;
 												<p>
 													原价： ¥ <span class="decoration"><?php echo $row['price'];?></span> <!--数据返回-->
 												</p>
-												<p>
-													<span>配送至：</span>
-													<input type="text" value="不需要" id="address" class="input-sm"/> <!--数据返回-->
+												<p class="hidden-xs hidden-sm">
+													<p class="data">书店微信：huimin605</p>
+												</p>
+												<p class="hidden-lg hideen-md no-padding">
+													客服姐姐：
+													<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=501443528&site=qq&menu=yes">
+														<img border="0" src="http://wpa.qq.com/pa?p=2:501443528:51" alt="点击这里给我发消息" title="点击这里给我发消息"/>
+													</a>
 												</p>
 											</div>
 											<form action="./shopping_cart.php" method="get">
@@ -209,21 +214,9 @@ $row1 = $row;
 									<ul class="shop-info">
 										<li>店铺名称：惠民书屋</li>
 										<li>店主昵称：超人不会飞</li>
-										<li>--------------------------------------</li>
-										<li>--------------------------------------</li>
-										<li>
-											客服姐姐：
-											<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=501443528&site=qq&menu=yes">
-												<img border="0" src="http://wpa.qq.com/pa?p=2:501443528:51" alt="点击这里给我发消息" title="点击这里给我发消息"/>
-											</a>
-										</li>
-										<li>店铺地址：北京物资学院6号家属楼</li>
-										<li>--------------------------------------</li>
-										<li>--------------------------------------</li>
-										<li>联系方式：110</li>
-										<li>开通时间：2017-8-1</li>
-										<li>--------------------------------------</li>
-										<li>--------------------------------------</li>
+										<li><img src="img/data.png"/></li>
+										<li>微信联系如上图：huimin605</li>
+										<li>电话联系：159635742882</li>
 									</ul>
 								</div>
 							</div>
@@ -273,16 +266,30 @@ $row1 = $row;
 										</ul>
 									</div>
 								</div>
-								<div class="col-md-10 hidden-sm hidden-xs  top-mar">
+								<div class="col-md-10 col-xs-12 top-mar">
 									<!--导航-标签页-->
-									<ul class="nav nav-tabs" style="margin-top: -6px;">
-									  <li role="presentation" class="active"><a href="#">商品详情</a></li>
-									  <li role="presentation"><a href="#evaluation">商品评价</a></li>
-									  <li role="presentation"><a href="#pay">支付说明</a></li>
-									  <li role="presentation"><a href="#send">配送说明</a></li>
-									</ul>
+									<div class="col-md-12 hidden-xs hidden-sm">
+										<div class="row">
+											<ul class="nav nav-tabs" style="margin-top: -6px;">
+											  <li role="presentation" class="active"><a href="#">商品详情</a></li>
+											  <li role="presentation"><a href="#evaluation">商品评价</a></li>
+											  <li role="presentation"><a href="#pay">支付说明</a></li>
+											  <li role="presentation"><a href="#send">配送说明</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="hidden-md hidden-lg col-sm-12 col-xs-12">
+										<div class="row">
+											<ul class="nav nav-tabs no-p" style="margin-top: -6px;">
+											  <li role="presentation" class="active"><a href="#" class="xs-font">商品详情</a></li>
+											  <li role="presentation"><a href="#evaluation" class="xs-font">商品评价</a></li>
+											  <li role="presentation"><a href="#pay" class="xs-font">支付说明</a></li>
+											  <li role="presentation"><a href="#send" class="xs-font">配送说明</a></li>
+											</ul>
+										</div>
+									</div>
 								</div>
-								<div class="col-md-10 hidden-sm hidden-xs">
+								<div class="col-md-10 col-xs-12">
 									<!--商品详情-->
 									<div id="book-content">
 										<p><strong>书物分类：</strong></p>
@@ -291,7 +298,7 @@ $row1 = $row;
 										<p id="book-info"><?php echo $row['content'];?></p>
 									</div>
 								</div>
-								<div class="col-md-10 hidden-sm hidden-xs mar">
+								<div class="col-md-10 col-xs-12 mar">
 									<!--商品评价-->
 									<h4 id="evaluation">
 										商品评价
@@ -334,37 +341,29 @@ EOT;
 									</div>
 									
 								</div>
-								<div class="col-md-10 col-md-offset-2 hidden-sm hidden-xs mar">
+								<div class="col-md-10 col-md-offset-2 col-xs-12 mar">
 									<!--支付说明-->
 									<h4 id="pay">
 										支付说明
 									</h4>
 									<div id="pay-info">
-										<p><strong>中介保护付款：</strong></p>
+										<p><strong>线上下单-->线下交易：</strong></p>
 										<p class="lr-pad">
-											&nbsp;&nbsp;&nbsp;&nbsp;买家付款后资金先暂存到网站中介保护账户，买家收到货并确认后，资金才转到卖家在网站的资金账户中，如有问题，可以申请退款以及换货。这种支付方式交易快速而且有保障，推荐您使用这种方式进行支付～
-										</p>
-										<p><strong>即时到账：</strong></p>
-										<p class="lr-pad">
-											买家资金将直接转到卖家在网站的资金账户，卖家收到钱后发货，这种支付方式同样快速但是无保障。
-										</p>
-										<p><strong>线下交易：</strong></p>
-										<p class="lr-pad">
-											通过线下购买，卖家收到钱后交易，需要徒步至书店，交易速度慢，不如等书送上门。
+											通过线上下单，系统收到订单后，直接将购买图书送上门，面付即可，交易结束后请同学线上确认收货，并填写书物评价，已助自己或他人参考。
 										</p>	
 									</div>
 								</div>
-								<div class="col-md-10 col-md-offset-2 hidden-sm hidden-xs">
+								<div class="col-md-10 col-md-offset-2 col-xs-12">
 									<!--配送说明-->
 									<h4 id="send">
 										配送说明
 									</h4>
 									<div id="send-info">
-										<p><strong>10kg以内包邮：</strong></p>
+										<p><strong>5kg以内包邮：</strong></p>
 										<p class="lr-pad">
 											不收运费
 										</p>
-										<p><strong>10kg以后加费用：</strong></p>
+										<p><strong>5kg以后加费用：</strong></p>
 										<p class="lr-pad">
 											加收相应运费
 										</p>
@@ -376,13 +375,22 @@ EOT;
 				</div>
 			</div>
 		</div>
+		<!--后退按钮以及返回顶部设置-->
+		<div class="back-fix" id="back">
+			<i class="glyphicon glyphicon-arrow-left"></i>
+		</div>
+		<div class="up-fix">
+			<a href="#top"><i class="glyphicon glyphicon-arrow-up"></i></a>
+		</div>
 		<!--footer	开始-->
 		<footer>
 			<div class="footer-area">
+				
 				<div class="footer-start">
 					<div class="container">
 						<div class="row">
-							<div class="col-md-3 col-sm-3 col-xs-12 text-center">
+							<div class="foot-top-padding col-md-12 col-lg-12 hidden-sm hidden-xs"></div>
+							<div class="col-md-3 hidden-xs text-center">
 								<h4>关于网站</h4>
 								<ul class="toggle-footer">
 									<li>
@@ -399,7 +407,7 @@ EOT;
 									</li>
 								</ul>
 							</div>
-							<div class="col-md-3 col-sm-3 col-xs-12 text-center">
+							<div class="col-md-3 hidden-xs text-center">
 								<h4>关于团队</h3>
 								<ul class="toggle-footer">
 									<li>
@@ -416,7 +424,7 @@ EOT;
 									</li>
 								</ul>
 							</div>
-							<div class="col-md-3 col-sm-3 col-xs-12 text-center">
+							<div class="col-md-3 hidden-xs text-center">
 								<h4>问题反馈</h3>
 								<ul class="toggle-footer">
 									<li>
@@ -427,7 +435,7 @@ EOT;
 									</li>
 								</ul>
 							</div>
-							<div class="col-md-3 col-sm-3 col-xs-12 text-center">
+							<div class="col-md-3 hidden-xs text-center">
 								<h4>书店位置</h3>
 								<ul class="toggle-footer">
 									<li>
@@ -444,10 +452,11 @@ EOT;
 						</div>
 					</div>
 				</div>
-				<div class="footer-end top-mar text-center">
+				<div class="footer-endtext-center">
 					<div class="container">
 						<div class="row">
-							<div class="footer-end-e">
+							<div class="foot-top-margin col-md-12 col-lg-12 hidden-sm hidden-xs"></div>
+							<div class="footer-end-e text-center">
 								<p class="tb-pad">
 									Copyright © 2017.版权归北京物资学院所有.
 								</p>
@@ -473,6 +482,14 @@ EOT;
 		<script>
 			$("data-toggle").dropdown();
 		</script>
+		<!--后退按钮-->
+		<script type="text/javascript">
+		    var goBack = document.getElementById('back');
+		    goBack.onclick = function(){
+		      // console.log("1");
+		      window.history.back(-1); 
+		    }
+		 </script>
 		<!--切换缩略图-->
 		<script type="text/javascript">
 			//	showpic（whichpic）函数	whicpic是指某个元素节点，例<a>	用来修改图片占位符的src参数
