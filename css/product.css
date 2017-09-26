@@ -1,14 +1,15 @@
-.xs-font{
-	font-size: 11px;
-}
 .sm-font{
 	font-size: 16px;
+}
+.no-p{
+	padding: 0;
 }
 .no-p>li{
 	margin-right: 0;
 }
 .no-p a{
-	padding: 8px !important;
+	padding-left: 5px !important;
+	font-size: 12px;
 }
 .data{
 	color: deepskyblue;
@@ -94,6 +95,9 @@
 /*id  标签*/
 #book-content,#pay-info,#send-info{
 	padding: 10px;
+}
+#book-info{
+	margin-left: 60px;
 }
 .change{
 	display: inline-block;

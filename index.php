@@ -248,7 +248,7 @@ EOT;
 							}
 							?>
 							<!--替换翻页-->
-							<div class="col-md-12 col-xs-12">
+							<div class="col-md-12 col-xs-12 mar">
 								<form action="" method="post">
 									<ul class="go">
 										<li class="prev-next"><a href="#">上一页</a></li>

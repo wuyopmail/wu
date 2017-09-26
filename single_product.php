@@ -270,49 +270,52 @@ $row1 = $row;
 								<div class="col-md-10 col-xs-12">
 									<div class="row">
 										<div class="col-md-12 col-xs-12 top-mar">
-									<!--导航-标签页-->
-									<div class="col-md-12 hidden-xs hidden-sm">
-										<div class="row">
-											<ul class="nav nav-tabs" style="margin-top: -6px;">
-											  <li role="presentation" class="active"><a href="#">商品详情</a></li>
-											  <li role="presentation"><a href="#evaluation">商品评价</a></li>
-											  <li role="presentation"><a href="#pay">支付说明</a></li>
-											  <li role="presentation"><a href="#send">配送说明</a></li>
-											</ul>
+											<!--导航-标签页-->
+											<div class="col-md-12 hidden-xs hidden-sm">
+												<div class="row">
+													<ul class="nav nav-tabs" style="margin-top: -6px;">
+													  <li role="presentation" class="active"><a href="#">商品详情</a></li>
+													  <li role="presentation"><a href="#evaluation">商品评价</a></li>
+													  <li role="presentation"><a href="#pay">支付说明</a></li>
+													  <li role="presentation"><a href="#send">配送说明</a></li>
+													</ul>
+												</div>
+											</div>
+													<div class="row">
+											<div class="hidden-md hidden-lg col-sm-12 col-xs-12">
+												<div class="row">
+													<ul class="nav nav-tabs no-p" style="margin-top: -6px;">
+													  <li role="presentation" class="active"><a href="#">商品详情</a></li>
+													  <li role="presentation"><a href="#evaluation">商品评价</a></li>
+													  <li role="presentation"><a href="#pay">支付说明</a></li>
+													  <li role="presentation"><a href="#send">配送说明</a></li>
+													</ul>
+												</div>
+											</div>
 										</div>
 									</div>
-											<div class="row">
-									<div class="hidden-md hidden-lg col-sm-12 col-xs-12">
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 										<div class="row">
-											<ul class="nav nav-tabs no-p" style="margin-top: -6px;">
-											  <li role="presentation" class="active"><a href="#">商品详情</a></li>
-											  <li role="presentation"><a href="#evaluation">商品评价</a></li>
-											  <li role="presentation"><a href="#pay">支付说明</a></li>
-											  <li role="presentation"><a href="#send">配送说明</a></li>
-											</ul>
+											<!--商品详情-->
+											<div id="book-content">
+												<p><strong>书物分类：</strong></p>
+												<a href="#" class="lr-pad">书本分类 >><?php echo $row['type'];?></a>
+												<p><strong>详细描述：</strong></p>
+												<p id="book-info"><?php echo $row['content'];?></p>
+											</div>
 										</div>
 									</div>
-								</div>
-								<div class="col-md-10 col-xs-12">
-									<!--商品详情-->
-									<div id="book-content">
-										<p><strong>书物分类：</strong></p>
-										<a href="#" class="lr-pad">书本分类 >><?php echo $row['type'];?></a>
-										<p><strong>详细描述：</strong></p>
-										<p id="book-info"><?php echo $row['content'];?></p>
-									</div>
-								</div>
-										<div class="col-md-12 col-xs-12 mar">
-											<div class="row">
-									<!--商品评价-->
-									<h4 id="evaluation">
-										商品评价
-										<a herf="">
-											<span class="floatright size-font">更多>></span>
-										</a>
-									</h4>
-									<div class="row">
-										<div class="table-responsive col-lg-12 col-md-12 hidden-xs hidden-sm">
+									<div class="table-responsive col-lg-12 col-md-12 hidden-xs hidden-sm">
+										<div class="row">
+										<!--商品评价-->
+										<h4 id="evaluation">
+											商品评价
+											<span class="lr-pad2">累计评价12条</span>
+											<span class="lr-mar">好评率：98%</span>
+											<a herf="evaluation.html">
+												<span class="floatright size-font">更多>></span>
+											</a>
+										</h4>
 										<table class="table">
 											<tr>
 												<th>全部评价</th>
@@ -344,12 +347,17 @@ EOT;
 											}
 											?>
 										</table>
+
 									</div>
-											</div>
 								</div>
 								<div class="hidden-lg hidden-md col-sm-12 col-xs-12">
 									<div class="row">
 										<!--移动端评价显示-->
+										<h4 id="evaluation">
+											商品评价
+											<span class="lr-mar2">累计12条</span>
+											<span class="lr-mar2">好评：98%</span>
+										</h4>
 										<ul class="cart-con bord-li3">
 											<li class="col-md-1 col-sm-12 col-xs-12 no-padding min-height">
 												&nbsp;&nbsp;<i class="glyphicon glyphicon-thumbs-up"></i>好评！&nbsp;&nbsp;
@@ -386,43 +394,54 @@ EOT;
 												&nbsp;&nbsp;<span>2017-8-1</span>
 											</li>
 										</ul>
+										<div class="text-center">
+											<div style="margin: 20px;">
+												<a href="evaluation.html">
+													<span class="form-control">更多评价~</span>
+												</a>
+											</div>
+										</div>
 									</div>
 								</div>
-										<div class="col-md-12 col-xs-12 mar no-p">
-									<!--支付说明-->
-									<h4 id="pay">
-										支付说明
-									</h4>
-									<div id="pay-info">
-										<p><strong>线上下单-->线下交易：</strong></p>
-										<p class="lr-pad">
-											通过线上下单，系统收到订单后，直接将购买图书送上门，面付即可，交易结束后请同学线上确认收货，并填写书物评价，已助自己或他人参考。
-										</p>	
+								<div class="col-md-12 col-xs-12">
+									<div class="row">
+										<!--支付说明-->
+										<h4 id="pay">
+											支付说明
+										</h4>
+										<div id="pay-info">
+											<p><strong>线上下单-->线下交易：</strong></p>
+											<p class="lr-pad">
+												通过线上下单，系统收到订单后，直接将购买图书送上门，面付即可，交易结束后请同学线上确认收货，并填写书物评价，已助自己或他人参考。
+											</p>	
+										</div>
 									</div>
 								</div>
-										<div class="col-md-12 col-xs-12 no-p">
-									<!--配送说明-->
-									<h4 id="send">
-										配送说明
-									</h4>
-									<div id="send-info">
-										<p><strong>5kg以内包邮：</strong></p>
-										<p class="lr-pad">
-											不收运费
-										</p>
-										<p><strong>5kg以后加费用：</strong></p>
-										<p class="lr-pad">
-											加收相应运费
-										</p>
+								<div class="col-md-12 col-xs-12">
+									<div class="row">
+										<!--配送说明-->
+										<h4 id="send">
+											配送说明
+										</h4>
+										<div id="send-info">
+											<p><strong>5kg以内包邮：</strong></p>
+											<p class="lr-pad">
+												不收运费
+											</p>
+											<p><strong>5kg以后加费用：</strong></p>
+											<p class="lr-pad">
+												加收相应运费
+											</p>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 		<!--后退按钮以及返回顶部设置-->
 		<div class="back-fix" id="back">

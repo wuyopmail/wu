@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>物品详情</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/product.css" />
+		<link rel="stylesheet" type="text/css" href="css/shopping_cart.css"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<!--[if lt IE 9]>
+		    <script src="shiv.min.js"></script>
+		    <script src="respond.min.js"></script>
+		<![endif]-->
+
+        <!-- Mobile Specific Meta  -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	</head>
+	<body>
+		<header id="top">
+			<div class="header-top">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-xs-12 col-sm-12">
+							<div class="header-top-left">
+								<span>欢迎光临 <a href="index.html">物友-情书</a>~</span>
+								<span class="cf">
+									<a href="register.html" class="cf">
+                                       	注册
+                                    </a>
+								</span>
+                                <span class="cf">
+									<a href="login.html" class="cf">
+                                       	登录
+                                    </a>
+								</span>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12 col-sm-12">
+							<div class="header-top-right">
+								<ul style="text-align: center;margin-left: -40px;">
+									<li class="floatleft">
+                                        <a href="shopping_cart.html">
+                                        	<i  class="glyphicon glyphicon-shopping-cart" style="color: hotpink;"></i>
+                                           	购物车
+                                        </a>
+                                    </li>
+                                    <li class="floatleft">
+                                        <a href="wish_list.html">
+                                        	<i  class="glyphicon glyphicon-heart-empty"></i>
+                                           	我的收藏
+                                        </a>
+                                    </li>
+									<li class="floatleft dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="down1">
+                                           	个人中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="down1">
+                                        	<li><a href="secret_revise.html">密码修改</a></li>
+										    <li role="separator" class="divider"></li>
+										    <li><a href="wish_list.html">我的收藏</a></li>
+										    <li><a href="order.html">我的订单</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="floatleft dropdown hidden-sm hidden-xs">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="down2">
+                                           	卖家中心<i  class="glyphicon glyphicon-triangle-bottom" style="color: #87CEEB;"></i>
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="down2">
+                                        	<li><a href="items_add.html">商品添加</a></li>
+										    <li role="separator" class="divider"></li>
+										    <li><a href="items_revise.html">商品管理</a></li>
+										    <li><a href="data_statistics.html">数据统计</a></li>
+                                        </ul>
+                                    </li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header-middle">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 col-xs-12 col-sm-4">
+							<div class="logo1">
+								<img src="img/logo/logo2.1.jpg" />
+							</div>
+						</div>
+						<div class="col-md-5 col-xs-12 col-sm-8">
+							<div style="width: 100%;margin-top: 30px;">
+								<form action="#">
+									<div style="float:left;width: 87%;">
+										<input type="text" class="form-control" placeholder="搜索书库"/>	
+									</div>
+									<button type="submit" class="sub" value="">
+										<span class="glyphicon glyphicon-search"></span>
+									</button>
+								</form>
+							</div>
+						</div>
+						<div class="col-md-3 hidden-xs hidden-sm">
+							<div class="logo2">
+								<a href="index.html">
+									<img src="img/logo/logo1.2.png" />
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!--header	结束-->
+		<!--商品评价-->
+		<div class="container">
+			<div class="row">
+				<div class="table-responsive col-lg-12 col-md-12 hidden-xs hidden-sm min-h">
+					<h4 id="evaluation">
+						<a>商品评价</a>
+						<span class="lr-pad2">累计评价12条</span>
+						<span class="lr-mar">好评率：98%</span>
+					</h4>
+					<table class="table">
+						<tr>
+							<th>全部评价</th>
+							<th>评价内容</th>
+							<th>评价用户</th>
+							<th class="text-right">评价时间</th>
+						</tr>
+						<tr>
+							<td>
+								<i class="glyphicon glyphicon-thumbs-up"></i>好评！
+							</td>
+							<td>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</td>
+							<td>
+								<i class="glyphicon glyphicon-user"></i>chenf
+							</td>
+							<td class="text-right"><span>2017-8-1</span></td>
+						</tr>
+						<tr>
+							<td>
+								<i class="glyphicon glyphicon-thumbs-up"></i>好评！
+							</td>
+							<td>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</td>
+							<td>
+								<i class="glyphicon glyphicon-user"></i>chenf
+							</td>
+							<td class="text-right"><span>2017-8-1</span></td>
+						</tr>
+						<tr>
+							<td>
+								<i class="glyphicon glyphicon-thumbs-up"></i>好评！
+							</td>
+							<td>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</td>
+							<td>
+								<i class="glyphicon glyphicon-user"></i>chenf
+							</td>
+							<td class="text-right"><span>2017-8-1</span></td>
+						</tr>
+						<tr>
+							<td>
+								<i class="glyphicon glyphicon-thumbs-up"></i>好评！
+							</td>
+							<td>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</td>
+							<td>
+								<i class="glyphicon glyphicon-user"></i>chenf
+							</td>
+							<td class="text-right"><span>2017-8-1</span></td>
+						</tr>
+						<tr>
+							<td>
+								<i class="glyphicon glyphicon-thumbs-up"></i>好评！
+							</td>
+							<td>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</td>
+							<td>
+								<i class="glyphicon glyphicon-user"></i>chenf
+							</td>
+							<td class="text-right"><span>2017-8-1</span></td>
+						</tr>
+						<tr>
+							<td>
+								<i class="glyphicon glyphicon-thumbs-up"></i>好评！
+							</td>
+							<td>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</td>
+							<td>
+								<i class="glyphicon glyphicon-user"></i>chenf
+							</td>
+							<td class="text-right"><span>2017-8-1</span></td>
+						</tr>
+						<tr>
+							<td>
+								<i class="glyphicon glyphicon-thumbs-up"></i>好评！
+							</td>
+							<td>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</td>
+							<td>
+								<i class="glyphicon glyphicon-user"></i>chenf
+							</td>
+							<td class="text-right"><span>2017-8-1</span></td>
+						</tr>
+					</table>
+				</div>
+				<div class="hidden-lg hidden-md col-sm-12 col-xs-12">
+					<div class="row">
+						<!--移动端评价显示-->
+						<h4 id="evaluation">
+							<a>商品评价</a>
+							<span class="lr-mar">累计评价12条</span>
+							<span class="lr-mar">好评率：98%</span>
+						</h4>
+						<ul class="cart-con bord-li3">
+							<li class="col-md-1 col-sm-12 col-xs-12 no-padding min-height">
+								&nbsp;&nbsp;<i class="glyphicon glyphicon-thumbs-up"></i>好评！&nbsp;&nbsp;
+								<span>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</span>
+							</li>
+							<li class="col-md-10 col-sm-6 col-xs-6 no-padding">
+								&nbsp;&nbsp;<span><i class="glyphicon glyphicon-user"></i>chenf</span>
+							</li>
+							<li class="col-md-10 col-sm-6 col-xs-6 no-padding text-center">
+								&nbsp;&nbsp;<span>2017-8-1</span>
+							</li>
+						</ul>
+						<ul class="cart-con bord-li3">
+							<li class="col-md-1 col-sm-12 col-xs-12 no-padding min-height">
+								&nbsp;&nbsp;<i class="glyphicon glyphicon-thumbs-up"></i>好评！&nbsp;&nbsp;
+								<span>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</span>
+							</li>
+							<li class="col-md-10 col-sm-6 col-xs-6 no-padding">
+								&nbsp;&nbsp;<span><i class="glyphicon glyphicon-user"></i>chenf</span>
+							</li>
+							<li class="col-md-10 col-sm-6 col-xs-6 no-padding text-center">
+								&nbsp;&nbsp;<span>2017-8-1</span>
+							</li>
+						</ul>
+						<ul class="cart-con bord-li3">
+							<li class="col-md-1 col-sm-12 col-xs-12 no-padding min-height">
+								&nbsp;&nbsp;<i class="glyphicon glyphicon-thumbs-up"></i>好评！&nbsp;&nbsp;
+								<span>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</span>
+							</li>
+							<li class="col-md-10 col-sm-6 col-xs-6 no-padding">
+								&nbsp;&nbsp;<span><i class="glyphicon glyphicon-user"></i>chenf</span>
+							</li>
+							<li class="col-md-10 col-sm-6 col-xs-6 no-padding text-center">
+								&nbsp;&nbsp;<span>2017-8-1</span>
+							</li>
+						</ul><ul class="cart-con bord-li3">
+							<li class="col-md-1 col-sm-12 col-xs-12 no-padding min-height">
+								&nbsp;&nbsp;<i class="glyphicon glyphicon-thumbs-up"></i>好评！&nbsp;&nbsp;
+								<span>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</span>
+							</li>
+							<li class="col-md-10 col-sm-6 col-xs-6 no-padding">
+								&nbsp;&nbsp;<span><i class="glyphicon glyphicon-user"></i>chenf</span>
+							</li>
+							<li class="col-md-10 col-sm-6 col-xs-6 no-padding text-center">
+								&nbsp;&nbsp;<span>2017-8-1</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-12 col-xs-12 col-sm-12 col-xs-12 mar">
+					<form action="" method="post">
+						<ul class="go">
+							<li class="prev-next"><a href="#">上一页</a></li>
+							<li style="width: 60px;">
+								<input type="text" value="" class="wid-all"/>
+							</li>
+							<li class="">
+								<input type="submit" value="跳转"/>
+							</li>
+							<li class="prev-next">
+								（共<span>10</span>页）
+							</li>
+							<li class="prev-next"><a href="#">下一页</a></li>
+						</ul>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<!--footer	开始-->
+		<div class="back-fix" id="back">
+			<i class="glyphicon glyphicon-arrow-left"></i>
+		</div>
+		<div class="up-fix">
+			<a href="#top"><i class="glyphicon glyphicon-arrow-up"></i></a>
+			
+		</div>
+		<footer>
+			<div class="footer-area">
+				
+				<div class="footer-start">
+					<div class="container">
+						<div class="row">
+							<div class="foot-top-padding col-md-12 col-lg-12 hidden-sm hidden-xs"></div>
+							<div class="col-md-3 hidden-xs text-center">
+								<h4>关于网站</h4>
+								<ul class="toggle-footer">
+									<li>
+										<a href="#" class="colorwhite">
+											<i class="glyphicon glyphicon-grain"></i>
+											功能简介
+										</a>
+									</li>
+									<li>
+										<a href="#" class="colorwhite">
+											<i class="glyphicon glyphicon-grain"></i>
+											后期拓展
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-3 hidden-xs text-center">
+								<h4>关于团队</h3>
+								<ul class="toggle-footer">
+									<li>
+										<a href="#" class="colorwhite">
+											<i class="glyphicon glyphicon-grain"></i>
+											团队简介
+										</a>
+									</li>
+									<li>
+										<a href="#" class="colorwhite">
+											<i class="glyphicon glyphicon-grain"></i>
+											联系方式
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-3 hidden-xs text-center">
+								<h4>问题反馈</h3>
+								<ul class="toggle-footer">
+									<li>
+										<a href="#" class="colorwhite">
+											<i class="glyphicon glyphicon-grain"></i>
+											反馈留言
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-3 hidden-xs text-center">
+								<h4>书店位置</h3>
+								<ul class="toggle-footer">
+									<li>
+										<span class="colorwhite">
+											<p class=""></p>
+											<p class="lr-pad">
+												<i class="glyphicon glyphicon-info-sign"></i>
+												物院进校门右转6号家属楼一层
+											</p>
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer-endtext-center">
+					<div class="container">
+						<div class="row">
+							<div class="foot-top-margin col-md-12 col-lg-12 hidden-sm hidden-xs"></div>
+							<div class="footer-end-e text-center">
+								<p class="tb-pad">
+									Copyright © 2017.版权归北京物资学院所有.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!--footer	结束-->
+		<!--header顶部下拉菜单-->
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script src="js/jquery.placeholder.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--placeholder	对IE浏览器支持-->
+		<script type="text/javascript">
+		    $(function () {
+		        // Invoke the plugin
+		        $('input, textarea').placeholder();
+		    });
+		</script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		<!--下拉菜单-->
+		<script>
+			$("data-toggle").dropdown();
+		</script>
+		<!--后退按钮-->
+		<script type="text/javascript">
+		    var goBack = document.getElementById('back');
+		    goBack.onclick = function(){
+		      // console.log("1");
+		      window.history.back(-1); 
+		    }
+		 </script>
+	</body>
+</html>

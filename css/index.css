@@ -29,11 +29,20 @@ li {
 .bot-mar{
 	margin-bottom: 24px;
 }
+.lr-pad2{
+	padding-left: 46px;
+	padding-right: 30px;
+}
 .lr-pad {
 	padding-left: 60px;
 	padding-right: 30px;
 }
-
+.lr-mar{
+	margin-left: 5px;
+}
+.lr-mar2{
+	margin-left: 18px;
+}
 .tb-pad {
 	padding-top: 15px;
 	padding-bottom: 10px;
@@ -542,14 +551,10 @@ footer{
 }
 
 /*data_statistics*/
-.book-type{
-	background: url(../img/timg.jpg);
-}
 .book-type h5{
 	text-align: center;
-	color: greenyellow;
+	color: brown;
 }
 .book-type p{
 	text-align: center;
-	color: white;
 }
