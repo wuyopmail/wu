@@ -198,12 +198,16 @@ $page = getvar(@$_GET['page']);
 							$page_num = $num / 50;//每页商品数量
 							$page_num = intval($page_num) + 1;
 							//echo $page_num;
-							if($page == ''){
-								$query = "select * from item where type like '%$type%' order by item_id DESC limit 0,50";
+							if($search == ''){
+								if($page == ''){
+									$query = "select * from item where type like '%$type%' order by item_id DESC limit 0,50";
+								} else {
+									$page--;
+									$page = $page * 50;
+									$query = "select * from item where type like '%$type%' order by item_id DESC limit $page,50";
+								}
 							} else {
-								$page--;
-								$page = $page * 50;
-								$query = "select * from item where type like '%$type%' order by item_id DESC limit $page,50";
+								$query = "select * from item where item_name like '%$search%' order by item_id DESC limit 0,50";
 							}
 							//print_r($query);
 							$queryuser = mysql_query("$query");

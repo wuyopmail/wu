@@ -84,7 +84,11 @@ EOT;
 						</div>
 						<div class="col-md-5 col-xs-12 col-sm-8">
 							<div style="width: 100%;margin-top: 30px;">
-									<form action="index.php">
+									<form action="index.php" method="GET">
+									<?php
+										include_once('./core/function.php');
+										$search = getvar(@$_GET['search']);
+									?>
 										<div style="float:left;width: 87%;">
 											<input type="text" name="search" class="form-control" placeholder="搜索书库"/>	
 										</div>

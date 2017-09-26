@@ -9,6 +9,7 @@ session_start();
 
 //包含数据库连接文件
 include('conn.php');
+include_once('./core/function.php');
 $userid = @$_SESSION['userid'];
 $username = @$_SESSION['username'];
 
@@ -78,7 +79,7 @@ if($getcontent == ''){
 } else {
 	$content = mysql_real_escape_string($getcontent);
 }
-
+$image = getvar(@$_POST['image']);
 
 
 
@@ -124,9 +125,8 @@ if($item_name != ''){
 	$query = "select count(*) from item where item_name = '".$item_name."'";
 	$server_query = mysql_query("$query");
 	$server_query = mysql_fetch_array($server_query);
-	print_r($server_query[0]);
 	if($server_query[0] == 0){
-		$query = "insert into item(type, item_name, author, press, time, condition_precent, discount_price, price, qty, content) values ('".$type."', '".$item_name."', '".$author."', '".$press."', '".$time."', '".$condition_precent."', '".$discount_price."', '".$price."', '".$qty."', '".$content."')";
+		$query = "insert into item(type, item_name, author, press, time, condition_precent, discount_price, price, qty, content, image) values ('".$type."', '".$item_name."', '".$author."', '".$press."', '".$time."', '".$condition_precent."', '".$discount_price."', '".$price."', '".$qty."', '".$content."', '".$image."')";
 		$server_query = mysql_query("$query");
 	} else {
 		//$query = "update cart set qty = '".$qty."' where uid = '".$userid."' and item_id = '".$item_id."'";
@@ -216,9 +216,11 @@ if($item_name != ''){
 							 	<input type="text" name="discount_price" placeholder="必填售价" class="form-control"/>
 							 	<input type="text" name="price" placeholder="必填原价" class="form-control"/>
 							 	<input type="text" name="qty" placeholder="必填库存数" class="form-control"/>
+								<input type="text" name="image" placeholder="必填图片链接" class="form-control"/>
+								<!--
 							 	<a id="zwb_upload">
 							 		<input type="file" class="add" multiple="multiple"/><span class="up"><i class="glyphicon glyphicon-folder-open"></i>//请使用图床 上传文件</span>
-							 	</a>
+							 	</a>-->
 							 	<textarea name="content" placeholder="选填-详细描述" class="form-control"></textarea>
 							 	
 								<input type="submit" value="提交" class="size-font form-control kaiti-font bg-c-br"/>
