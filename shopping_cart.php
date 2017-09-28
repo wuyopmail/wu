@@ -194,8 +194,8 @@ if($delete_id != ''){
 									</li>
 									<li class="col-md-2 col-sm-1 col-xs-1"><h5 class="t-price">￥$final_price</h5></li>
 									<li class="col-md-1 col-sm-2 col-xs-12">
-										<a href="./wish_list.php?item_id=$server_query[item_id]">收藏</a>&nbsp;&nbsp;&nbsp;
-										<a href="./shopping_cart.php?delete_id=$server_query[item_id]">删除</a>
+										<a href="./wish_list.php?item_id=$server_query[item_id]" class="add-wish anniu">收藏</a>&nbsp;&nbsp;&nbsp;
+										<a href="./shopping_cart.php?delete_id=$server_query[item_id]" class="delete anniu">删除</a>
 									</li>
 								</ul>
 							</li>
@@ -219,7 +219,7 @@ EOT;
 						</li>
 						<li class="col-md-2 text-center col-xs-3">
 							<div class="row">
-								<a href="#" class="payment">删除所选</a>
+								<a href="#" class="delete2">删除所选</a>
 							</div>
 						</li>
 						<li class="col-md-3 text-center hidden-xs">

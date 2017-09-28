@@ -114,25 +114,25 @@ if($add_id != ''){
 				<div class="col-md-2 hidden-sm hidden-xs lf-nav">
 					<h4 class="lf-nag-bgc row">个人中心</h4>
 					<ul class="lf-nav-ul">
-						<li><a href="#"><i class="glyphicon glyphicon-grain"></i>密码修改</a></li>
-						<li><a href="#"><i class="glyphicon glyphicon-grain"></i>我的收藏</a></li>
-						<li><a href="#"><i class="glyphicon glyphicon-grain"></i>我的订单</a></li>
+						<li><a href="secret_revise.html"><i class="glyphicon glyphicon-grain"></i>密码修改</a></li>
+						<li><a href="wish_list.html"><i class="glyphicon glyphicon-grain"></i>我的收藏</a></li>
+						<li><a href="order.html"><i class="glyphicon glyphicon-grain"></i>我的订单</a></li>
 					</ul>
 					<h4 class="lf-nag-bgc row">卖家中心</h4>
 					<ul class="lf-nav-ul">
-						<li><a href="#"><i class="glyphicon glyphicon-grain"></i>添加商品</a></li>
-						<li><a href="#"><i class="glyphicon glyphicon-grain"></i>管理未售</a></li>
-						<li><a href="#"><i class="glyphicon glyphicon-grain"></i>管理订单</a></li>
+						<li><a href="items_add.html"><i class="glyphicon glyphicon-grain"></i>商品添加</a></li>
+						<li><a href="items_revise.html"><i class="glyphicon glyphicon-grain"></i>商品管理</a></li>
+						<li><a href="data_statistics.html"><i class="glyphicon glyphicon-grain"></i>数据统计</a></li>
 					</ul>
 				</div>
 				<!--收藏区域-->
-				<div class="col-md-10 col-sm-12 col-xs-12">
+				<div class="col-md-10 col-sm-12 col-xs-12 min-h">
 					<!--全选标题栏-->
 					<div class="hidden-md hidden-lg col-xs-12 cart-con text-center hidden-font">我的收藏</div>
 					<ul class="shopping-cart hidden-sm hidden-xs cart-con">
 						<li class="col-md-1">
 							<div class="row">
-								<input type="checkbox" id="all_check" name=""/><label for="">全选</label>
+								<input type="checkbox" class="all_check" name=""/><label for="">全选</label>
 							</div>
 						</li>
 						<li class="col-md-5 text-center">
@@ -177,8 +177,8 @@ if($add_id != ''){
 								<li class="col-md-3 col-xs-5"><h5>￥$server_query[price]</h5></li>
 								<li class="col-md-2 col-xs-7"><h5>$times</h5></li>
 								<li class="col-md-2 col-xs-12 text-right">
-									<a href="./shopping_cart.php?qty=1&item_id=$server_query[item_id]"><span>移入至<i class="glyphicon glyphicon-shopping-cart"></i></span></a>
-									<a href="./wish_list.php?delete_id=$server_query[item_id]"><span class="t-delete">删除</span></a>
+									<a href="./shopping_cart.php?qty=1&item_id=$server_query[item_id]"><span class="move-car anniu">移入至<i class="glyphicon glyphicon-shopping-cart"></i></span></a>
+									<a href="./wish_list.php?delete_id=$server_query[item_id]"><span class="t-delete anniu">删除</span></a>
 								</li>
 							</ul>
 						</li>
@@ -306,9 +306,9 @@ EOT;
 		        // Invoke the plugin
 		        $('input, textarea').placeholder();
 		        //全选功能
-		        $('#all_check').click(function(){
+		        $('.all_check').click(function(){
 	        	    var status = $(this).prop('checked');
-	        		$(".input_check").each(function(key, val){
+	        		$(".input_check,.all_check").each(function(key, val){
 	        			if (status){
 	        			    $(val).prop('checked', true);
 	        			} else {

@@ -3,11 +3,15 @@ body {
 	position: relative;
 }
 ul{
-	-webkit-padding-start: 0px;
+	padding: 0;
 }
 li {
 	list-style: none;
 	margin-right: 10px;
+}
+img{
+	max-width: 100%;
+	height: auto;
 }
 .bord-li3{
 	border-radius: 4px;
@@ -551,9 +555,16 @@ footer{
 }
 
 /*data_statistics*/
+.book-type>div{
+	border: 1px solid gainsboro;
+}
 .book-type h5{
 	text-align: center;
 	color: brown;
+}
+.book-type h5 span{
+	padding: 8px 72px;
+	background-image: url(../img/shop_cart/grey2.png);
 }
 .book-type p{
 	text-align: center;
