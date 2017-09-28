@@ -208,7 +208,7 @@ if($delete_id != ''){
 						<ul class="cart-con">
 							<li class="col-md-1">
 								<div class="row">
-									<input type="checkbox" name=""/><label for="">全选</label>
+									<input type="checkbox" name="" class="all_check"/><label for="">全选</label>
 								</div>
 							</li>
 							<li class="col-md-5 text-center">
@@ -239,100 +239,101 @@ if($delete_id != ''){
 						</ul>
 						<hr />
 						<!--购物单-->
-						
-						<!--动态加载区域-->
-						<?php
-						if($search_name || $search_author || $search_press || $search_discount_price || $search_qty || $search_type){
-							$query = "select * from item where type like '%$search_type%' and item_name like '%$search_name%' and author like '%$search_author%' and press like '%$search_press%' and discount_price like '%$search_discount_price%' and qty like '%$search_qty%'";
-						} else {
-							$query = "select * from item";
-						}
-						$queryuser = mysql_query("$query");
-						while($row = mysql_fetch_array($queryuser)){
-						echo <<<EOT
-						<ul class="cart-con bord-li">
-							<li class="col-md-1 col-sm-1 col-xs-1 no-padding">
-								<input type="checkbox" name=""/>
-							</li>
-							<li class="col-md-1 col-sm-4 col-xs-4 no-padding">
-								<a href="#"><img src="img/21.jpg" class="t-img"></a>
-							</li>
-							<li class="col-md-10 no-padding">
-								<ul class="cart-con">
-									<li class="col-md-5"><a href="#"><h5 class="t-title">$row[item_name]</h5></a></li>
-									<li class="col-md-2"><div class="row"><h5>$row[type]</h5</div></li>
-									<li class="col-md-2"><h5>$row[qty]</h5></li>
-									<li class="col-md-2"><h5 class="t-price">￥$row[discount_price]</h5></li>
-									<li class="col-md-1">
-										<div class="row">
-											<!-- Button trigger modal -->
-											<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal1$row[item_id]">更改</a>
-											<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal2$row[item_id]">删除</a>
-											<!-- Modal-1 -->
-											<div class="modal fade" id="myModal1$row[item_id]" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-											  	<div class="modal-dialog" role="document">
-											    	<div class="modal-content">
-											    		<form action="./items_revise.php" method="get">
-															<input type="hidden" value="$row[item_id]" name="item_id" id="item_id" />
-												      		<div class="modal-header">
-													        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-													        	<h4 class="modal-title" id="myModalLabel">填写需要更改的数据即可</h4>
-													      	</div>
-													      	<div class="modal-body">
-													        	<input type="text" name="type" placeholder="分类" />
-													        	<input type="text" name="qty" placeholder="库存" />
-													        	<input type="text" name="discount_price" placeholder="售价" />
-													      	</div>
-													      	<div class="modal-footer">
-													        	<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-													        	<button type="button" class="btn btn-primary">
-													        		<input type="submit" value="提交" class="modal-sub"/>
-													        	</button>
-													      	</div>
-													    </form>
-											    	</div>
-											  	</div>
+						<div id="cart-list-container">
+							<!--动态加载区域-->
+							<?php
+							if($search_name || $search_author || $search_press || $search_discount_price || $search_qty || $search_type){
+								$query = "select * from item where type like '%$search_type%' and item_name like '%$search_name%' and author like '%$search_author%' and press like '%$search_press%' and discount_price like '%$search_discount_price%' and qty like '%$search_qty%'";
+							} else {
+								$query = "select * from item";
+							}
+							$queryuser = mysql_query("$query");
+							while($row = mysql_fetch_array($queryuser)){
+							echo <<<EOT
+							<ul class="cart-con bord-li">
+								<li class="col-md-1 col-sm-1 col-xs-1 no-padding">
+									<input type="checkbox" name="" class="input_check"/>
+								</li>
+								<li class="col-md-1 col-sm-4 col-xs-4 no-padding">
+									<a href="#"><img src="img/21.jpg" class="t-img"></a>
+								</li>
+								<li class="col-md-10 no-padding">
+									<ul class="cart-con">
+										<li class="col-md-5"><a href="#"><h5 class="t-title">$row[item_name]</h5></a></li>
+										<li class="col-md-2"><div class="row"><h5>$row[type]</h5</div></li>
+										<li class="col-md-2"><h5>$row[qty]</h5></li>
+										<li class="col-md-2"><h5 class="t-price">￥$row[discount_price]</h5></li>
+										<li class="col-md-1">
+											<div class="row">
+												<!-- Button trigger modal -->
+												<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal1$row[item_id]">更改</a>
+												<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal2$row[item_id]">删除</a>
+												<!-- Modal-1 -->
+												<div class="modal fade" id="myModal1$row[item_id]" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+												  	<div class="modal-dialog" role="document">
+												    	<div class="modal-content">
+												    		<form action="./items_revise.php" method="get">
+																<input type="hidden" value="$row[item_id]" name="item_id" id="item_id" />
+													      		<div class="modal-header">
+														        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+														        	<h4 class="modal-title" id="myModalLabel">填写需要更改的数据即可</h4>
+														      	</div>
+														      	<div class="modal-body">
+														        	<input type="text" name="type" placeholder="分类" />
+														        	<input type="text" name="qty" placeholder="库存" />
+														        	<input type="text" name="discount_price" placeholder="售价" />
+														      	</div>
+														      	<div class="modal-footer">
+														        	<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+														        	<button type="button" class="btn btn-primary">
+														        		<input type="submit" value="提交" class="modal-sub"/>
+														        	</button>
+														      	</div>
+														    </form>
+												    	</div>
+												  	</div>
+												</div>
+												<!-- Modal-2 -->
+												<div class="modal fade" id="myModal2$row[item_id]" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+												  	<div class="modal-dialog" role="document">
+												    	<div class="modal-content">
+												    		<form action="./items_revise.php" method="get">
+																<input type="hidden" value="$row[item_id]" name="delete_id" id="delete_id" />
+													      		<div class="modal-header">
+														        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+														        	<h4 class="modal-title" id="myModalLabel">确认删除?</h4>
+														      	</div>
+														      	<!--<div class="modal-body">
+														        	<input type="text" name="" placeholder="分类" />
+														        	<input type="text" name="" placeholder="库存" />
+														        	<input type="text" name="" placeholder="售价" />
+														      	</div>-->
+														      	<div class="modal-footer">
+														        	<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+														        	<button type="button" class="btn btn-primary">
+														        		<input type="submit" value="确定" class="modal-sub"/>
+														        	</button>
+														      	</div>
+														    </form>
+												    	</div>
+												  	</div>
+												</div>
 											</div>
-											<!-- Modal-2 -->
-											<div class="modal fade" id="myModal2$row[item_id]" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-											  	<div class="modal-dialog" role="document">
-											    	<div class="modal-content">
-											    		<form action="./items_revise.php" method="get">
-															<input type="hidden" value="$row[item_id]" name="delete_id" id="delete_id" />
-												      		<div class="modal-header">
-													        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-													        	<h4 class="modal-title" id="myModalLabel">确认删除?</h4>
-													      	</div>
-													      	<!--<div class="modal-body">
-													        	<input type="text" name="" placeholder="分类" />
-													        	<input type="text" name="" placeholder="库存" />
-													        	<input type="text" name="" placeholder="售价" />
-													      	</div>-->
-													      	<div class="modal-footer">
-													        	<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-													        	<button type="button" class="btn btn-primary">
-													        		<input type="submit" value="确定" class="modal-sub"/>
-													        	</button>
-													      	</div>
-													    </form>
-											    	</div>
-											  	</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</li>
-						</ul>
-EOT;
-						}
-						?>
-						<!--动态加载区域-->
+										</li>
+									</ul>
+								</li>
+							</ul>
+	EOT;
+							}
+							?>
+							<!--动态加载区域-->
+						</div>
 					</div>
 					<div class="col-md-12">
 						<ul class="cart-con">
 							<li class="col-md-1">
 								<div class="row">
-									<input type="checkbox" name=""/><label for="">全选</label>
+									<input type="checkbox" name="" class="all_check input_check"/><label for="">全选</label>
 								</div>
 							</li>
 							<li class="col-md-1 col-md-offset-10 text-center">
@@ -453,6 +454,28 @@ EOT;
 		<!--下拉菜单出现-->
 		<script>
 			$("data-toggle").dropdown();
+			//全选功能
+	        $('.all_check').click(function(){
+	        	var status = $(this).prop('checked');
+        		$(".input_check").each(function(key, val){
+        			if (status){
+        			    $(val).prop('checked', true);
+        			} else {
+        				$(val).prop('checked', false);
+        			}
+        		});
+        		countplay();
+	        })
+	        //单选功能
+	        $("#cart-list-container .input_check").click(function(){
+	        	var status = $(this).prop('checked');
+    	    	if (status){
+    			    $(this).prop('checked', true);
+    			} else {
+    				$(this).prop('checked', false);
+    			}
+    			countplay();
+	        });
 		</script>
 		<!--后退按钮-->z
 		<script type="text/javascript">
