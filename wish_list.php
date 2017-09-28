@@ -157,49 +157,50 @@ if($add_id != ''){
 						</li>
 					</ul>
 					<hr />
-					<!--购物单-->
-					<?php
-					$query = "select * from bookmark where uid = '".$userid."'";
-					$queryuser = mysql_query("$query");
-					while($row = mysql_fetch_array($queryuser)){
-						$query = "select * from item where item_id = '".$row['item_id']."'";
-						$server_query = mysql_query("$query");
-						$server_query = mysql_fetch_array($server_query);
-						$times = date(("Y.m.d"),$row['time']);
-						//print_r($times);
-						echo <<<EOT
-					<ul class="cart-con bord-li">
-						<li class="col-md-1 col-xs-2 no-padding"><input type="checkbox" class="input_check" name=""/></li>
-						<li class="col-md-2 col-xs-3 no-padding"><div class="d-img"><a href="#"><img src="img/21.jpg" class="t-img"></a></div></li>
-						<li class="col-md-9 col-xs-7 no-padding"> 
-							<ul class="cart-con">
-								<li class="col-md-5 col-xs-12"><a href="#"><h5>$server_query[item_name]</h5></a></li>
-								<li class="col-md-3 col-xs-5"><h5>￥$server_query[price]</h5></li>
-								<li class="col-md-2 col-xs-7"><h5>$times</h5></li>
-								<li class="col-md-2 col-xs-12 text-right">
-									<a href="./shopping_cart.php?qty=1&item_id=$server_query[item_id]"><span class="move-car anniu">移入至<i class="glyphicon glyphicon-shopping-cart"></i></span></a>
-									<a href="./wish_list.php?delete_id=$server_query[item_id]"><span class="t-delete anniu">删除</span></a>
-								</li>
-							</ul>
-						</li>
-					</ul>
+					<div id="cart-list-container">
+						<!--购物单-->
+						<?php
+						$query = "select * from bookmark where uid = '".$userid."'";
+						$queryuser = mysql_query("$query");
+						while($row = mysql_fetch_array($queryuser)){
+							$query = "select * from item where item_id = '".$row['item_id']."'";
+							$server_query = mysql_query("$query");
+							$server_query = mysql_fetch_array($server_query);
+							$times = date(("Y.m.d"),$row['time']);
+							//print_r($times);
+							echo <<<EOT
+						<ul class="cart-con bord-li">
+							<li class="col-md-1 col-xs-2 no-padding"><input type="checkbox" class="input_check" name=""/></li>
+							<li class="col-md-2 col-xs-3 no-padding"><div class="d-img"><a href="#"><img src="img/21.jpg" class="t-img"></a></div></li>
+							<li class="col-md-9 col-xs-7 no-padding"> 
+								<ul class="cart-con">
+									<li class="col-md-5 col-xs-12"><a href="#"><h5>$server_query[item_name]</h5></a></li>
+									<li class="col-md-3 col-xs-5"><h5>￥$server_query[price]</h5></li>
+									<li class="col-md-2 col-xs-7"><h5>$times</h5></li>
+									<li class="col-md-2 col-xs-12 text-right">
+										<a href="./shopping_cart.php?qty=1&item_id=$server_query[item_id]"><span class="move-car anniu">移入至<i class="glyphicon glyphicon-shopping-cart"></i></span></a>
+										<a href="./wish_list.php?delete_id=$server_query[item_id]"><span class="t-delete anniu">删除</span></a>
+									</li>
+								</ul>
+							</li>
+						</ul>
 EOT;
 					}
 					?>
-					<!--删除所选条-->
-					<ul class="cart-con">
-						<li class="col-md-1 col-xs-3">
-							<div class="row">
-								<input type="checkbox" name="" class="all_check"/><label for="">全选</label>
-							</div>
-						</li>
-						<li class="col-md-11 col-xs-9 text-right bot-border">
-							<div class="row">
-								<a href="#" data-toggle="modal" data-target="#myModal2">删除所选</a>
-							</div>
-						</li>
-					</ul>
-					
+						<!--删除所选条-->
+						<ul class="cart-con">
+							<li class="col-md-1 col-xs-3">
+								<div class="row">
+									<input type="checkbox" name="" class="all_check"/><label for="">全选</label>
+								</div>
+							</li>
+							<li class="col-md-11 col-xs-9 text-right bot-border">
+								<div class="row">
+									<a href="#" data-toggle="modal" data-target="#myModal2"  class="t-delete">删除所选</a>
+								</div>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -347,6 +348,49 @@ EOT;
 		      // console.log("1");
 		      window.history.back(-1); 
 		    }
+		 </script>
+		 <!--移入购物车和删除弹出询问层-->
+		 <script type="text/javascript">
+		 	var e = document.getElementById('cart-list-container');
+		 	var x = e.getElementsByClassName('t-delete');
+		 	var y = e.getElementsByClassName('move-car');
+		 	for (var i=0;i< x.length;i++) {
+		 		if (x[i].addEventListener) 
+				{
+				    x[i].addEventListener("click", myFunction1);
+				} else if (x[i].attachEvent) 
+				{
+				    x[i].attachEvent("onclick", myFunction1);
+				}
+				function myFunction1() 
+				{
+					layer.confirm('残忍删除？', {
+						  btn: ['狠心删除','手下留情'] //按钮
+					}, function(){
+						  window.location = "index.html";
+						}, function(){
+						  layer.msg('谢过兄台', {
+						    time: 1000, //1s后自动关闭
+						  });
+					});
+				}
+		 	}
+		 	for (var i=0;i< y.length;i++) {
+		 		if (y[i].addEventListener) 
+				{
+				    y[i].addEventListener("click", myFunction2);
+				} else if (y[i].attachEvent) 
+				{
+				    y[i].attachEvent("onclick", myFunction2);
+				}
+				function myFunction2() 
+				{
+				    layer.msg('成功移入购物车', {
+					    time: 1000, //1s后自动关闭
+					});
+				}
+		 	}
+		 	
 		 </script>
 	</body> 
 </html>

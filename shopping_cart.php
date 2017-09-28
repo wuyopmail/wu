@@ -337,6 +337,8 @@ EOT;
 		<!--footer	结束-->
 		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
 		<script src="js/jquery.placeholder.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="layer/layer.js"></script>
 		<!--placeholder	对IE浏览器支持-->
 		<script type="text/javascript">
 		    $(function () {
@@ -344,7 +346,6 @@ EOT;
 		        $('input, textarea').placeholder();
 		    });
 		</script>
-		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
 		<!--后退按钮-->
 		<script type="text/javascript">
 		    var goBack = document.getElementById('back');
@@ -352,6 +353,48 @@ EOT;
 		      // console.log("1");
 		      window.history.back(-1); 
 		    }
+		 </script>
+		<script type="text/javascript">
+		 	var e = document.getElementById('cart-list-container');
+		 	var x = document.getElementsByClassName('delete');
+		 	var y = e.getElementsByClassName('add-wish');
+		 	for (var i=0;i< x.length;i++) {
+		 		if (x[i].addEventListener) 
+				{
+				    x[i].addEventListener("click", myFunction1);
+				} else if (x[i].attachEvent) 
+				{
+				    x[i].attachEvent("onclick", myFunction1);
+				}
+				function myFunction1() 
+				{
+					layer.confirm('残忍删除？', {
+						  btn: ['狠心删除','手下留情'] //按钮
+					}, function(){
+						  window.location = "index.html";
+						}, function(){
+						  layer.msg('实属感谢', {
+						    time: 1000, //1s后自动关闭
+						  });
+					});
+				}
+		 	}
+		 	for (var i=0;i< y.length;i++) {
+		 		if (y[i].addEventListener) 
+				{
+				    y[i].addEventListener("click", myFunction2);
+				} else if (y[i].attachEvent) 
+				{
+				    y[i].attachEvent("onclick", myFunction2);
+				}
+				function myFunction2() 
+				{
+				    layer.msg('收藏成功', {
+					    time: 1000, //1s后自动关闭
+					});
+				}
+		 	}
+		 	
 		 </script>
 		<script>
 			//下拉菜单出现
