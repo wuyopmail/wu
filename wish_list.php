@@ -179,7 +179,7 @@ if($add_id != ''){
 									<li class="col-md-2 col-xs-7"><h5>$times</h5></li>
 									<li class="col-md-2 col-xs-12 text-right">
 										<a href="./shopping_cart.php?qty=1&item_id=$server_query[item_id]"><span class="move-car anniu">移入至<i class="glyphicon glyphicon-shopping-cart"></i></span></a>
-										<a href="./wish_list.php?delete_id=$server_query[item_id]"><span class="t-delete anniu">删除</span></a>
+										<a href="./wish_list.php?delete_id=$server_query[item_id]" onClick="return conf();"><span class="t-delete anniu">删除</span></a>
 									</li>
 								</ul>
 							</li>
@@ -354,6 +354,12 @@ EOT;
 		 	var e = document.getElementById('cart-list-container');
 		 	var x = e.getElementsByClassName('t-delete');
 		 	var y = e.getElementsByClassName('move-car');
+			function conf(){ 
+			if(confirm("确定删除该记录？")){ 
+			return true; 
+			}
+			return false; 
+			}
 		 	for (var i=0;i< x.length;i++) {
 		 		if (x[i].addEventListener) 
 				{
@@ -362,18 +368,10 @@ EOT;
 				{
 				    x[i].attachEvent("onclick", myFunction1);
 				}
-				function myFunction1() 
+				/*function myFunction1() 
 				{
-					layer.confirm('残忍删除？', {
-						  btn: ['狠心删除','手下留情'] //按钮
-					}, function(){
-						  window.location = "index.html";
-						}, function(){
-						  layer.msg('谢过兄台', {
-						    time: 1000, //1s后自动关闭
-						  });
-					});
-				}
+					confirm("确认删除？");
+				}*/
 		 	}
 		 	for (var i=0;i< y.length;i++) {
 		 		if (y[i].addEventListener) 
