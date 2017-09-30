@@ -194,8 +194,8 @@ if($delete_id != ''){
 									</li>
 									<li class="col-md-2 col-sm-1 col-xs-1"><h5 class="t-price">￥$final_price</h5></li>
 									<li class="col-md-1 col-sm-2 col-xs-12">
-										<a href="./wish_list.php?item_id=$server_query[item_id]" class="add-wish anniu">收藏</a>&nbsp;&nbsp;&nbsp;
-										<a href="./shopping_cart.php?delete_id=$server_query[item_id]" class="delete anniu" onClick="return conf();">删除</a>
+										<a href="./wish_list.php?item_id=$server_query[item_id]" class="add-wish anniu" onClick="return false;">收藏</a>&nbsp;&nbsp;&nbsp;
+										<a href="./shopping_cart.php?delete_id=$server_query[item_id]" class="delete anniu" onClick="return false;">删除</a>
 									</li>
 								</ul>
 							</li>
@@ -358,32 +358,35 @@ EOT;
 		 	var e = document.getElementById('cart-list-container');
 		 	var x = document.getElementsByClassName('delete');
 		 	var y = e.getElementsByClassName('add-wish');
-				function conf() 
-				{
-					layer.confirm('残忍删除？', {
-						  btn: ['狠心删除','手下留情'] //按钮
-					}, function(){
-						  
-						  
-						  
-						  layer.closeAll('dialog');
-						  return true;
-
-					}, function(){
-						  layer.msg('实属感谢', {
-						    time: 1000, //1s后自动关闭
-
-						  });
-					});
-					return false;
-				}
 		 	for (var i=0;i< x.length;i++) {
 		 		if (x[i].addEventListener) 
 				{
-				    x[i].addEventListener("click", myFunction1);
+				    x[i].addEventListener("click", function(){
+				    	xx = this;
+				    	layer.confirm('残忍删除？', {
+						  btn: ['狠心删除','手下留情'] //按钮
+						}, function(){
+							  window.location = xx.href;
+							}, function(){
+							  layer.msg('实属感谢', {
+							    time: 1000, //1s后自动关闭
+							  });
+						});
+				    });
 				} else if (x[i].attachEvent) 
 				{
-				    x[i].attachEvent("onclick", myFunction1);
+				    x[i].addEvent("onclick", function(){
+				    	xx = this;
+				    	layer.confirm('残忍删除？', {
+						  btn: ['狠心删除','手下留情'] //按钮
+						}, function(){
+							  window.location = xx.href;
+							}, function(){
+							  layer.msg('实属感谢', {
+							    time: 1000, //1s后自动关闭
+							  });
+						});
+				    });
 				}
 
 		 	}
