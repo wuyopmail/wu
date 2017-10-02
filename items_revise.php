@@ -204,6 +204,7 @@ if($delete_id != ''){
 							</div>
 						</form>
 					</div>
+					<form action="shopping_cart.php" method="GET">
 					<div class="col-md-12 min-h">
 						<ul class="cart-con">
 							<li class="col-md-1">
@@ -252,7 +253,7 @@ if($delete_id != ''){
 							echo <<<EOT
 							<ul class="cart-con bord-li">
 								<li class="col-md-1 col-sm-1 col-xs-1 no-padding">
-									<input type="checkbox" name="" class="input_check"/>
+									<input type="checkbox" name="select[]" value="$row[item_id]" class="input_check"/>
 								</li>
 								<li class="col-md-1 col-sm-4 col-xs-4 no-padding">
 									<a href="#"><img src="img/21.jpg" class="t-img"></a>
@@ -323,7 +324,7 @@ if($delete_id != ''){
 									</ul>
 								</li>
 							</ul>
-	EOT;
+EOT;
 							}
 							?>
 							<!--动态加载区域-->
@@ -338,12 +339,15 @@ if($delete_id != ''){
 							</li>
 							<li class="col-md-1 col-md-offset-10 text-center">
 								<div class="row">
-									<a href="#" data-toggle="modal" data-target="#myModal2">删除所选</a>
+									<button href="#" data-toggle="modal" data-target="#myModal2">删除所选</button>
+									<button href="#" class="button btn btn-default" title="add to cart" value="$row[item_id]" name="item_id">加入购物车</button>
+								
 								</div>
 							</li>
 						</ul>
 						<hr />
 					</div>
+					</form>
 					
 				</div>
 			</div>

@@ -244,6 +244,7 @@ $page = getvar(@$_GET['page']);
                                             <a class="add-wishlist" href="./wish_list.php?item_id=$row[item_id]" title="add to wishlist">
                                                 <i class="glyphicon glyphicon-heart-empty "></i>
                                             </a>
+										</form>
                                         </div>
 									</div>
 								</div>
