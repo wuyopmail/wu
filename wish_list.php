@@ -178,8 +178,8 @@ if($add_id != ''){
 									<li class="col-md-3 col-xs-5"><h5>￥$server_query[price]</h5></li>
 									<li class="col-md-2 col-xs-7"><h5>$times</h5></li>
 									<li class="col-md-2 col-xs-12 text-right">
-										<a href="./shopping_cart.php?qty=1&item_id=$server_query[item_id]" class="move-car anniu" onClick="return false;"><span>移入至<i class="glyphicon glyphicon-shopping-cart"></i></span></a>
-										<a href="./wish_list.php?delete_id=$server_query[item_id]" class="t-delete anniu" onClick="return false;"><span>删除</span></a>
+										<a href="./shopping_cart.php?qty=1&item_id=$server_query[item_id]" class="move-car anniu" onClick="return false;">移入至<i class="glyphicon glyphicon-shopping-cart"></i></a>
+										<a href="./wish_list.php?delete_id=$server_query[item_id]" class="t-delete anniu" onClick="return false;">删除</a>
 									</li>
 								</ul>
 							</li>
@@ -389,16 +389,32 @@ EOT;
 		 	for (var i=0;i< y.length;i++) {
 		 		if (y[i].addEventListener) 
 				{
-				    y[i].addEventListener("click", myFunction2);
+				    y[i].addEventListener("click", function(){
+				    	yy = this;
+				    	layer.confirm('添加收藏？', {
+						  btn: ['确认','取消'] //按钮
+						}, function(){
+							  window.location = yy.href;
+							}, function(){
+							  layer.msg('oh no,宝库里有缺失了一样宝物', {
+							    time: 1000, //1s后自动关闭
+							  });
+						});
+				    });
 				} else if (y[i].attachEvent) 
 				{
-				    y[i].attachEvent("onclick", myFunction2);
-				}
-				function myFunction2() 
-				{
-				    layer.msg('成功移入购物车', {
-					    time: 1000, //1s后自动关闭
-					});
+				    y[i].attachEvent("click", function(){
+				    	yy = this;
+				    	layer.confirm('添加收藏？', {
+						  btn: ['确认','取消'] //按钮
+						}, function(){
+							  window.location = yy.href;
+							}, function(){
+							  layer.msg('oh no,宝库里有缺失了一样宝物', {
+							    time: 1000, //1s后自动关闭
+							  });
+						});
+				    });
 				}
 		 	}
 		 	

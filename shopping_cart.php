@@ -234,7 +234,7 @@ EOT;
 						</li>
 						<li class="col-md-2 text-right col-xs-3">
 							<div class="row">
-								<a href="shopping_cart2.php" class="payment">结算(0)</a>
+								<a href="shopping_cart2.php" class="payment">结算(<span class="all-num">0</span>)</a>
 							</div>
 						</li>
 					</ul>
@@ -355,9 +355,8 @@ EOT;
 		    }
 		 </script>
 		<script type="text/javascript">
-		 	var e = document.getElementById('cart-list-container');
 		 	var x = document.getElementsByClassName('delete');
-		 	var y = e.getElementsByClassName('add-wish');
+		 	var y = document.getElementsByClassName('add-wish');
 		 	for (var i=0;i< x.length;i++) {
 		 		if (x[i].addEventListener) 
 				{
@@ -393,16 +392,32 @@ EOT;
 		 	for (var i=0;i< y.length;i++) {
 		 		if (y[i].addEventListener) 
 				{
-				    y[i].addEventListener("click", myFunction2);
+				    y[i].addEventListener("click", function(){
+				    	yy = this;
+				    	layer.confirm('添加收藏？', {
+						  btn: ['确认','取消'] //按钮
+						}, function(){
+							  window.location = yy.href;
+							}, function(){
+							  layer.msg('oh no,宝库里有缺失了一样宝物', {
+							    time: 1000, //1s后自动关闭
+							  });
+						});
+				    });
 				} else if (y[i].attachEvent) 
 				{
-				    y[i].attachEvent("onclick", myFunction2);
-				}
-				function myFunction2() 
-				{
-				    layer.msg('收藏成功', {
-					    time: 1000, //1s后自动关闭
-					});
+				    y[i].attachEvent("click", function(){
+				    	yy = this;
+				    	layer.confirm('添加收藏？', {
+						  btn: ['确认','取消'] //按钮
+						}, function(){
+							  window.location = yy.href;
+							}, function(){
+							  layer.msg('oh no,宝库里有缺失了一样宝物', {
+							    time: 1000, //1s后自动关闭
+							  });
+						});
+				    });
 				}
 		 	}
 		 	
