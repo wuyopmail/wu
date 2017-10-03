@@ -65,7 +65,7 @@ EOT;
                                         	<li><a href="items_add.php">商品添加</a></li>
 										    <li role="separator" class="divider"></li>
 										    <li><a href="items_revise.php">商品管理</a></li>
-										    <li><a href="#">数据统计</a></li>
+										    <li><a href="data_statistics.php">数据统计</a></li>
                                         </ul>
                                     </li>
 								</ul>

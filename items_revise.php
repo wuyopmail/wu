@@ -175,14 +175,14 @@ if(count($select) > 0){
 				<div class="col-md-2 hidden-sm hidden-xs lf-nav">
 					<h4 class="lf-nag-bgc row">个人中心</h4>
 					<ul class="lf-nav-ul">
-						<li><a href="secret_revise.html"><i class="glyphicon glyphicon-grain"></i>密码修改</a></li>
-						<li><a href="wish_list.html"><i class="glyphicon glyphicon-grain"></i>我的收藏</a></li>
-						<li><a href="order.html"><i class="glyphicon glyphicon-grain"></i>我的订单</a></li>
+						<li><a href="secret_revise.php"><i class="glyphicon glyphicon-grain"></i>密码修改</a></li>
+						<li><a href="wish_list.php"><i class="glyphicon glyphicon-grain"></i>我的收藏</a></li>
+						<li><a href="order.php"><i class="glyphicon glyphicon-grain"></i>我的订单</a></li>
 					</ul>
 					<h4 class="lf-nag-bgc row">卖家中心</h4>
 					<ul class="lf-nav-ul">
-						<li><a href="items_add.html"><i class="glyphicon glyphicon-grain"></i>商品添加</a></li>
-						<li><a href="items_revise.html"><i class="glyphicon glyphicon-grain"></i>商品管理</a></li>
+						<li><a href="items_add.php"><i class="glyphicon glyphicon-grain"></i>商品添加</a></li>
+						<li><a href="items_revise.php"><i class="glyphicon glyphicon-grain"></i>商品管理</a></li>
 						<li><a href="#"><i class="glyphicon glyphicon-grain"></i>数据统计</a></li>
 					</ul>
 				</div>

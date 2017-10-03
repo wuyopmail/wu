@@ -76,7 +76,7 @@ $row1 = $row;
 				<div class="row">
 					<div class="col-md-12 hidden-sm hidden-xs">
 						<div class="cent">
-							<a href="index.html">
+							<a href="index.php">
 								<span class="glyphicon glyphicon-home"></span>&nbsp;
 								<span class="glyphicon glyphicon-chevron-right"></span>&nbsp;
 								<span>shop</span>
@@ -102,7 +102,7 @@ $row1 = $row;
 									<div id="book-title">
 										<div class="panel panel-info  mar">
 										  	<div class="panel-heading">
-									    		<a href="index.html">
+									    		<a href="index.php">
 									    			<h2 class="panel-title">
 									    				<?php echo $row['item_name'];?>
 									    			</h2>
@@ -312,7 +312,7 @@ $row1 = $row;
 											商品评价
 											<span class="lr-pad2">累计评价12条</span>
 											<span class="lr-mar">好评率：98%</span>
-											<a herf="evaluation.html">
+											<a herf="evaluation.php">
 												<span class="floatright size-font">更多>></span>
 											</a>
 										</h4>
@@ -396,7 +396,7 @@ EOT;
 										</ul>
 										<div class="text-center">
 											<div style="margin: 20px;">
-												<a href="evaluation.html">
+												<a href="evaluation.php">
 													<span class="form-control">更多评价~</span>
 												</a>
 											</div>

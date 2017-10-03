@@ -104,7 +104,7 @@ $row1 = $row;
 					
 				</div>
 				<div class="col-md-7 hidden-sm hidden-xs text-center">
-					<a href="shopping_cart.html"><div class="wu pad-bg1-0">我的购物车</div></a>
+					<a href="shopping_cart.php"><div class="wu pad-bg1-0">我的购物车</div></a>
 					<div class="wu pad-bg2-1">填写订单</div>
 					<div class="wu pad-bg3-0">完成订单</div>
 				</div>
@@ -201,7 +201,7 @@ $row1 = $row;
 							echo <<<EOT
 						<ul class="cart-con bord-li">
 							<li class="col-md-2 col-xs-4">
-								<a href="single_product.html"><img src="img/21.jpg" class="t-img"></a>
+								<a href="single_product.php"><img src="img/21.jpg" class="t-img"></a>
 							</li>
 							<li class="col-md-10 col-xs-8">
 								<ul class="cart-con">

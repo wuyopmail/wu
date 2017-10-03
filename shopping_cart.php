@@ -190,7 +190,7 @@ if(count($select) > 0){
 								<input type="checkbox" class="input_check" name="select[]" value="$server_query[item_id]"/>
 							</li>
 							<li class="col-md-1 col-sm-4 col-xs-4 no-padding">
-								<a href="single_product.html"><img src="img/21.jpg" class="t-img"></a>
+								<a href="single_product.php"><img src="img/21.jpg" class="t-img"></a>
 							</li>
 							<li class="col-md-10 col-sm-7 col-xs-7 no-padding">
 								<ul class="cart-con">

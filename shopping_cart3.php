@@ -117,7 +117,7 @@ $item_id_all = '';
 					
 				</div>
 				<div class="col-md-7 hidden-sm hidden-xs text-center">
-					<a href="shopping_cart.html"><div class="wu pad-bg1-0">我的购物车</div></a>
+					<a href="shopping_cart.php"><div class="wu pad-bg1-0">我的购物车</div></a>
 					<div class="wu pad-bg2-0">填写订单</div>
 					<div class="wu pad-bg3-1">完成订单</div>
 				</div>
@@ -175,7 +175,7 @@ $item_id_all = '';
 							echo <<<EOT
 						<ul class="cart-con bord-li">
 							<li class="col-md-2 col-xs-4">
-								<a href="single_product.html"><img src="img/21.jpg" class="t-img"></a>
+								<a href="single_product.php"><img src="img/21.jpg" class="t-img"></a>
 							</li>
 							<li class="col-md-10 col-xs-8">
 								<ul class="cart-con">
@@ -189,7 +189,8 @@ $item_id_all = '';
 EOT;
 						$i++;
 						$update_qty = $server_query['qty'] - $row['qty'];//减少库存
-						$query = "update item set qty = '".$update_qty."' where item_id = '".$row['item_id']."'";
+						$update_sell_num = $server_query['sell_num'] + $row['qty'];//减少库存
+						$query = "update item set qty = '".$update_qty."', sell_num = '".$update_sell_num."' where item_id = '".$row['item_id']."'";
 						$server_query = mysql_query("$query");
 						}
 						$query = "delete from cart where uid = '".$userid."'";

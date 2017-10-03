@@ -20,7 +20,7 @@
 				<div class="row">
 					<div class="col-md-4 col-md-offset-2 col-sm-12 col-xs-12">
 						<div class="row">
-							<a href="index.html">
+							<a href="index.php">
 								<img src="img/logo/logo1.2.png"/>
 							</a>
 						</div>
