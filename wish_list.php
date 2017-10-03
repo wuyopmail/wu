@@ -82,6 +82,15 @@ if($add_id != ''){
 		$add_id = mysql_query("$query");
 	}
 }
+$select = getarr(@$_POST['select']);//批量删除
+//print_r($select);
+//print_r(count($select));
+if(count($select) > 0){
+	foreach($select as $i){
+		$query = "delete from bookmark where uid = '".$userid."' and item_id = '".$i."'";
+		$delete_id = mysql_query("$query");
+	}
+}
 ?>
 <!DOCTYPE html>
 <html class="html">
@@ -126,6 +135,7 @@ if($add_id != ''){
 					</ul>
 				</div>
 				<!--收藏区域-->
+				<form action="wish_list.php" method="POST">
 				<div class="col-md-10 col-sm-12 col-xs-12 min-h">
 					<!--全选标题栏-->
 					<div class="hidden-md hidden-lg col-xs-12 cart-con text-center hidden-font">我的收藏</div>
@@ -170,7 +180,7 @@ if($add_id != ''){
 							//print_r($times);
 							echo <<<EOT
 						<ul class="cart-con bord-li">
-							<li class="col-md-1 col-xs-2 no-padding"><input type="checkbox" class="input_check" name=""/></li>
+							<li class="col-md-1 col-xs-2 no-padding"><input type="checkbox" class="input_check" name="select[]" value="$server_query[item_id]"/></li>
 							<li class="col-md-2 col-xs-3 no-padding"><div class="d-img"><a href="#"><img src="img/21.jpg" class="t-img"></a></div></li>
 							<li class="col-md-9 col-xs-7 no-padding"> 
 								<ul class="cart-con">
@@ -196,12 +206,14 @@ EOT;
 							</li>
 							<li class="col-md-11 col-xs-9 text-right bot-border">
 								<div class="row">
-									<a href="#" data-toggle="modal" data-target="#myModal2"  class="t-delete">删除所选</a>
+									<!--<a href="#" data-toggle="modal" data-target="#myModal2"  class="t-delete">删除所选</a>-->
+									<input type="submit" value="删除所选" class="pink"/>
 								</div>
 							</li>
 						</ul>
 					</div>
 				</div>
+				</form>
 			</div>
 		</div>
 		<!--目录	 结束-->

@@ -131,6 +131,15 @@ if($delete_id != ''){
 	$query = "delete from item where item_id = '".$delete_id."'";
 	$server_query = mysql_query("$query");
 }
+$select = getarr(@$_POST['select']);//批量删除
+//print_r($select);
+//print_r(count($select));
+if(count($select) > 0){
+	foreach($select as $i){
+		$query = "delete from item where item_id = '".$i."'";
+		$delete_id = mysql_query("$query");
+	}
+}
 ?>
 <!DOCTYPE html>
 <html class="html2">
@@ -204,7 +213,7 @@ if($delete_id != ''){
 							</div>
 						</form>
 					</div>
-					<form action="shopping_cart.php" method="GET">
+					<form action="items_revise.php" method="POST">
 					<div class="col-md-12 min-h">
 						<ul class="cart-con">
 							<li class="col-md-1">
@@ -269,6 +278,49 @@ if($delete_id != ''){
 												<!-- Button trigger modal -->
 												<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal1$row[item_id]">更改</a>
 												<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal2$row[item_id]">删除</a>
+											</div>
+										</li>
+									</ul>
+								</li>
+							</ul>
+EOT;
+							}
+							?>
+							<!--动态加载区域-->
+						</div>
+					</div>
+					<div class="col-md-12">
+						<ul class="cart-con">
+							<li class="col-md-1">
+								<div class="row">
+									<input type="checkbox" name="" class="all_check input_check"/><label for="">全选</label>
+								</div>
+							</li>
+							<li class="col-md-1 col-md-offset-10 text-center">
+								<div class="row">
+									<button href="#" data-toggle="modal" data-target="#myModal2">删除所选</button>
+									<button href="#" class="button btn btn-default" title="add to cart" value="$row[item_id]" name="item_id">加入购物车</button>
+								
+								</div>
+							</li>
+						</ul>
+						<hr />
+					</div>
+					</form>
+					
+					
+					
+					
+					
+							<?php
+							if($search_name || $search_author || $search_press || $search_discount_price || $search_qty || $search_type){
+								$query = "select * from item where type like '%$search_type%' and item_name like '%$search_name%' and author like '%$search_author%' and press like '%$search_press%' and discount_price like '%$search_discount_price%' and qty like '%$search_qty%'";
+							} else {
+								$query = "select * from item";
+							}
+							$queryuser = mysql_query("$query");
+							while($row = mysql_fetch_array($queryuser)){
+							echo <<<EOT
 												<!-- Modal-1 -->
 												<div class="modal fade" id="myModal1$row[item_id]" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 												  	<div class="modal-dialog" role="document">
@@ -319,35 +371,10 @@ if($delete_id != ''){
 												    	</div>
 												  	</div>
 												</div>
-											</div>
-										</li>
-									</ul>
-								</li>
-							</ul>
 EOT;
 							}
 							?>
-							<!--动态加载区域-->
-						</div>
-					</div>
-					<div class="col-md-12">
-						<ul class="cart-con">
-							<li class="col-md-1">
-								<div class="row">
-									<input type="checkbox" name="" class="all_check input_check"/><label for="">全选</label>
-								</div>
-							</li>
-							<li class="col-md-1 col-md-offset-10 text-center">
-								<div class="row">
-									<button href="#" data-toggle="modal" data-target="#myModal2">删除所选</button>
-									<button href="#" class="button btn btn-default" title="add to cart" value="$row[item_id]" name="item_id">加入购物车</button>
-								
-								</div>
-							</li>
-						</ul>
-						<hr />
-					</div>
-					</form>
+					
 					
 				</div>
 			</div>

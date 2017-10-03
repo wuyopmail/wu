@@ -5,6 +5,7 @@ include('conn.php');        //需要放置在mysql_real_escape_string();之前�
 if(@$_GET['action'] == "logout"){
 	unset($_SESSION['userid']);
 	unset($_SESSION['username']);
+	echo "<meta http-equiv=\"refresh\" content=\"1;url=login.html\">";
 	echo '注销登录成功！点击此处 <a href="login.html">登录</a>';
 	exit;
 }

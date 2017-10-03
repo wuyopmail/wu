@@ -66,6 +66,15 @@ if($delete_id != ''){
 	//print_r($query);
 	$delete_id = mysql_query("$query");
 }
+$select = getarr(@$_POST['select']);//批量删除
+//print_r($select);
+//print_r(count($select));
+if(count($select) > 0){
+	foreach($select as $i){
+		$query = "delete from cart where uid = '".$userid."' and item_id = '".$i."'";
+		$delete_id = mysql_query("$query");
+	}
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -110,6 +119,7 @@ if($delete_id != ''){
 		<div class="container">
 			<div class="row">
 				<!--购物车区域-->
+				<form action="shopping_cart.php" method="POST">
 				<div class="col-xs-12 min-h">
 					<!--全选标题栏-->
 					<ul class="shopping-cart hidden-sm hidden-xs cart-con">
@@ -177,7 +187,7 @@ if($delete_id != ''){
 						echo <<<EOT
 						<ul class="cart-con bord-li">
 							<li class="col-md-1 col-sm-1 col-xs-1 no-padding">
-								<input type="checkbox" class="input_check" name=""/>
+								<input type="checkbox" class="input_check" name="select[]" value="$server_query[item_id]"/>
 							</li>
 							<li class="col-md-1 col-sm-4 col-xs-4 no-padding">
 								<a href="single_product.html"><img src="img/21.jpg" class="t-img"></a>
@@ -219,7 +229,8 @@ EOT;
 						</li>
 						<li class="col-md-2 text-center col-xs-3">
 							<div class="row">
-								<a href="#" class="delete2">删除所选</a>
+								<!--<a href="#" class="delete2">删除所选</a>-->
+								<input type="submit" value="删除所选" class="pink"/>
 							</div>
 						</li>
 						<li class="col-md-3 text-center hidden-xs">
@@ -239,6 +250,7 @@ EOT;
 						</li>
 					</ul>
 				</div>
+				</form>
 			</div>
 		</div>
 		
