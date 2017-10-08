@@ -71,16 +71,39 @@ $row1 = $row;
 		?>
 		<!--header	结束-->
 		<!--head_banner	开始-->
-		<div class="head_banner">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 hidden-sm hidden-xs">
-						<div class="cent">
-							<a href="index.php">
-								<span class="glyphicon glyphicon-home"></span>&nbsp;
-								<span class="glyphicon glyphicon-chevron-right"></span>&nbsp;
-								<span>shop</span>
-							</a>
+		<div class="col-lg-12 col-md-12 col-sm-12 hidden-xs">
+			<div class="row">
+				<div class="head_banner1">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="cent">
+									<a href="index.html">
+										<span class="glyphicon glyphicon-home"></span>&nbsp;
+										<span class="glyphicon glyphicon-chevron-right"></span>&nbsp;
+										<span>shop</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="hidden-lg hidden-md hidden-sm col-xs-12">
+			<div class="row">
+				<div class="head_banner2">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="cent">
+									<a href="index.html">
+										<span class="glyphicon glyphicon-home"></span>&nbsp;
+										<span class="glyphicon glyphicon-chevron-right"></span>&nbsp;
+										<span>shop</span>
+									</a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -102,11 +125,9 @@ $row1 = $row;
 									<div id="book-title">
 										<div class="panel panel-info  mar">
 										  	<div class="panel-heading">
-									    		<a href="index.php">
-									    			<h2 class="panel-title">
-									    				<?php echo $row['item_name'];?>
-									    			</h2>
-									    		</a>
+								    			<h2 class="panel-title">
+								    				不能说的秘密
+								    			</h2>
 										  	</div>
 										</div>
 									</div>
@@ -114,12 +135,12 @@ $row1 = $row;
 									<div class="col-md-8 col-sm-12 col-xs-12">
 									<!--书物图片-->
 										<div class="col-md-12 col-sm-12 col-xs-12 img-bor text-center auto-width">
-											<img src="img/head_banner/cat-and-piano.jpg" id="placeholder" class="big-img"/>
+											<img src="img/singlepro/1.jpg" id="placeholder" class="big-img"/>
 										</div>
 										<!--缩略图-->
 										<div class="col-md-12 col-sm-12 col-xs-12 img-bor top-mar bot-mar">
 											<div class="text-center bg-c-gr">
-												<i class="glyphicon glyphicon-chevron-left i-lf"></i>
+												<i class="glyphicon glyphicon-chevron-left i-lf" id="left_img" ></i>
 												<ul class="inline-small" id="imagegallery">
 													<li>
 														<a href="img/singlepro/1.jpg">
@@ -141,8 +162,13 @@ $row1 = $row;
 															<img src="img/singlepro/12.jpg" title="placeholder" class="small-img"/>
 														</a>
 													</li>
+													<li>
+														<a href="img/singlepro/11.jpg">
+															<img src="img/singlepro/11.jpg" title="placeholder" class="small-img"/>
+														</a>
+													</li>
 												</ul>
-												<i class="glyphicon glyphicon-chevron-right i-rt"></i>
+												<i class="glyphicon glyphicon-chevron-right i-rt" id="right_img"></i>
 											</div>
 										</div>
 									</div>
@@ -151,32 +177,30 @@ $row1 = $row;
 										<div id="book">
 											<div class="book-con">
 												<p>
-													作者： <span><?php echo $row['author'];?></span> <!--数据返回-->
+													作者： <span>周杰伦</span> <!--数据返回-->
 												</p>
 												<p>
-													出版社： <span><?php echo $row['press'];?></span> <!--数据返回-->
+													出版社： <span>浙江人民出版社</span> <!--数据返回-->
 												</p>
 												<p>
-													页数： <span><?php echo $row['page'];?></span> <!--数据返回-->
+													页数： <span>300</span> <!--数据返回-->
 												</p>
 												<p>
-													成色： <span><?php echo $row['condition_precent'];?></span> <!--数据返回-->
+													品相： <span>8成新</span> <!--数据返回-->
 												</p>
 												<p>
-													ISBN： <span><?php echo $row['isbn'];?></span> <!--数据返回-->
+													ISBN： <span>9787115249999</span> <!--数据返回-->
 												</p>
 											</div>
 											<div class="book-price">
 												<p>
-													售价： ¥ <span class="or-color"><?php echo $row['discount_price'];?></span> <!--数据返回-->
+													售价： ¥ <span class="or-color">34.00</span> <!--数据返回-->
 												</p>
 												<p>
-													原价： ¥ <span class="decoration"><?php echo $row['price'];?></span> <!--数据返回-->
+													原价： ¥ <span class="decoration">44.00</span> <!--数据返回-->
 												</p>
-												<p class="hidden-xs hidden-sm">
-													<p class="data">书店微信：huimin605</p>
-												</p>
-												<p class="hidden-lg hideen-md no-padding">
+												<p class="hidden-lg hidden-md data">书店微信：huimin605</p>
+												<p class="no-padding">
 													客服姐姐：
 													<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=501443528&site=qq&menu=yes">
 														<img border="0" src="http://wpa.qq.com/pa?p=2:501443528:51" alt="点击这里给我发消息" title="点击这里给我发消息"/>
@@ -281,174 +305,180 @@ $row1 = $row;
 													</ul>
 												</div>
 											</div>
+											<div class="row">
+												<div class="hidden-md hidden-lg col-sm-12 col-xs-12">
 													<div class="row">
-											<div class="hidden-md hidden-lg col-sm-12 col-xs-12">
-												<div class="row">
-													<ul class="nav nav-tabs no-p" style="margin-top: -6px;">
-													  <li role="presentation" class="active"><a href="#">商品详情</a></li>
-													  <li role="presentation"><a href="#evaluation">商品评价</a></li>
-													  <li role="presentation"><a href="#pay">支付说明</a></li>
-													  <li role="presentation"><a href="#send">配送说明</a></li>
-													</ul>
+														<ul class="nav nav-tabs no-p" style="margin-top: -6px;">
+														  <li role="presentation" class="active"><a href="#">商品详情</a></li>
+														  <li role="presentation"><a href="#evaluation">商品评价</a></li>
+														  <li role="presentation"><a href="#pay">支付说明</a></li>
+														  <li role="presentation"><a href="#send">配送说明</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+											<div class="row">
+												<!--商品详情-->
+												<div id="book-content">
+													<p><strong>书物分类：</strong></p>
+													<a href="#" class="lr-pad">书本分类 >>旧书教材</a>
+													<p><strong>详细描述：</strong></p>
+													<p id="book-info">请同学看好下单，如有疑问可在售前问清，如有不满意可持旧书教材到书店进行换货</p>
+												</div>
+											</div>
+										</div>
+										<div class="table-responsive col-lg-12 col-md-12 hidden-xs hidden-sm">
+											<div class="row">
+												<!--商品评价-->
+												<h4 id="evaluation">
+														商品评价
+														<span class="lr-pad2">累计评价12条</span>
+														<a href="evaluation.html">
+															<span class="floatright size-font">更多>></span>
+														</a>
+												</h4>
+												<table class="table">
+													<tr>
+														<th>全部评价</th>
+														<th>评价内容</th>
+														<th>评价用户</th>
+														<th>评价时间</th>
+													</tr>
+													<tr>
+														<td>
+															<i class="glyphicon glyphicon-thumbs-up"></i>好评！
+														</td>
+														<td>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</td>
+														<td>
+															<i class="glyphicon glyphicon-user"></i>chenf
+														</td>
+														<td><span>2017-8-1</span></td>
+													</tr>
+													<tr>
+														<td>
+															<i class="glyphicon glyphicon-thumbs-up"></i>好评！
+														</td>
+														<td>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</td>
+														<td>
+															<i class="glyphicon glyphicon-user"></i>chenf
+														</td>
+														<td><span>2017-8-1</span></td>
+													</tr>
+													<tr>
+														<td>
+															<i class="glyphicon glyphicon-thumbs-up"></i>好评！
+														</td>
+														<td>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</td>
+														<td>
+															<i class="glyphicon glyphicon-user"></i>chenf
+														</td>
+														<td><span>2017-8-1</span></td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<div class="hidden-lg hidden-md col-sm-12 col-xs-12">
+											<div class="row">
+												<!--移动端评价显示-->
+												<h4 id="evaluation">
+													商品评价
+													<span class="floatright">累计12条</span>
+												</h4>
+												<ul class="cart-con bord-li3">
+													<li class="col-md-1 col-sm-12 col-xs-12 no-padding min-height">
+														&nbsp;&nbsp;<i class="glyphicon glyphicon-thumbs-up"></i>好评！&nbsp;&nbsp;
+														<span>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</span>
+													</li>
+													<li class="col-md-10 col-sm-6 col-xs-6 no-padding">
+														&nbsp;&nbsp;<span><i class="glyphicon glyphicon-user"></i>chenf</span>
+													</li>
+													<li class="col-md-10 col-sm-6 col-xs-6 no-padding text-center">
+														&nbsp;&nbsp;<span>2017-8-1</span>
+													</li>
+												</ul>
+												<ul class="cart-con bord-li3">
+													<li class="col-md-1 col-sm-12 col-xs-12 no-padding min-height">
+														&nbsp;&nbsp;<i class="glyphicon glyphicon-thumbs-up"></i>好评！&nbsp;&nbsp;
+														<span>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</span>
+													</li>
+													<li class="col-md-10 col-sm-6 col-xs-6 no-padding">
+														&nbsp;&nbsp;<span><i class="glyphicon glyphicon-user"></i>chenf</span>
+													</li>
+													<li class="col-md-10 col-sm-6 col-xs-6 no-padding text-center">
+														&nbsp;&nbsp;<span>2017-8-1</span>
+													</li>
+												</ul>
+												<ul class="cart-con bord-li3">
+													<li class="col-md-1 col-sm-12 col-xs-12 no-padding min-height">
+														&nbsp;&nbsp;<i class="glyphicon glyphicon-thumbs-up"></i>好评！&nbsp;&nbsp;
+														<span>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</span>
+													</li>
+													<li class="col-md-10 col-sm-6 col-xs-6 no-padding">
+														&nbsp;&nbsp;<span><i class="glyphicon glyphicon-user"></i>chenf</span>
+													</li>
+													<li class="col-md-10 col-sm-6 col-xs-6 no-padding text-center">
+														&nbsp;&nbsp;<span>2017-8-1</span>
+													</li>
+												</ul>
+												<div class="text-center">
+													<div style="margin: 20px;">
+														<a href="evaluation.html">
+															<span class="form-control">更多评价~</span>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-12 col-xs-12">
+											<div class="row">
+												<!--支付说明-->
+												<h4 id="pay">
+													支付说明
+												</h4>
+												<div id="pay-info">
+													<p><strong>线上下单-->线下交易：</strong></p>
+													<p class="lr-pad">
+														通过线上下单，系统收到订单后，直接将购买图书送上门，面付即可，交易结束后请同学线上确认收货，并填写书物评价，已助自己或他人参考。
+													</p>	
+												</div>	
+											</div>
+										</div>
+										<div class="col-md-12 col-xs-12">
+											<div class="row">
+												<!--配送说明-->
+												<h4 id="send">
+													配送说明
+												</h4>
+												<div id="send-info">
+													<p><strong>5kg以内包邮：</strong></p>
+													<p class="lr-pad">
+														不收运费
+													</p>
+													<p><strong>5kg以后加费用：</strong></p>
+													<p class="lr-pad">
+														加收相应运费
+													</p>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-										<div class="row">
-											<!--商品详情-->
-											<div id="book-content">
-												<p><strong>书物分类：</strong></p>
-												<a href="#" class="lr-pad">书本分类 >><?php echo $row['type'];?></a>
-												<p><strong>详细描述：</strong></p>
-												<p id="book-info"><?php echo $row['content'];?></p>
-											</div>
-										</div>
-									</div>
-									<div class="table-responsive col-lg-12 col-md-12 hidden-xs hidden-sm">
-										<div class="row">
-										<!--商品评价-->
-										<h4 id="evaluation">
-											商品评价
-											<span class="lr-pad2">累计评价12条</span>
-											<span class="lr-mar">好评率：98%</span>
-											<a herf="evaluation.php">
-												<span class="floatright size-font">更多>></span>
-											</a>
-										</h4>
-										<table class="table">
-											<tr>
-												<th>全部评价</th>
-												<th>评价内容</th>
-												<th>评价用户</th>
-												<th>评价时间</th>
-											</tr>
-											<?php
-											$query = "select * from item where item_id = '".$item_id."'";
-											$queryuser = mysql_query("$query");
-											$i=0;
-											while($row = mysql_fetch_array($queryuser)){
-												$query = "select * from evaluation where item_id = '".$item_id."'";
-												$eva_query = mysql_query("$query");
-												$eva_query = mysql_fetch_array($eva_query);
-												$time = date(("Y-m-d"),$eva_query['time']);
-											echo <<<EOT
-											<tr>
-												<td>
-													<i class="glyphicon glyphicon-thumbs-up"></i>$eva_query[precent]分
-												</td>
-												<td>$eva_query[comment]</td>
-												<td>
-													<i class="glyphicon glyphicon-user"></i>$eva_query[uid]
-												</td>
-												<td><span>$time</span></td>
-											</tr>
-EOT;
-											}
-											?>
-										</table>
-
-									</div>
 								</div>
-								<div class="hidden-lg hidden-md col-sm-12 col-xs-12">
-									<div class="row">
-										<!--移动端评价显示-->
-										<h4 id="evaluation">
-											商品评价
-											<span class="lr-mar2">累计12条</span>
-											<span class="lr-mar2">好评：98%</span>
-										</h4>
-										<ul class="cart-con bord-li3">
-											<li class="col-md-1 col-sm-12 col-xs-12 no-padding min-height">
-												&nbsp;&nbsp;<i class="glyphicon glyphicon-thumbs-up"></i>好评！&nbsp;&nbsp;
-												<span>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</span>
-											</li>
-											<li class="col-md-10 col-sm-6 col-xs-6 no-padding">
-												&nbsp;&nbsp;<span><i class="glyphicon glyphicon-user"></i>chenf</span>
-											</li>
-											<li class="col-md-10 col-sm-6 col-xs-6 no-padding text-center">
-												&nbsp;&nbsp;<span>2017-8-1</span>
-											</li>
-										</ul>
-										<ul class="cart-con bord-li3">
-											<li class="col-md-1 col-sm-12 col-xs-12 no-padding min-height">
-												&nbsp;&nbsp;<i class="glyphicon glyphicon-thumbs-up"></i>好评！&nbsp;&nbsp;
-												<span>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</span>
-											</li>
-											<li class="col-md-10 col-sm-6 col-xs-6 no-padding">
-												&nbsp;&nbsp;<span><i class="glyphicon glyphicon-user"></i>chenf</span>
-											</li>
-											<li class="col-md-10 col-sm-6 col-xs-6 no-padding text-center">
-												&nbsp;&nbsp;<span>2017-8-1</span>
-											</li>
-										</ul>
-										<ul class="cart-con bord-li3">
-											<li class="col-md-1 col-sm-12 col-xs-12 no-padding min-height">
-												&nbsp;&nbsp;<i class="glyphicon glyphicon-thumbs-up"></i>好评！&nbsp;&nbsp;
-												<span>旧书教材很便宜，书中还有此前学长的一些笔记，成色一般，不过不错</span>
-											</li>
-											<li class="col-md-10 col-sm-6 col-xs-6 no-padding">
-												&nbsp;&nbsp;<span><i class="glyphicon glyphicon-user"></i>chenf</span>
-											</li>
-											<li class="col-md-10 col-sm-6 col-xs-6 no-padding text-center">
-												&nbsp;&nbsp;<span>2017-8-1</span>
-											</li>
-										</ul>
-										<div class="text-center">
-											<div style="margin: 20px;">
-												<a href="evaluation.php">
-													<span class="form-control">更多评价~</span>
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-12 col-xs-12">
-									<div class="row">
-										<!--支付说明-->
-										<h4 id="pay">
-											支付说明
-										</h4>
-										<div id="pay-info">
-											<p><strong>线上下单-->线下交易：</strong></p>
-											<p class="lr-pad">
-												通过线上下单，系统收到订单后，直接将购买图书送上门，面付即可，交易结束后请同学线上确认收货，并填写书物评价，已助自己或他人参考。
-											</p>	
-										</div>
-									</div>
-								</div>
-								<div class="col-md-12 col-xs-12">
-									<div class="row">
-										<!--配送说明-->
-										<h4 id="send">
-											配送说明
-										</h4>
-										<div id="send-info">
-											<p><strong>5kg以内包邮：</strong></p>
-											<p class="lr-pad">
-												不收运费
-											</p>
-											<p><strong>5kg以后加费用：</strong></p>
-											<p class="lr-pad">
-												加收相应运费
-											</p>
-										</div>
-									</div>
-								</div>
+								
 							</div>
-						</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		</div>
-		<!--后退按钮以及返回顶部设置-->
+		<!--footer	开始-->
 		<div class="back-fix" id="back">
 			<i class="glyphicon glyphicon-arrow-left"></i>
 		</div>
-		<div class="up-fix">
+		<div class="up-fix" id="return_top">
 			<a href="#top"><i class="glyphicon glyphicon-arrow-up"></i></a>
+			
 		</div>
 		<!--footer	开始-->
 		<footer>
@@ -538,6 +568,40 @@ EOT;
 		<!--header顶部下拉菜单-->
 		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
 		<script src="js/jquery.placeholder.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--返回,后退按钮隐藏-->
+		<script type='text/javascript'>  
+	            //显隐按钮  
+	            function showReposBtn(){  
+	                var clientHeight = $(window).height();  
+	                var scrollTop = $(document).scrollTop();  
+	                var maxScroll = $(document).height() - clientHeight;  
+	                //滚动距离超过可视一屏的距离时显示返回顶部按钮  
+	                if( scrollTop > clientHeight || scrollTop >= maxScroll ){  
+	                    $('#return_top').show();
+	                    $('#back').show();
+	                }else{  
+	                    $('#return_top').hide();
+	                    $('#back').hide();
+	                }
+	            }  
+              
+	            window.onload = function(){  
+	                //获取文档对象  
+	                $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $("html") : $("body")) : $("html,body");  
+	                //显示按钮  
+	                showReposBtn();  
+	            }  
+              
+	            window.onscroll = function(){  
+	                //滚动时调整按钮显隐  
+	                showReposBtn();  
+	            }  
+              
+	            //返回顶部  
+	            function returnTop(){  
+	                $body.animate({scrollTop: 0},400);  
+	            }
+	        </script>
 		<!--placeholder	对IE浏览器支持-->
 		<script type="text/javascript">
 		    $(function () {

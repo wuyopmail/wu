@@ -108,16 +108,39 @@ $page = getvar(@$_GET['page']);
 		?>
 		<!--header	结束-->
 		<!--head_banner	开始-->
-		<div class="head_banner">s
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="cent">
-							<a href="index.php">
-								<span class="glyphicon glyphicon-home"></span>&nbsp;
-								<span class="glyphicon glyphicon-chevron-right"></span>&nbsp;
-								<span>shop</span>
-							</a>
+		<div class="col-lg-12 col-md-12 col-sm-12 hidden-xs">
+			<div class="row">
+				<div class="head_banner1">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="cent">
+									<a href="index.html">
+										<span class="glyphicon glyphicon-home"></span>&nbsp;
+										<span class="glyphicon glyphicon-chevron-right"></span>&nbsp;
+										<span>shop</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="hidden-lg hidden-md hidden-sm col-xs-12">
+			<div class="row">
+				<div class="head_banner2">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="cent">
+									<a href="index.html">
+										<span class="glyphicon glyphicon-home"></span>&nbsp;
+										<span class="glyphicon glyphicon-chevron-right"></span>&nbsp;
+										<span>shop</span>
+									</a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -218,7 +241,7 @@ $page = getvar(@$_GET['page']);
 								<div class="single-product">
 									<div class="single-product-img">
 										<a href="single_product.php?item_id=$row[item_id]">
-											<img src="img/singlepro/8.jpg" />
+											<img class="imgs1" src="img/singlepro/8.jpg" />
 										</a>
 									</div>
 									<div class="single-product-content">
@@ -370,6 +393,40 @@ EOT;
 		<!--footer	结束-->
 		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
 		<script src="js/jquery.placeholder.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--返回,后退按钮隐藏-->
+		<script type='text/javascript'>  
+	            //显隐按钮  
+	            function showReposBtn(){  
+	                var clientHeight = $(window).height();  
+	                var scrollTop = $(document).scrollTop();  
+	                var maxScroll = $(document).height() - clientHeight;  
+	                //滚动距离超过可视一屏的距离时显示返回顶部按钮  
+	                if( scrollTop > clientHeight || scrollTop >= maxScroll ){  
+	                    $('#return_top').show();
+	                    $('#back').show();
+	                }else{  
+	                    $('#return_top').hide();
+	                    $('#back').hide();
+	                }
+	            }  
+              
+	            window.onload = function(){  
+	                //获取文档对象  
+	                $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $("html") : $("body")) : $("html,body");  
+	                //显示按钮  
+	                showReposBtn();  
+	            }  
+              
+	            window.onscroll = function(){  
+	                //滚动时调整按钮显隐  
+	                showReposBtn();  
+	            }  
+              
+	            //返回顶部  
+	            function returnTop(){  
+	                $body.animate({scrollTop: 0},400);  
+	            }
+	        </script>
 		<!--placeholder	对IE浏览器支持-->
 		<script type="text/javascript">
 		    $(function () {

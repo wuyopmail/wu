@@ -154,8 +154,16 @@ form .form-control {
 
 /*head_banner 开始*/
 
-.head_banner {
+.head_banner1 {
 	background: url(../img/head_banner/fourth-liar2.jpg) no-repeat fixed;
+	-webkit-box-shadow: 0 0 10px black;
+	-moz-box-shadow: 0 0 10px black;
+	-ms-box-shadow: 0 0 10px black;
+	-o-box-shadow: 0 0 10px black;
+	position: relative;
+}
+.head_banner2 {
+	background: url(../img/head_banner/banner8.jpg) no-repeat;
 	-webkit-box-shadow: 0 0 10px black;
 	-moz-box-shadow: 0 0 10px black;
 	-ms-box-shadow: 0 0 10px black;
@@ -391,12 +399,14 @@ form .form-control {
 	transition: all 0.6s ease 0s;
 }
 
-.single-product-img img {
+.imgs1{
 	width: 100%;
 	height: 332px;
 }
-
-
+.imgs2{
+	width: 100%;
+	height: auto;
+}
 /* customs-tab */
 
 .feature-tab {
@@ -568,4 +578,5 @@ footer{
 }
 .book-type p{
 	text-align: center;
+	background-color: #f2f2f2;
 }

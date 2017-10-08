@@ -112,7 +112,7 @@
 .t-time{
 	color: gainsboro;
 }
-.t-delete{
+.t-delete,.t-delete2{
 	margin-left: 15px;
 }
 .all-price,.all-num{
