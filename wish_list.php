@@ -236,13 +236,13 @@ EOT;
 								<h4>关于网站</h4>
 								<ul class="toggle-footer">
 									<li>
-										<a href="#" class="colorwhite">
+										<a href="about.html" class="colorwhite">
 											<i class="glyphicon glyphicon-grain"></i>
 											功能简介
 										</a>
 									</li>
 									<li>
-										<a href="#" class="colorwhite">
+										<a href="about.html" class="colorwhite">
 											<i class="glyphicon glyphicon-grain"></i>
 											后期拓展
 										</a>
@@ -253,13 +253,13 @@ EOT;
 								<h4>关于团队</h3>
 								<ul class="toggle-footer">
 									<li>
-										<a href="#" class="colorwhite">
+										<a href="about.html" class="colorwhite">
 											<i class="glyphicon glyphicon-grain"></i>
 											团队简介
 										</a>
 									</li>
 									<li>
-										<a href="#" class="colorwhite">
+										<a href="about.html" class="colorwhite">
 											<i class="glyphicon glyphicon-grain"></i>
 											联系方式
 										</a>
@@ -270,7 +270,7 @@ EOT;
 								<h4>问题反馈</h3>
 								<ul class="toggle-footer">
 									<li>
-										<a href="#" class="colorwhite">
+										<a href="send_message.html" class="colorwhite">
 											<i class="glyphicon glyphicon-grain"></i>
 											反馈留言
 										</a>

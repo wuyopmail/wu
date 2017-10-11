@@ -472,13 +472,12 @@ $row1 = $row;
 				</div>
 			</div>
 		</div>
-		<!--footer	开始-->
+		<!--后退按钮以及返回顶部设置-->
 		<div class="back-fix" id="back">
 			<i class="glyphicon glyphicon-arrow-left"></i>
 		</div>
-		<div class="up-fix" id="return_top">
+		<div class="up-fix">
 			<a href="#top"><i class="glyphicon glyphicon-arrow-up"></i></a>
-			
 		</div>
 		<!--footer	开始-->
 		<footer>
@@ -492,13 +491,13 @@ $row1 = $row;
 								<h4>关于网站</h4>
 								<ul class="toggle-footer">
 									<li>
-										<a href="#" class="colorwhite">
+										<a href="about.html" class="colorwhite">
 											<i class="glyphicon glyphicon-grain"></i>
 											功能简介
 										</a>
 									</li>
 									<li>
-										<a href="#" class="colorwhite">
+										<a href="about.html" class="colorwhite">
 											<i class="glyphicon glyphicon-grain"></i>
 											后期拓展
 										</a>
@@ -509,13 +508,13 @@ $row1 = $row;
 								<h4>关于团队</h3>
 								<ul class="toggle-footer">
 									<li>
-										<a href="#" class="colorwhite">
+										<a href="about.html" class="colorwhite">
 											<i class="glyphicon glyphicon-grain"></i>
 											团队简介
 										</a>
 									</li>
 									<li>
-										<a href="#" class="colorwhite">
+										<a href="about.html" class="colorwhite">
 											<i class="glyphicon glyphicon-grain"></i>
 											联系方式
 										</a>
@@ -526,7 +525,7 @@ $row1 = $row;
 								<h4>问题反馈</h3>
 								<ul class="toggle-footer">
 									<li>
-										<a href="#" class="colorwhite">
+										<a href="send_message.html" class="colorwhite">
 											<i class="glyphicon glyphicon-grain"></i>
 											反馈留言
 										</a>
