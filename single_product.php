@@ -78,7 +78,7 @@ $row1 = $row;
 						<div class="row">
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div class="cent">
-									<a href="index.html">
+									<a href="index.php">
 										<span class="glyphicon glyphicon-home"></span>&nbsp;
 										<span class="glyphicon glyphicon-chevron-right"></span>&nbsp;
 										<span>shop</span>
@@ -97,7 +97,7 @@ $row1 = $row;
 						<div class="row">
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div class="cent">
-									<a href="index.html">
+									<a href="index.php">
 										<span class="glyphicon glyphicon-home"></span>&nbsp;
 										<span class="glyphicon glyphicon-chevron-right"></span>&nbsp;
 										<span>shop</span>

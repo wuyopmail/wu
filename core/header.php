@@ -4,7 +4,7 @@
 					<div class="row">
 						<div class="col-md-6 col-xs-12 col-sm-12">
 							<div class="header-top-left">
-								<span>欢迎<?php echo"$username"?>光临 物友-情书~</span>
+								<span>欢迎<?php echo $username;?>光临 物友-情书~</span>
 								<span class="cf">
 									<a href="register.php" class="cf">
                                        	<?php if($userid == ""){

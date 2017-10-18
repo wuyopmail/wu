@@ -124,7 +124,7 @@ $search_discount_price = getvar(@$_GET['search_discount_price']);
 $search_qty = getvar(@$_GET['search_qty']);
 $search_type = getvar(@$_GET['search_type']);
 if($item_id != '' && $type != '' && $qty != '' && $discount_price != ''){
-	$query = "update item set type = '".$type."' ,qty = '".$qty."' ,discount_price = '".$discount_price."'where item_id = '".$item_id."'";
+	$query = "update item set type = '".$type."', qty = '".$qty."', discount_price = '".$discount_price."' where item_id = '".$item_id."'";
 	$server_query = mysql_query("$query");
 }
 if($delete_id != ''){
